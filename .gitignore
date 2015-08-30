@@ -73,6 +73,8 @@ ipch/
 *.vsp
 *.vspx
 
+
+
 # TFS 2012 Local Workspace
 $tf/
 
@@ -191,5 +193,7 @@ ModelManifest.xml
 node_modules
 .vs/config/applicationhost.config
 MusicBattlWebAPI/Web.config
-MusicBattlWebAPI/Properties/PublishProfiles/musicbattl - Web Deploy (2).pubxml
-MusicBattlWebAPI/Properties/PublishProfiles/musicbattl - FTP (2).pubxml
+MusicBattlWebAPI/Web.Debug.config
+MusicBattlWebAPI/Web.Release.config
+MusicBattlWebAPI/Properties/PublishProfiles
+MusicBattlWebAPI/Web.musicbattl - Web Deploy.config
