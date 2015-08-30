@@ -1,0 +1,128 @@
+<#@Template Language="C#" HostSpecific="True" debug="True" #>
+<#@Output Extension=".sql" #>
+<#@Assembly name="System.Core" #>
+<#@Assembly name="System.Data"  #>
+<#@import namespace="System.Collections.Generic" #>
+<#@import namespace="System.Web"  #>
+<#@import namespace="System.Data"  #>
+<#@import namespace="System.Data.SqlClient"  #>
+<#@import namespace="System.Collections.Generic"  #>
+<#@import namespace="System.Configuration" #>
+<#@import namespace="System.Text" #>
+<#@include file="..\Functions\Utils.t4" #>
+<#
+	    string stringConnection = Model.DefaultConnection;
+        string sqlCommand = string.Format("SELECT * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME ='{0}' " , LowerModelName());   
+	    List<Dictionary<string,string> > properties = new List<Dictionary<string,string> >();
+
+	    using( SqlConnection connection = new SqlConnection(stringConnection) ) 
+	    {
+            // Connect to the database then retrieve the schema information.
+            connection.Open();                    
+            SqlCommand command = new SqlCommand(sqlCommand , connection);                    
+
+            using( var reader = command.ExecuteReader() ) 
+		    {
+			    while(reader.Read())
+			    {
+				    string columnName = reader["COLUMN_NAME"].ToString();
+				    string dataType = reader["DATA_TYPE"].ToString();
+				    string isNullable = reader["IS_NULLABLE"].ToString();
+				    string maxLength = reader["CHARACTER_MAXIMUM_LENGTH"].ToString();	
+
+					if(maxLength=="-1")
+                    {
+						maxLength = "MAX";
+					}
+
+				    Dictionary<string,string> props = new Dictionary<string,string>();
+				    props["columnName"]= columnName;
+				    props["dataType"]= dataType;
+				    props["isNullable"]= isNullable;
+				    props["maxLength"]= maxLength;
+
+				    properties.Add(props);		
+                }
+		    }
+            }
+
+		StringBuilder procedure = new StringBuilder();
+
+
+		procedure.AppendFormat(" CREATE PROCEDURE [dbo].[{0}Update]\n ",LowerModelName());
+        foreach (var item in properties)
+        {
+            //if( item["columnName"] != string.Format("{0}Id",LowerModelName()))
+            //{ 
+			    if(item["dataType"]=="nvarchar")
+                {
+				    procedure.AppendFormat(" @{0} {1}({2}), \n",item["columnName"],item["dataType"],item["maxLength"]);
+                }
+			    else
+                {
+				    procedure.AppendFormat(" @{0} {1},\n ",item["columnName"],item["dataType"]);
+                }
+            //}
+        }
+
+        string ss = procedure.ToString().Substring(0 , procedure.ToString().Length - 3);
+
+        procedure.Length = 0;
+        procedure.AppendFormat("{0}\n",ss);
+        procedure.Append(" AS \n");
+        procedure.Append(" BEGIN \n");
+        procedure.Append(" SET NOCOUNT ON;	 \n");
+        procedure.AppendFormat(" UPDATE	{0} \n",LowerModelName());
+        procedure.Append(" SET ");
+
+		string fields = string.Empty;
+
+		//PARAMETERS
+        foreach (var item in properties)
+        {
+            if( item["columnName"] != string.Format("{0}Id",LowerModelName()))
+            { 
+			    procedure.AppendFormat(" {0} =@{0} ,",item["columnName"]);
+            }
+        }
+
+		fields = procedure.ToString().Substring(0,procedure.ToString().Length-1);
+		procedure.Length = 0;
+		procedure.AppendFormat(fields);
+	
+		procedure.Append(string.Format("\n where {0}Id = @{0}Id \n END ",LowerModelName()));
+
+        string test = procedure.ToString();
+
+		try
+        {
+		//EXECUTE COMMAND
+		using( SqlConnection conn = new SqlConnection(stringConnection) ) 
+		{
+            using( SqlCommand cmd = new SqlCommand(test , conn) )
+				{
+					conn.Open();
+					cmd.CommandType = CommandType.Text;
+					cmd.ExecuteNonQuery();
+					conn.Close();
+				}
+		}
+				}
+		catch (SqlException e) 
+		{
+
+        }
+#>
+
+<#=test#>
+
+<#+ 	
+	public string LowerModelName()
+    {
+		return Uncaptalized(Model.Name);
+    }
+	public string UpperModelName()
+    {
+		return Captalized(Model.Name);
+    }
+ #>

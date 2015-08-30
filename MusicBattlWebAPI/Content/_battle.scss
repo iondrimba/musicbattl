@@ -1,0 +1,237 @@
+@import "_voting-widget";
+
+@mixin opacity($value, $ie-value) {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-value)";
+    /* IE 5-7 */
+    filter: alpha(opacity=$ie-value);
+    /* Good browsers */
+    opacity: $value;
+}
+
+.battle {
+    height: 316px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 60px;
+
+    .bars {
+        top: 183px;
+        z-index: 3;
+    }
+
+    .battle-album {
+        height: 300px;
+        position: relative;
+        padding-top: 10px;
+
+        .bars {
+            margin-left: -58px;
+        }
+
+        .song-artist-album {
+            margin-bottom: 10px;
+            min-height: 67px;
+            margin-top: -20px;
+
+            h1 {
+                font-size: 12pt;
+                font-weight: bold;
+            }
+        }
+
+        .battle-album-img, .battle-album-img-right {
+            background-image: url('data:image/jpeg;base64,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') /*../img/album/battle-album-bg.jpg*/;
+            background-repeat: no-repeat;
+            width: 220px;
+            height: 220px;
+            position: absolute;
+            z-index: 2;
+
+            img {
+                @include opacity(0,0);
+            }
+        }
+
+        .battle-album-img-right {
+            right: 5px;
+        }
+
+        .battle-album-inner-folder {
+            height: 220px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 215px;
+            z-index: 1;
+        }
+
+        .battle-album-inner-folde-right {
+            height: 220px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 62px;
+            z-index: 1;
+        }
+
+        .battle-album-disc-left {
+            position: absolute;
+            z-index: 0;
+            left: 3px;
+            margin-top: 5px;
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .battle-album-disc-right {
+            position: absolute;
+            z-index: 0;
+            left: 80px;
+            margin-top: 5px;
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+    }
+
+    .battle-album-right {
+        text-align: right;
+
+        .bars {
+            margin-left: 15px;
+        }
+
+        .voting-widget-ph {
+            left: 75px;
+        }
+
+        .fontface-1 {
+            width: 100%;
+            text-align: right;
+        }
+
+        .song-artist-album {
+            margin-bottom: 10px;
+            width: 95%;
+            margin-left: 15px;
+
+            h3 {
+                float: right;
+            }
+        }
+    }
+
+    .battle-timer {
+        position: absolute;
+        background-color: transparent;
+        width: 200px;
+        height: 152px;
+        z-index: 4;
+        margin-left: -10px;
+
+        img {
+            float: left;
+            margin-left: -1px;
+        }
+
+        div {
+            float: left;
+        }
+
+        .battle-timer-minute {
+            left: 0;
+        }
+
+        .battle-timer-seconds {
+            left: 88px;
+        }
+
+        .numbers {
+            position: absolute;
+
+            span {
+                float: left;
+                position: absolute;
+                width: 30px;
+                display: block;
+                will-change: transform;
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+
+            .decimal-0 {
+                left: 13px;
+                clip: rect(0,80px,45px,0);
+            }
+
+            .decimal-1 {
+                left: 48px;
+                clip: rect(0,80px,45px,0);
+            }
+
+            .decimal-2 {
+                left: 13px;
+                clip: rect(47px,80px,200px,0);
+            }
+
+            .decimal-3 {
+                left: 48px;
+                clip: rect(47px,80px,200px,0);
+            }
+        }
+    }
+
+    .battle-album-column {
+        width: 300px;
+        height: auto;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .battle-column-left {
+        float: left;
+
+        .fontface-1 {
+            width: 95%;
+            text-align: left;
+        }
+    }
+
+    .battle-column-middle {
+        float: left;
+        width: 180px;
+        height: 100%;
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .battle-column-right {
+        float: left;
+
+        .trophy-animation-ph {
+            left: 75px;
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .status-bar {
+            margin-left: 66px;
+        }
+    }
+}

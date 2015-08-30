@@ -1,0 +1,86 @@
+<#@Template Language="C#" HostSpecific="True" debug="True" #>
+<#@Output Extension=".sql" #>
+<#@Assembly name="System.Core" #>
+<#@Assembly name="System.Data"  #>
+<#@import namespace="System.Collections.Generic" #>
+<#@import namespace="System.Web"  #>
+<#@import namespace="System.Data"  #>
+<#@import namespace="System.Data.SqlClient"  #>
+<#@import namespace="System.Collections.Generic"  #>
+<#@import namespace="System.Configuration" #>
+<#@import namespace="System.Text" #>
+<#@include file="..\Functions\Utils.t4" #>
+<#
+	    string stringConnection = Model.DefaultConnection;
+        string sqlCommand = string.Format("SELECT * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME ='{0}' " , LowerModelName());   
+	    List<Dictionary<string,string> > properties = new List<Dictionary<string,string> >();
+
+	    using( SqlConnection connection = new SqlConnection(stringConnection) ) 
+	    {
+            // Connect to the database then retrieve the schema information.
+            connection.Open();                    
+            SqlCommand command = new SqlCommand(sqlCommand , connection);                    
+
+            using( var reader = command.ExecuteReader() ) 
+		    {
+			    while(reader.Read())
+			    {
+				    string columnName = reader["COLUMN_NAME"].ToString();
+				    string dataType = reader["DATA_TYPE"].ToString();
+				    string isNullable = reader["IS_NULLABLE"].ToString();
+				    string maxLength = reader["CHARACTER_MAXIMUM_LENGTH"].ToString();	
+
+				    Dictionary<string,string> props = new Dictionary<string,string>();
+				    props["columnName"]= columnName;
+				    props["dataType"]= dataType;
+				    props["isNullable"]= isNullable;
+				    props["maxLength"]= maxLength;
+
+				    properties.Add(props);		
+                }
+		    }
+            }
+
+		StringBuilder procedure = new StringBuilder();
+
+		procedure.AppendFormat(" CREATE PROCEDURE [dbo].[{0}Remove]\n ",LowerModelName());
+		procedure.AppendFormat(" @{0}Id int \n",LowerModelName());
+		procedure.Append(" AS \n");
+		procedure.Append(" BEGIN \n");
+		procedure.AppendFormat(" delete from {0} where {0}Id = @{0}Id \n",LowerModelName());
+		procedure.Append(" END \n");
+
+        string test = procedure.ToString();
+
+		//EXECUTE COMMAND
+		try
+        {
+			using( SqlConnection conn = new SqlConnection(stringConnection) ) 
+			{
+				using( SqlCommand cmd = new SqlCommand(test , conn) )
+				{
+						conn.Open();
+						cmd.CommandType = CommandType.Text;
+						cmd.ExecuteNonQuery();
+						conn.Close();
+				}
+			}
+		}
+		catch (SqlException e) 
+		{
+
+        }
+#>
+
+<#=test#>
+
+<#+ 	
+	public string LowerModelName()
+    {
+		return Uncaptalized(Model.Name);
+    }
+	public string UpperModelName()
+    {
+		return Captalized(Model.Name);
+    }
+ #>

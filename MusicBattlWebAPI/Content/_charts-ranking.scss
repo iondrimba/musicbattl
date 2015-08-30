@@ -1,0 +1,75 @@
+@import "_graph";
+@import "_pie-graph";
+
+@mixin bar-color($dark, $light){
+	/* Note: This gradient may render differently in browsers that don't support the unprefixed gradient syntax */
+
+	/* IE10 Consumer Preview */
+	background-image: -ms-linear-gradient(top right, $light 0, $dark 100%);
+
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient(top right, $light 0, $dark 100%);
+
+	/* Opera */
+	background-image: -o-linear-gradient(top right, $light 0, $dark 100%);
+
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $light), color-stop(1, $dark));
+
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-linear-gradient(bottom right, $light 0, $dark 100%);
+
+	/* W3C Markup, IE10 Release Preview */
+	background-image: linear-gradient(to top, $light 0, $dark 100%);
+}
+
+.bar-bg-first {
+	@include bar-color(#1382FF,#500A9B);
+}
+
+.charts-ranking {
+    .default-content-ph {
+        padding-bottom: 10px;
+    }
+
+    .graph-item-ph {
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 6px;
+        margin-right: 7px;
+        top: 0;
+        margin-bottom: 10px;
+
+        .graph-bar-ph {
+            width: 65px;
+            height: 155px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graph-bar {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 100%;
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .graph-img {
+            width: 65px;
+            height: 65px;
+            background: #000;
+            margin-bottom: 6px;
+        }
+    }
+
+    .mini-album {
+        background: none;
+        box-shadow: 0;
+    }
+}

@@ -1,0 +1,12 @@
+Executa o command prompt direto no Drive D:
+cmd /k d: 
+
+Navegar até a pasta do projeto
+
+cd Repositories\MusicBattl\MusicBattlWebAPI\Scripts
+
+Executar via node o build do require.js
+
+node r.js -o build.js
+
+

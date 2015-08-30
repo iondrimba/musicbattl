@@ -1,0 +1,173 @@
+$google-plus-color:#e2583b;
+$facebook-color:#4c66a2;
+$twitter-color:#118eed;
+$create-account-color:#747474;
+$save-color:#3cb869;
+$delete-color:#cc0000;
+$default-color:#0786e9;
+$change-color:#eb9b1e;
+$font-color-default:#fff;
+
+@mixin rouded-corner ($value) {
+	border-radius:$value;
+}
+
+@mixin button-style($color,$text-color){
+	$color1:lighten( $color, 2% );
+	$color2:darken( $color, 0 );
+	$color3:darken( $color, 2% );
+	$color4:darken( $color, 15% );
+	$shadow-color:lighten( $color, 30 );
+
+	background-color:$color4;
+    background-image:linear-gradient($color3, $color4);
+    background-image:-webkit-gradient(linear, 0 0, 0 100%,  from($color3), to($color4));
+
+	border: 1px solid #222;
+	border-bottom: 1px solid #111;
+	box-shadow: inset 0 1px 0 0 $shadow-color;
+	color: $text-color;
+	padding: 7px 0 8px 0;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 0 -1px 0 #000;
+	min-width: 118px;
+	cursor:pointer;
+	display: block;
+	@include rouded-corner (3px);
+}
+@mixin button-style-hover($color){
+	$color1:lighten($color, 2% );
+	$color2:darken($color, 0 );
+	$color3:darken($color, 2% );
+	$color4:darken($color, 10 );
+
+	background-color:$color4;
+    background-image:linear-gradient($color2, $color3);
+    background-image:-webkit-gradient(linear, 0 0, 0 100%,  from($color2), to($color3));
+}
+@mixin button-style-active($color){
+	$color1:darken($color, 40 );
+	$color2:#333;
+    box-shadow: inset 0 0 20px 0 $color1, 0 1px 0 0 $color2!important;
+}
+
+//DEFAULT
+.button-style, button, input[type='submit'] {
+	@include button-style($default-color,$font-color-default);
+}
+.button-style:hover {
+	@include button-style-hover($default-color);
+	text-decoration: none;
+}
+
+.button-style:active {
+	@include button-style-active($default-color);
+    outline:hidden;
+}
+.button-style:focus, .form-column:focus {
+    outline:none!important;
+}
+
+//CHANGE
+.button-change {
+	@include button-style($change-color,$font-color-default);
+}
+.button-change:hover {
+	@include button-style-hover($change-color);
+}
+.button-change:active {
+	@include button-style-active($change-color);
+}
+
+//DELETE
+.button-delete {
+	@include button-style($delete-color,$font-color-default);
+}
+.button-delete:hover {
+	@include button-style-hover($delete-color);
+}
+.button-delete:active {
+	@include button-style-active($delete-color);
+}
+
+//SAVE
+.button-save {
+	@include button-style($save-color,$font-color-default);
+	width: 100%;
+}
+.button-save:hover {
+	@include button-style-hover($save-color);
+}
+.button-save:active {
+	//@include button-style-active($save-color);
+}
+
+//CREATE ACCOUNT
+.button-create-account {
+	@include button-style($create-account-color,$font-color-default);
+	width: 272px;
+}
+.button-create-account:hover {
+	@include button-style-hover($create-account-color);
+}
+.button-create-account:active {
+	@include button-style-active($create-account-color);
+}
+
+//GOOGLE PLUS
+.button-google-plus {
+	@include button-style($google-plus-color,$font-color-default);
+
+	margin-left:0!important;
+
+    span.label {
+      font-weight:bold;
+    }
+    span.icon {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAA30lEQVQ4y2P4//8/AzUxw6iBMMwExPVAPA+IT/yHgFdAvBKIVckxEGTQDiT+GiD+C8R+5LiQB4h/AXE3kpgS1JXryTFQHKp5B5r4JyBeQW4YXgXin0BsDOULAfFHJD4M/yfWQCkg3gPE96HefAjErljU/Scn2dyAelcczSB0QNBADiC2A+J9UA1PgViNHBfyQ715EIiLgNgDiPuB+DcQPwdiNlINPAbE57CIx0INcCM1ln/iSW9fgViDVANPA/F3IA5FE6+EZj2S06EIEK8F4pdA/Bial3cDcfloeYgVAwB2q+FTqsVptwAAAABJRU5ErkJggg==') /*/img/btn_red.png*/ no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        width: 34px;
+        height: 20px;
+        border-right: #BB3F30 1px solid;
+        margin-left: -17px;
+    }
+    span.buttonText {
+        display: inline-block;
+        vertical-align: middle;
+        //font-size: 14px;
+        text-shadow:0 -1px 0#000 !important;
+        width: 102px;
+        text-align: center;
+        margin-left: -12px;
+    }
+}
+.button-google-plus:hover {
+	@include button-style-hover($google-plus-color);
+}
+.button-google-plus:active {
+	@include button-style-active($google-plus-color);
+}
+
+//TWITTER
+.button-twitter {
+	@include button-style($twitter-color,$font-color-default);
+}
+.button-twitter:hover {
+	@include button-style-hover($twitter-color);
+}
+.button-twitter:active {
+	@include button-style-active($twitter-color);
+}
+
+//FACEBOOK
+.button-facebook {
+	@include button-style($facebook-color,$font-color-default);
+}
+.button-facebook:hover {
+	@include button-style-hover($facebook-color);
+}
+.button-facebook:active {
+	@include button-style-active($facebook-color);
+}

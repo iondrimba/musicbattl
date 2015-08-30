@@ -1,0 +1,64 @@
+﻿html {
+    background: #000;
+}
+
+body {
+    overflow: hidden !important;
+    background: url(/img/site-bg.jpg);
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0;
+    font-size: .8em;
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    background: url(/img/main-bg.jpg) no-repeat;
+    height: 680px;
+}
+
+.page {
+    width: 100% !important;
+    min-height: 350px !important;
+    background-position: center 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQAB…7twbWzd0efwevxDfDv+v2+If4QnT4t/h2/Q1bKmA5fo5/h2+Xt8Q//ANTg+Xj5Qfl5+Xn4f//Z);
+    background-repeat: no-repeat;
+}
+
+.simple-version {
+    display: block;
+    text-align: center;
+
+    img {
+        margin-top: 10% !important;
+    }
+
+    p {
+        font-size: 100%;
+        margin-top: 10px;
+        color: #fff;
+        font-family: sans-serif;
+    }
+}
+
+.modal {
+    display: none !important;
+}
+
+.header-ph, .content-ph {
+    display: none;
+}
+
+.footer-ph {
+    background-image: none !important;
+    text-align: center;
+}
+
+.powered-soundcloud {
+    float: none;
+    margin-top: 25px !important;
+}

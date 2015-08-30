@@ -1,0 +1,18 @@
+﻿<h1 class="media-column-title">{{this.title}}</h1>
+<ul class="media-list">
+    {{#each data}}
+    <li class="media-list-row clearfix">
+        <div class="media-list-row-column-left big-album rounded-corners opaque-content" data-name="{{this.ArtistName}}">
+            <div class="reflexo-big"></div>
+            {{#if this.Image}}
+            <img src="{{this.Image}}" class="rounded-corners" width="78" height="78" alt="{{this.AlbumName}}" />
+            {{/if}}
+        </div>
+        <div class="media-list-row-column-right media-item-text media-item-text-big-album">
+            <h1>{{this.AlbumName}}</h1>            
+            <h2>{{this.SongName}}</h2>
+            <h3>{{this.ArtistName}}</h3>
+        </div>
+    </li>
+    {{/each}}
+</ul>

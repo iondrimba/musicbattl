@@ -1,0 +1,24 @@
+﻿<h1 class="media-column-title">{{this.title}}</h1>
+<ul class="versus-list media-list">
+    {{#each data}}
+    <li class="versus-row media-list-row clearfix" data-id="{{this.BattlId}}">
+        <div class="left-album mini-album rounded-corners" data-song="{{this.FirstSongName}}" data-artist="{{this.FirstArtistName}}" data-songid="{{this.FirstSongId}}" data-votes="{{this.TotalFirst}}">
+            <div data-badge='new'></div>
+            <div class="reflexo-mini"></div>
+            <span class="votes hidden">{{this.TotalFirst}}</span>
+            {{#if this.FirstAlbumCover}}
+            <img src="/img/album/mini/{{this.FirstAlbumCover}}" class="rounded-corners" width="63" height="62" alt="{{this.FirstAlbumName}}" />
+            {{/if}}
+        </div>
+        <span class="versus-min versus-min-font">{{this.TotalFirst}}<span class="close">&#10005;</span>{{this.TotalSecond}}</span>
+        <div class="right-album mini-album rounded-corners" data-song="{{this.SecondSongName}}" data-artist="{{this.SecondArtistName}}" data-songid="{{this.SecondSongId}}" data-votes="{{this.TotalSecond}}">
+            <div data-badge='new'></div>
+            <div class="reflexo-mini"></div>
+            <span class="votes hidden">{{this.TotalSecond}}</span>
+            {{#if this.SecondAlbumCover}}
+            <img src="/img/album/mini/{{this.SecondAlbumCover}}" class="rounded-corners" width="63" height="62" alt="album" />
+            {{/if}}
+        </div>
+    </li>
+    {{/each}}
+</ul>

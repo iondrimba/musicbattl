@@ -1,0 +1,65 @@
+﻿<div class="">
+    <div class="clearfix row" data-id="{{this.BattlId}}">
+        <div class="media-list-row left clearfix">
+            <div class="media-list-row-column-left mini-album rounded-corners" data-name="{{data.FirstArtistName}}">
+                <!--PLAY WIDGET-->
+                <div class="play-widget-ph">
+                    <div class="play" data-songid="{{data.FirstSongId}}" data-songurl="{{data.FirstSoundCloudUrl}}">
+                        <span class="play-icon"></span>
+                        <div class="bg"></div>
+                    </div>
+                    <div class="pause hidden">
+                        <span class="pause-icon"></span>
+                        <div class="bg"></div>
+                    </div>
+                    <div class="loading hidden">
+                        <img src="/img/ajax-loader-song.gif" width="16" height="16" alt="loading..." />
+                        <div class="bg"></div>
+                    </div>
+                </div>
+                <div class="reflexo-mini"></div>
+                {{#if data.SecondAlbumCover}}
+                <img src="/img/album/{{data.FirstAlbumCover}}" class="rounded-corners" width="220" height="220" alt="{{data.FirstArtistName}}">
+                {{/if}}
+            </div>
+            <div class="clearfix"></div>
+            <div class="media-list-row-column-left media-item-text">
+                <strong>{{data.FirstSongName}}</strong>
+                <span>{{data.FirstAlbumName}}</span>
+                <span>{{data.FirstArtistName}}</span>
+            </div>
+
+        </div>
+        <span class="versus-min versus-min-font">{{data.TotalFirst}}<span class="close">&#10005;</span>{{data.TotalSecond}}</span>
+
+        <div class="media-list-row right clearfix">
+            <div class="media-list-row-column-left mini-album rounded-corners" data-name="{{data.SecondArtistName}}">
+                <!--PLAY WIDGET-->
+                <div class="play-widget-ph">
+                    <div class="play" data-songid="{{data.SecondSongId}}" data-songurl="{{data.SecondSoundCloudUrl}}">
+                        <span class="play-icon"></span>
+                        <div class="bg"></div>
+                    </div>
+                    <div class="pause hidden">
+                        <span class="pause-icon"></span>
+                        <div class="bg"></div>
+                    </div>
+                    <div class="loading hidden">
+                        <img src="/img/ajax-loader-song.gif" width="16" height="16" alt="loading..." />
+                        <div class="bg"></div>
+                    </div>
+                </div>
+                <div class="reflexo-mini"></div>
+                {{#if data.SecondAlbumCover}}
+                <img src="/img/album/{{data.SecondAlbumCover}}" class="rounded-corners" width="220" height="220" alt="{{data.SecondArtistName}}">
+                {{/if}}
+            </div>
+            <div class="clearfix"></div>
+            <div class="media-list-row-column-right media-item-text">
+                <strong>{{data.SecondSongName}}</strong>
+                <span>{{data.SecondAlbumName}}</span>
+                <span>{{data.SecondArtistName}}</span>
+            </div>
+        </div>
+    </div>
+</div>

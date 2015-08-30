@@ -1,0 +1,73 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+<#@ assembly name="System"  #>
+<#@ assembly name="System.Data"  #>
+<#@ import namespace="System.Web"  #>
+<#@ import namespace="System.Data.SqlClient"  #>
+<#@ import namespace="System.Collections.Generic"  #>
+<#@ import namespace="System.Configuration" #>
+<#
+	string stringConnection = Model.DefaultConnection;
+    string sqlCommand = string.Format("SELECT * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME ='{0}' " , Model.Name);   
+
+	List<Dictionary<string,string> > properties = new List<Dictionary<string,string> >();
+	
+	using( SqlConnection connection = new SqlConnection(stringConnection) ) 
+	{
+        // Connect to the database then retrieve the schema information.
+        connection.Open();                    
+        SqlCommand command = new SqlCommand(sqlCommand , connection);                    
+        using( var reader = command.ExecuteReader() ) 
+		{
+			while(reader.Read())
+			{
+				string columnName = reader["COLUMN_NAME"].ToString();
+				string dataType = reader["DATA_TYPE"].ToString();
+				string isNullable = reader["IS_NULLABLE"].ToString();
+				string maxLength = reader["CHARACTER_MAXIMUM_LENGTH"].ToString();
+
+				Dictionary<string,string> props = new Dictionary<string,string>();
+				props["columnName"]= columnName;
+				props["dataType"]= dataType;
+				props["isNullable"]= isNullable;
+				props["maxLength"]= maxLength;
+
+				properties.Add(props);
+            }
+		}
+
+     }
+#>
+using System;
+using <#= Model.Namespace #>.models.interfaces;
+
+namespace <#= Model.Namespace #>
+{
+	public class <#=Model.Name#>:I<#=Model.Name#>
+	{
+        #region Properties
+<# 
+foreach (var item in properties)
+{#>
+        private <#= SQlDBTypeToDotNetType(item["dataType"].ToString(),item["isNullable"].ToString()) #> _<#=item["columnName"].ToString()#>;
+
+        public <#= SQlDBTypeToDotNetType(item["dataType"].ToString(),item["isNullable"].ToString()) #> <#= Captalized(item["columnName"].ToString()) #>
+        {
+            get { return _<#=item["columnName"].ToString()#>; }
+            set { _<#=item["columnName"].ToString()#> = value; }
+        }
+<#}
+#>
+        #endregion
+
+        #region Constructor
+        public <#=Model.Name#>()
+        {
+
+        }
+        #endregion     
+    } 
+}
+
+ <#@include file="..\Functions\Utils.t4" #>
+

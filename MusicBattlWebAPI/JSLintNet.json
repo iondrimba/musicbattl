@@ -1,0 +1,28 @@
+﻿{
+  "ignore": [
+    "\\Scripts\\gsap\\",
+    "\\Scripts\\vendors\\jquery-1.9.1.js",
+    "\\Scripts\\vendors\\jquery-1.9.1.min.js",
+    "\\Scripts\\jquery.signalR-1.0.1.js",
+    "\\Scripts\\jquery.signalR-2.2.0.js",    
+    "\\Scripts\\jquery.signalR-2.2.0.min.js",    
+    "\\Scripts\\jquery.signalR-1.0.1.min.js",
+    "\\Scripts\\plugins\\",
+    "\\Scripts\\vendors\\"
+  ],
+  "options": {
+    "predef": {
+      "define": false,
+      "$": false,
+      "eventHandler": false,
+      "master": false,
+      "musicBattlUtils": false,
+      "FB": false,
+      "gapi": false,
+      "Codebird": false
+    },
+    "browser": true,
+    "devel": true,
+    "nomen": true
+  }
+}

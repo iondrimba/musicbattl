@@ -1,0 +1,26 @@
+.vote-display-home {
+	background: url('/img/sprite.png');
+	background-repeat:no-repeat;
+	width: 62px;
+	height: 16px;
+	float:left;
+
+	span {
+		width:40px;
+		text-align:center;
+		display:block;
+		cursor:default;
+	}
+}
+
+.win-lose-numbers {
+	.positive {
+		background-position:-1px -143px;
+		@extend .vote-display-home;
+	}
+	.negative {
+		background-position:-71px -143px;
+		@extend .vote-display-home;
+		margin-left:10px;
+	}
+}

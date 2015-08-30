@@ -1,0 +1,44 @@
+﻿<div class="big-album rounded-corners" data-name="{{data.Name}}">
+    <div class="reflexo-big"></div>
+    {{#if data.Picture}}
+    <img src="/img/artist/{{data.Picture}}" class="rounded-corners" width="220" height="220" alt="{{this.Name}}">
+    {{/if}}
+</div>
+<div class="details">
+    <div class="inline clearfix">
+        <label class="fontface-1">Artist:</label>
+        <strong>{{data.Name}}</strong>
+    </div>
+    <div class="inline clearfix">
+        <label class="fontface-1">About:</label>
+        <p>{{data.Description}}</p>
+    </div>
+    <div class="inline clearfix inline-contact">
+        <label class="fontface-1">Support:</label>
+        <div class="contact">
+            {{#if data.Bandcamp}}
+                <a href="{{data.Bandcamp}}" target="_blank" class="icon-bandcamp" title="Bandcamp"></a>
+            {{/if}}
+        </div>
+    </div>
+    <div class="inline clearfix inline-contact">
+        <label class="fontface-1">Contact:</label>
+        <div class="contact">
+            {{#if data.Soundcloud}}
+                <a href="{{data.Soundcloud}}" target="_blank" class="icon-soundcloud" title="Soundcloud"></a>
+            {{/if}}
+            {{#if data.Facebook}}
+                <a href="{{data.Facebook}}" target="_blank" class="icon-facebook" title="Facebook"></a>
+            {{/if}}
+            {{#if data.Twitter}}
+                <a href="{{data.Twitter}}" target="_blank" class="icon-twitter" title="Twitter"></a>
+            {{/if}}
+            {{#if data.Email}}
+                <a href="mailto:{{data.Email}}" target="_blank" class="icon-email" title="Email"></a>
+            {{/if}}
+            {{#if data.tumblr}}
+                <a href="{{data.tumblr}}" target="_blank" class="icon-tumblr" title="Tumblr"></a>
+            {{/if}}
+        </div>
+    </div>
+</div>

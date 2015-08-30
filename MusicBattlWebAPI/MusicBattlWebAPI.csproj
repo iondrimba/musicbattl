@@ -1,0 +1,1596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <ExcludeFilesFromDeployment>content\*.scss;**\*.map;Scripts\_references.js;Scripts\build.js;Scripts\r.js;Scripts\main.js;</ExcludeFilesFromDeployment>
+    <ExcludeFoldersFromDeployment>node_modules;compass;Scripts\collections;Scripts\models;Scripts\routers;Scripts\viewModels;Scripts\views</ExcludeFoldersFromDeployment>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicBattlWebAPI</RootNamespace>
+    <AssemblyName>MusicBattlWebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <IsCompassProject>True</IsCompassProject>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <NuGetPackageImportStamp>b9be7437</NuGetPackageImportStamp>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core">
+      <HintPath>..\packages\dotless.1.4.1.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core.UI">
+      <HintPath>..\packages\DotNetOpenAuth.Core.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.InfoCard">
+      <HintPath>..\packages\DotNetOpenAuth.InfoCard.4.3.4.13329\lib\net45-full\DotNetOpenAuth.InfoCard.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.InfoCard.UI">
+      <HintPath>..\packages\DotNetOpenAuth.InfoCard.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.InfoCard.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Common">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Common.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.ServiceProvider">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.ServiceProvider.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.ServiceProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.AuthorizationServer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.AuthorizationServer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.AuthorizationServer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.Client">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Client.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.Client.UI">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Client.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.Client.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.ClientAuthorization">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.ClientAuthorization.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.ClientAuthorization.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.ResourceServer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.ResourceServer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.ResourceServer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.Provider">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Provider.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.Provider.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.Provider.UI">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Provider.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.Provider.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty.UI">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.UI">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenIdInfoCard.UI">
+      <HintPath>..\packages\DotNetOpenAuth.OpenIdInfoCard.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenIdInfoCard.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenIdOAuth">
+      <HintPath>..\packages\DotNetOpenAuth.OpenIdOAuth.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenIdOAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="EcmaScript.NET">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonDotNet.CustomContractResolvers">
+      <HintPath>..\packages\JsonDotNet.CustomContractResolvers.1.1.2\lib\net40\JsonDotNet.CustomContractResolvers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.WebApi.MessageHandlers.Compression, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.MessageHandlers.Compression.1.2.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Microsoft.AspNet.WebApi.MessageHandlers.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Activation">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApi.OutputCache.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Strathweb.CacheOutput.WebApi2.0.6\lib\net45\WebApi.OutputCache.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebApi.OutputCache.V2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Strathweb.CacheOutput.WebApi2.0.6\lib\net45\WebApi.OutputCache.V2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Core, Version=0.9.7.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebMarkupMin.Core.0.9.7\lib\net40\WebMarkupMin.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Mvc">
+      <HintPath>..\packages\WebMarkupMin.Mvc.0.9.2\lib\net40\WebMarkupMin.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Web">
+      <HintPath>..\packages\WebMarkupMin.Web.0.9.2\lib\net40\WebMarkupMin.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DatabaseFactory.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectDependencyCo.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ArtistContactController.cs" />
+    <Compile Include="Controllers\TemplatesController.cs" />
+    <Compile Include="Controllers\LoadSongsController.cs" />
+    <Compile Include="Helpers\CacheFilter.cs" />
+    <Compile Include="Helpers\CharsetAttribute.cs" />
+    <Compile Include="Helpers\EmptyString.cs" />
+    <Compile Include="Helpers\FingerPrint.cs" />
+    <Compile Include="Helpers\ImageUtils.cs" />
+    <Compile Include="MusicBattlSignalR\AjaxMinMinifier.cs" />
+    <Compile Include="MusicBattlSignalR\BattlTimer.cs" />
+    <Compile Include="MusicBattlSignalR\BattlTimerHub.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AllTimerWinnersController.cs" />
+    <Compile Include="Controllers\ChartsController.cs" />
+    <Compile Include="Controllers\BattlController.cs" />
+    <Compile Include="Controllers\ArtistsController.cs" />
+    <Compile Include="Controllers\MostVotedController.cs" />
+    <Compile Include="Controllers\TopUsersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PastBattlsController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SessionManager.cs" />
+    <Compile Include="Helpers\WebConfigHelper.cs" />
+    <Compile Include="MusicBattlSignalR\Startup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404.html" />
+    <Content Include="callback.html" />
+    <Content Include="Content\build\mobile.css" />
+    <Content Include="Content\build\site.css" />
+    <None Include="Content\_cssreset-min.scss" />
+    <Content Include="apple-touch-icon-114x114.png" />
+    <Content Include="apple-touch-icon-120x120.png" />
+    <Content Include="apple-touch-icon-144x144.png" />
+    <Content Include="apple-touch-icon-152x152.png" />
+    <Content Include="apple-touch-icon-180x180.png" />
+    <Content Include="apple-touch-icon-57x57.png" />
+    <Content Include="apple-touch-icon-60x60.png" />
+    <Content Include="apple-touch-icon-72x72.png" />
+    <Content Include="apple-touch-icon-76x76.png" />
+    <Content Include="apple-touch-icon-precomposed.png" />
+    <Content Include="apple-touch-icon.png" />
+    <None Include="browserconfig.xml" />
+    <Content Include="Content\build\home.css" />
+    <Content Include="Content\fonts\BebasNeue-webfont.svg" />
+    <None Include="Content\mobile.scss" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\_about-dark.scss" />
+    <Content Include="Content\_about-light.scss" />
+    <Content Include="Content\_mixins.scss" />
+    <Content Include="Content\_artist-contact.scss" />
+    <Content Include="Content\_animated-bars.scss" />
+    <Content Include="Content\_create-account.scss" />
+    <Content Include="Content\_battleInfo.scss" />
+    <Content Include="Content\_change-password.scss" />
+    <None Include="Content\_toastr.scss" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="favicon-160x160.png" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-192x192.png" />
+    <Content Include="favicon-32x32.png" />
+    <Content Include="favicon-96x96.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="file.png" />
+    <Content Include="Files\profile\4l5kvimulrb875328-15082706084508.jpg" />
+    <Content Include="Files\profile\mini\4l5kvimulrb875328-15082706084508.jpg" />
+    <Content Include="Files\profile\mini\profile-mini-user.png" />
+    <Content Include="Files\profile\small\4l5kvimulrb875328-15082706084508.jpg" />
+    <None Include="Gruntfile.js" />
+    <None Include="gruntIndex.html" />
+    <Content Include="Files\profile\small\profile-mini-user.png" />
+    <Content Include="Files\profile\user-profile-default.png" />
+    <Content Include="humans.txt" />
+    <Content Include="img\1435452041_black_1_speaker_.png" />
+    <Content Include="img\ajax-loader-song.gif" />
+    <Content Include="img\ajax-loader.gif" />
+    <Content Include="img\album\198xad.jpg" />
+    <Content Include="img\album\7​.​25​.​2148.jpg" />
+    <Content Include="img\album\8888.jpg" />
+    <Content Include="img\album\afterdark.jpg" />
+    <Content Include="img\album\amplifier.jpg" />
+    <Content Include="img\album\atlantis.jpg" />
+    <Content Include="img\album\autoradio.jpg" />
+    <Content Include="img\album\blackwaves.jpg" />
+    <Content Include="img\album\bloodsport2092.jpg" />
+    <Content Include="img\album\bourgeoisieself​-​titled.jpg" />
+    <Content Include="img\album\casual.jpg" />
+    <Content Include="img\album\cityhunter.jpg" />
+    <Content Include="img\album\comingsoon.jpg" />
+    <Content Include="img\album\composerseries-cs004.jpg" />
+    <Content Include="img\album\contrast.jpg" />
+    <Content Include="img\album\crystalcontourep.jpg" />
+    <Content Include="img\album\crystalica-ep.jpg" />
+    <Content Include="img\album\cyberlight.jpg" />
+    <Content Include="img\album\discodeathsleaze.jpg" />
+    <Content Include="img\album\dummy-album.jpg" />
+    <Content Include="img\album\ep1.jpg" />
+    <Content Include="img\album\epi.jpg" />
+    <Content Include="img\album\epii.jpg" />
+    <Content Include="img\album\epiii.jpg" />
+    <Content Include="img\album\escapefromearth.jpg" />
+    <Content Include="img\album\eviltechnology.jpg" />
+    <Content Include="img\album\fireburner-ep.jpg" />
+    <Content Include="img\album\frequencymodulations.jpg" />
+    <Content Include="img\album\futurescape.jpg" />
+    <Content Include="img\album\indecay.jpg" />
+    <Content Include="img\album\insomnia.jpg" />
+    <Content Include="img\album\interface.jpg" />
+    <Content Include="img\album\inyourdreams.jpg" />
+    <Content Include="img\album\joinus.jpg" />
+    <Content Include="img\album\knightriderep.jpg" />
+    <Content Include="img\album\kodachromesundae.jpg" />
+    <Content Include="img\album\lasertitslp.jpg" />
+    <Content Include="img\album\lastescape.jpg" />
+    <Content Include="img\album\lostformats.jpg" />
+    <Content Include="img\album\machineage.jpg" />
+    <Content Include="img\album\medium\198xad.jpg" />
+    <Content Include="img\album\medium\7​.​25​.​2148.jpg" />
+    <Content Include="img\album\medium\8888.jpg" />
+    <Content Include="img\album\medium\afterdark.jpg" />
+    <Content Include="img\album\medium\amplifier.jpg" />
+    <Content Include="img\album\medium\atlantis.jpg" />
+    <Content Include="img\album\medium\autoradio.jpg" />
+    <Content Include="img\album\medium\battle-album-bg.jpg" />
+    <Content Include="img\album\medium\blackwaves.jpg" />
+    <Content Include="img\album\medium\bloodsport2092.jpg" />
+    <Content Include="img\album\medium\bourgeoisieself​-​titled.jpg" />
+    <Content Include="img\album\medium\casual.jpg" />
+    <Content Include="img\album\medium\cityhunter.jpg" />
+    <Content Include="img\album\medium\comingsoon.jpg" />
+    <Content Include="img\album\medium\composerseries-cs004.jpg" />
+    <Content Include="img\album\medium\contrast.jpg" />
+    <Content Include="img\album\medium\crystalcontourep.jpg" />
+    <Content Include="img\album\medium\crystalica-ep.jpg" />
+    <Content Include="img\album\medium\cyberlight.jpg" />
+    <Content Include="img\album\medium\discodeathsleaze.jpg" />
+    <Content Include="img\album\medium\dummy-album.jpg" />
+    <Content Include="img\album\medium\ep1.jpg" />
+    <Content Include="img\album\medium\epi.jpg" />
+    <Content Include="img\album\medium\epii.jpg" />
+    <Content Include="img\album\medium\epiii.jpg" />
+    <Content Include="img\album\medium\escapefromearth.jpg" />
+    <Content Include="img\album\medium\eviltechnology.jpg" />
+    <Content Include="img\album\medium\fireburner-ep.jpg" />
+    <Content Include="img\album\medium\frequencymodulations.jpg" />
+    <Content Include="img\album\medium\futurescape.jpg" />
+    <Content Include="img\album\medium\indecay.jpg" />
+    <Content Include="img\album\medium\insomnia.jpg" />
+    <Content Include="img\album\medium\interface.jpg" />
+    <Content Include="img\album\medium\inyourdreams.jpg" />
+    <Content Include="img\album\medium\joinus.jpg" />
+    <Content Include="img\album\medium\knightriderep.jpg" />
+    <Content Include="img\album\medium\kodachromesundae.jpg" />
+    <Content Include="img\album\medium\lasertitslp.jpg" />
+    <Content Include="img\album\medium\lastescape.jpg" />
+    <Content Include="img\album\medium\lostformats.jpg" />
+    <Content Include="img\album\medium\machineage.jpg" />
+    <Content Include="img\album\medium\megadrive.jpg" />
+    <Content Include="img\album\medium\memorybank.jpg" />
+    <Content Include="img\album\medium\metropolis.jpg" />
+    <Content Include="img\album\medium\moroder​-​einsteintheoremep.jpg" />
+    <Content Include="img\album\medium\nightonthedarkhill.jpg" />
+    <Content Include="img\album\medium\ninjaempire.jpg" />
+    <Content Include="img\album\medium\originseeds.jpg" />
+    <Content Include="img\album\medium\outerspaceadventurer.jpg" />
+    <Content Include="img\album\medium\pagoda.jpg" />
+    <Content Include="img\album\medium\palmse​.​p.jpg" />
+    <Content Include="img\album\medium\pixelpassion.jpg" />
+    <Content Include="img\album\medium\protector101.jpg" />
+    <Content Include="img\album\medium\redline.jpg" />
+    <Content Include="img\album\medium\roadblasterep.jpg" />
+    <Content Include="img\album\medium\sailclub.jpg" />
+    <Content Include="img\album\medium\selectionone.jpg" />
+    <Content Include="img\album\medium\skullandshark.jpg" />
+    <Content Include="img\album\medium\sophisticatedtechnology.jpg" />
+    <Content Include="img\album\medium\soundsthatkill.jpg" />
+    <Content Include="img\album\medium\spacetapesandvice.jpg" />
+    <Content Include="img\album\medium\s​.​o​.​l​.​a​.​r.jpg" />
+    <Content Include="img\album\medium\tachyonextendededition.jpg" />
+    <Content Include="img\album\medium\takemytime.jpg" />
+    <Content Include="img\album\medium\taste.jpg" />
+    <Content Include="img\album\medium\technicolorworkout.jpg" />
+    <Content Include="img\album\medium\terraformer.jpg" />
+    <Content Include="img\album\medium\theartofyouth.jpg" />
+    <Content Include="img\album\medium\thebestii.jpg" />
+    <Content Include="img\album\medium\thegoldenage.jpg" />
+    <Content Include="img\album\medium\theirrelevanceofspacetime.jpg" />
+    <Content Include="img\album\medium\thenewgirl.jpg" />
+    <Content Include="img\album\medium\thepump.jpg" />
+    <Content Include="img\album\medium\thequietearth.jpg" />
+    <Content Include="img\album\medium\thevoid.jpg" />
+    <Content Include="img\album\medium\tothemax.jpg" />
+    <Content Include="img\album\medium\trustfunddebaucherysingle.jpg" />
+    <Content Include="img\album\medium\turbulence.jpg" />
+    <Content Include="img\album\medium\v1​.​4remixes.jpg" />
+    <Content Include="img\album\medium\vhs.jpg" />
+    <Content Include="img\album\medium\visitors.jpg" />
+    <Content Include="img\album\medium\vividcolors.jpg" />
+    <Content Include="img\album\medium\wetwarecomputer.jpg" />
+    <Content Include="img\album\medium\zioneonep.jpg" />
+    <Content Include="img\album\megadrive.jpg" />
+    <Content Include="img\album\memorybank.jpg" />
+    <Content Include="img\album\metropolis.jpg" />
+    <Content Include="img\album\mini\198xad.jpg" />
+    <Content Include="img\album\mini\7​.​25​.​2148.jpg" />
+    <Content Include="img\album\mini\8888.jpg" />
+    <Content Include="img\album\mini\afterdark.jpg" />
+    <Content Include="img\album\mini\amplifier.jpg" />
+    <Content Include="img\album\mini\atlantis.jpg" />
+    <Content Include="img\album\mini\autoradio.jpg" />
+    <Content Include="img\album\mini\battle-album-bg.jpg" />
+    <Content Include="img\album\mini\blackwaves.jpg" />
+    <Content Include="img\album\mini\bloodsport2092.jpg" />
+    <Content Include="img\album\mini\bourgeoisieself​-​titled.jpg" />
+    <Content Include="img\album\mini\casual.jpg" />
+    <Content Include="img\album\mini\cityhunter.jpg" />
+    <Content Include="img\album\mini\comingsoon.jpg" />
+    <Content Include="img\album\mini\composerseries-cs004.jpg" />
+    <Content Include="img\album\mini\contrast.jpg" />
+    <Content Include="img\album\mini\crystalcontourep.jpg" />
+    <Content Include="img\album\mini\crystalica-ep.jpg" />
+    <Content Include="img\album\mini\cyberlight.jpg" />
+    <Content Include="img\album\mini\discodeathsleaze.jpg" />
+    <Content Include="img\album\mini\dummy-album.jpg" />
+    <Content Include="img\album\mini\ep1.jpg" />
+    <Content Include="img\album\mini\epi.jpg" />
+    <Content Include="img\album\mini\epii.jpg" />
+    <Content Include="img\album\mini\epiii.jpg" />
+    <Content Include="img\album\mini\escapefromearth.jpg" />
+    <Content Include="img\album\mini\eviltechnology.jpg" />
+    <Content Include="img\album\mini\fireburner-ep.jpg" />
+    <Content Include="img\album\mini\frequencymodulations.jpg" />
+    <Content Include="img\album\mini\futurescape.jpg" />
+    <Content Include="img\album\mini\indecay.jpg" />
+    <Content Include="img\album\mini\insomnia.jpg" />
+    <Content Include="img\album\mini\interface.jpg" />
+    <Content Include="img\album\mini\inyourdreams.jpg" />
+    <Content Include="img\album\mini\joinus.jpg" />
+    <Content Include="img\album\mini\knightriderep.jpg" />
+    <Content Include="img\album\mini\kodachromesundae.jpg" />
+    <Content Include="img\album\mini\lasertitslp.jpg" />
+    <Content Include="img\album\mini\lastescape.jpg" />
+    <Content Include="img\album\mini\lostformats.jpg" />
+    <Content Include="img\album\mini\machineage.jpg" />
+    <Content Include="img\album\mini\megadrive.jpg" />
+    <Content Include="img\album\mini\memorybank.jpg" />
+    <Content Include="img\album\mini\metropolis.jpg" />
+    <Content Include="img\album\mini\moroder​-​einsteintheoremep.jpg" />
+    <Content Include="img\album\mini\nightonthedarkhill.jpg" />
+    <Content Include="img\album\mini\ninjaempire.jpg" />
+    <Content Include="img\album\mini\originseeds.jpg" />
+    <Content Include="img\album\mini\outerspaceadventurer.jpg" />
+    <Content Include="img\album\mini\pagoda.jpg" />
+    <Content Include="img\album\mini\palmse​.​p.jpg" />
+    <Content Include="img\album\mini\pixelpassion.jpg" />
+    <Content Include="img\album\mini\protector101.jpg" />
+    <Content Include="img\album\mini\redline.jpg" />
+    <Content Include="img\album\mini\roadblasterep.jpg" />
+    <Content Include="img\album\mini\sailclub.jpg" />
+    <Content Include="img\album\mini\selectionone.jpg" />
+    <Content Include="img\album\mini\skullandshark.jpg" />
+    <Content Include="img\album\mini\sophisticatedtechnology.jpg" />
+    <Content Include="img\album\mini\soundsthatkill.jpg" />
+    <Content Include="img\album\mini\spacetapesandvice.jpg" />
+    <Content Include="img\album\mini\s​.​o​.​l​.​a​.​r.jpg" />
+    <Content Include="img\album\mini\tachyonextendededition.jpg" />
+    <Content Include="img\album\mini\takemytime.jpg" />
+    <Content Include="img\album\mini\taste.jpg" />
+    <Content Include="img\album\mini\technicolorworkout.jpg" />
+    <Content Include="img\album\mini\terraformer.jpg" />
+    <Content Include="img\album\mini\theartofyouth.jpg" />
+    <Content Include="img\album\mini\thebestii.jpg" />
+    <Content Include="img\album\mini\thegoldenage.jpg" />
+    <Content Include="img\album\mini\theirrelevanceofspacetime.jpg" />
+    <Content Include="img\album\mini\thenewgirl.jpg" />
+    <Content Include="img\album\mini\thepump.jpg" />
+    <Content Include="img\album\mini\thequietearth.jpg" />
+    <Content Include="img\album\mini\thevoid.jpg" />
+    <Content Include="img\album\mini\tothemax.jpg" />
+    <Content Include="img\album\mini\trustfunddebaucherysingle.jpg" />
+    <Content Include="img\album\mini\turbulence.jpg" />
+    <Content Include="img\album\mini\v1​.​4remixes.jpg" />
+    <Content Include="img\album\mini\vhs.jpg" />
+    <Content Include="img\album\mini\visitors.jpg" />
+    <Content Include="img\album\mini\vividcolors.jpg" />
+    <Content Include="img\album\mini\wetwarecomputer.jpg" />
+    <Content Include="img\album\mini\zioneonep.jpg" />
+    <Content Include="img\album\moroder​-​einsteintheoremep.jpg" />
+    <Content Include="img\album\nightonthedarkhill.jpg" />
+    <Content Include="img\album\ninjaempire.jpg" />
+    <Content Include="img\album\originseeds.jpg" />
+    <Content Include="img\album\outerspaceadventurer.jpg" />
+    <Content Include="img\album\pagoda.jpg" />
+    <Content Include="img\album\palmse​.​p.jpg" />
+    <Content Include="img\album\pixelpassion.jpg" />
+    <Content Include="img\album\protector101.jpg" />
+    <Content Include="img\album\redline.jpg" />
+    <Content Include="img\album\roadblasterep.jpg" />
+    <Content Include="img\album\sailclub.jpg" />
+    <Content Include="img\album\selectionone.jpg" />
+    <Content Include="img\album\skullandshark.jpg" />
+    <Content Include="img\album\small\198xad.jpg" />
+    <Content Include="img\album\small\7​.​25​.​2148.jpg" />
+    <Content Include="img\album\small\8888.jpg" />
+    <Content Include="img\album\small\afterdark.jpg" />
+    <Content Include="img\album\small\amplifier.jpg" />
+    <Content Include="img\album\small\atlantis.jpg" />
+    <Content Include="img\album\small\autoradio.jpg" />
+    <Content Include="img\album\small\battle-album-bg.jpg" />
+    <Content Include="img\album\small\blackwaves.jpg" />
+    <Content Include="img\album\small\bloodsport2092.jpg" />
+    <Content Include="img\album\small\bourgeoisieself​-​titled.jpg" />
+    <Content Include="img\album\small\casual.jpg" />
+    <Content Include="img\album\small\cityhunter.jpg" />
+    <Content Include="img\album\small\comingsoon.jpg" />
+    <Content Include="img\album\small\composerseries-cs004.jpg" />
+    <Content Include="img\album\small\contrast.jpg" />
+    <Content Include="img\album\small\crystalcontourep.jpg" />
+    <Content Include="img\album\small\crystalica-ep.jpg" />
+    <Content Include="img\album\small\cyberlight.jpg" />
+    <Content Include="img\album\small\discodeathsleaze.jpg" />
+    <Content Include="img\album\small\dummy-album.jpg" />
+    <Content Include="img\album\small\ep1.jpg" />
+    <Content Include="img\album\small\epi.jpg" />
+    <Content Include="img\album\small\epii.jpg" />
+    <Content Include="img\album\small\epiii.jpg" />
+    <Content Include="img\album\small\escapefromearth.jpg" />
+    <Content Include="img\album\small\eviltechnology.jpg" />
+    <Content Include="img\album\small\fireburner-ep.jpg" />
+    <Content Include="img\album\small\frequencymodulations.jpg" />
+    <Content Include="img\album\small\futurescape.jpg" />
+    <Content Include="img\album\small\indecay.jpg" />
+    <Content Include="img\album\small\insomnia.jpg" />
+    <Content Include="img\album\small\interface.jpg" />
+    <Content Include="img\album\small\inyourdreams.jpg" />
+    <Content Include="img\album\small\joinus.jpg" />
+    <Content Include="img\album\small\knightriderep.jpg" />
+    <Content Include="img\album\small\kodachromesundae.jpg" />
+    <Content Include="img\album\small\lasertitslp.jpg" />
+    <Content Include="img\album\small\lastescape.jpg" />
+    <Content Include="img\album\small\lostformats.jpg" />
+    <Content Include="img\album\small\machineage.jpg" />
+    <Content Include="img\album\small\megadrive.jpg" />
+    <Content Include="img\album\small\memorybank.jpg" />
+    <Content Include="img\album\small\metropolis.jpg" />
+    <Content Include="img\album\small\moroder​-​einsteintheoremep.jpg" />
+    <Content Include="img\album\small\nightonthedarkhill.jpg" />
+    <Content Include="img\album\small\ninjaempire.jpg" />
+    <Content Include="img\album\small\originseeds.jpg" />
+    <Content Include="img\album\small\outerspaceadventurer.jpg" />
+    <Content Include="img\album\small\pagoda.jpg" />
+    <Content Include="img\album\small\palmse​.​p.jpg" />
+    <Content Include="img\album\small\pixelpassion.jpg" />
+    <Content Include="img\album\small\protector101.jpg" />
+    <Content Include="img\album\small\redline.jpg" />
+    <Content Include="img\album\small\roadblasterep.jpg" />
+    <Content Include="img\album\small\sailclub.jpg" />
+    <Content Include="img\album\small\selectionone.jpg" />
+    <Content Include="img\album\small\skullandshark.jpg" />
+    <Content Include="img\album\small\sophisticatedtechnology.jpg" />
+    <Content Include="img\album\small\soundsthatkill.jpg" />
+    <Content Include="img\album\small\spacetapesandvice.jpg" />
+    <Content Include="img\album\small\s​.​o​.​l​.​a​.​r.jpg" />
+    <Content Include="img\album\small\tachyonextendededition.jpg" />
+    <Content Include="img\album\small\takemytime.jpg" />
+    <Content Include="img\album\small\taste.jpg" />
+    <Content Include="img\album\small\technicolorworkout.jpg" />
+    <Content Include="img\album\small\terraformer.jpg" />
+    <Content Include="img\album\small\theartofyouth.jpg" />
+    <Content Include="img\album\small\thebestii.jpg" />
+    <Content Include="img\album\small\thegoldenage.jpg" />
+    <Content Include="img\album\small\theirrelevanceofspacetime.jpg" />
+    <Content Include="img\album\small\thenewgirl.jpg" />
+    <Content Include="img\album\small\thepump.jpg" />
+    <Content Include="img\album\small\thequietearth.jpg" />
+    <Content Include="img\album\small\thevoid.jpg" />
+    <Content Include="img\album\small\tothemax.jpg" />
+    <Content Include="img\album\small\trustfunddebaucherysingle.jpg" />
+    <Content Include="img\album\small\turbulence.jpg" />
+    <Content Include="img\album\small\v1​.​4remixes.jpg" />
+    <Content Include="img\album\small\vhs.jpg" />
+    <Content Include="img\album\small\visitors.jpg" />
+    <Content Include="img\album\small\vividcolors.jpg" />
+    <Content Include="img\album\small\wetwarecomputer.jpg" />
+    <Content Include="img\album\small\zioneonep.jpg" />
+    <Content Include="img\album\sophisticatedtechnology.jpg" />
+    <Content Include="img\album\soundsthatkill.jpg" />
+    <Content Include="img\album\spacetapesandvice.jpg" />
+    <Content Include="img\album\s​.​o​.​l​.​a​.​r.jpg" />
+    <Content Include="img\album\tachyonextendededition.jpg" />
+    <Content Include="img\album\takemytime.jpg" />
+    <Content Include="img\album\taste.jpg" />
+    <Content Include="img\album\technicolorworkout.jpg" />
+    <Content Include="img\album\terraformer.jpg" />
+    <Content Include="img\album\theartofyouth.jpg" />
+    <Content Include="img\album\thebestii.jpg" />
+    <Content Include="img\album\thegoldenage.jpg" />
+    <Content Include="img\album\theirrelevanceofspacetime.jpg" />
+    <Content Include="img\album\thenewgirl.jpg" />
+    <Content Include="img\album\thepump.jpg" />
+    <Content Include="img\album\thequietearth.jpg" />
+    <Content Include="img\album\thevoid.jpg" />
+    <Content Include="img\album\tothemax.jpg" />
+    <Content Include="img\album\trustfunddebaucherysingle.jpg" />
+    <Content Include="img\album\turbulence.jpg" />
+    <Content Include="img\album\v1​.​4remixes.jpg" />
+    <Content Include="img\album\vhs.jpg" />
+    <Content Include="img\album\visitors.jpg" />
+    <Content Include="img\album\vividcolors.jpg" />
+    <Content Include="img\album\wetwarecomputer.jpg" />
+    <Content Include="img\album\zioneonep.jpg" />
+    <Content Include="img\artist\adeyhawke.jpg" />
+    <Content Include="img\artist\airglow.jpg" />
+    <Content Include="img\artist\alphaboy.jpg" />
+    <Content Include="img\artist\amazingpolice.jpg" />
+    <Content Include="img\artist\apollozapp.jpg" />
+    <Content Include="img\artist\arcadehigh.jpg" />
+    <Content Include="img\artist\arcneon.jpg" />
+    <Content Include="img\artist\atrey.jpg" />
+    <Content Include="img\artist\betamaxx.jpg" />
+    <Content Include="img\artist\bifftaylor.jpg" />
+    <Content Include="img\artist\botnit.jpg" />
+    <Content Include="img\artist\bourgeoisie.jpg" />
+    <Content Include="img\artist\carpenterbrut.jpg" />
+    <Content Include="img\artist\cartridge.jpg" />
+    <Content Include="img\artist\cobracopter.jpg" />
+    <Content Include="img\artist\compilerbau.jpg" />
+    <Content Include="img\artist\comtruise.jpg" />
+    <Content Include="img\artist\dallascampbell.jpg" />
+    <Content Include="img\artist\daze.jpg" />
+    <Content Include="img\artist\djten.jpg" />
+    <Content Include="img\artist\dreamwavedave.jpg" />
+    <Content Include="img\artist\droidbishop.jpg" />
+    <Content Include="img\artist\dynatron.jpg" />
+    <Content Include="img\artist\forgottenillusions.jpg" />
+    <Content Include="img\artist\highwaysuperstar.jpg" />
+    <Content Include="img\artist\ladreams.jpg" />
+    <Content Include="img\artist\lazerhawk.jpg" />
+    <Content Include="img\artist\lematos.jpg" />
+    <Content Include="img\artist\lostyears.jpg" />
+    <Content Include="img\artist\lueurverte.jpg" />
+    <Content Include="img\artist\makeupandvanityset.jpg" />
+    <Content Include="img\artist\megadrive.jpg" />
+    <Content Include="img\artist\miaminights1984.jpg" />
+    <Content Include="img\artist\mini-user.jpg" />
+    <Content Include="img\artist\mini\adeyhawke.jpg" />
+    <Content Include="img\artist\mini\airglow.jpg" />
+    <Content Include="img\artist\mini\alphaboy.jpg" />
+    <Content Include="img\artist\mini\amazingpolice.jpg" />
+    <Content Include="img\artist\mini\apollozapp.jpg" />
+    <Content Include="img\artist\mini\arcadehigh.jpg" />
+    <Content Include="img\artist\mini\arcneon.jpg" />
+    <Content Include="img\artist\mini\atrey.jpg" />
+    <Content Include="img\artist\mini\betamaxx.jpg" />
+    <Content Include="img\artist\mini\bifftaylor.jpg" />
+    <Content Include="img\artist\mini\botnit.jpg" />
+    <Content Include="img\artist\mini\bourgeoisie.jpg" />
+    <Content Include="img\artist\mini\carpenterbrut.jpg" />
+    <Content Include="img\artist\mini\cartridge.jpg" />
+    <Content Include="img\artist\mini\cobracopter.jpg" />
+    <Content Include="img\artist\mini\compilerbau.jpg" />
+    <Content Include="img\artist\mini\comtruise.jpg" />
+    <Content Include="img\artist\mini\dallascampbell.jpg" />
+    <Content Include="img\artist\mini\daze.jpg" />
+    <Content Include="img\artist\mini\djten.jpg" />
+    <Content Include="img\artist\mini\dreamwavedave.jpg" />
+    <Content Include="img\artist\mini\droidbishop.jpg" />
+    <Content Include="img\artist\mini\dummy-artist.jpg" />
+    <Content Include="img\artist\mini\dynatron.jpg" />
+    <Content Include="img\artist\mini\forgottenillusions.jpg" />
+    <Content Include="img\artist\mini\highwaysuperstar.jpg" />
+    <Content Include="img\artist\mini\ladreams.jpg" />
+    <Content Include="img\artist\mini\lazerhawk.jpg" />
+    <Content Include="img\artist\mini\lematos.jpg" />
+    <Content Include="img\artist\mini\lostyears.jpg" />
+    <Content Include="img\artist\mini\lueurverte.jpg" />
+    <Content Include="img\artist\mini\makeupandvanityset.jpg" />
+    <Content Include="img\artist\mini\megadrive.jpg" />
+    <Content Include="img\artist\mini\miaminights1984.jpg" />
+    <Content Include="img\artist\mini\mini-user.jpg" />
+    <Content Include="img\artist\mini\mini-user.png" />
+    <Content Include="img\artist\mini\mitchmurder.jpg" />
+    <Content Include="img\artist\mini\muscle.jpg" />
+    <Content Include="img\artist\mini\nightcrawler.jpg" />
+    <Content Include="img\artist\mini\nowtro.jpg" />
+    <Content Include="img\artist\mini\powerglove.jpg" />
+    <Content Include="img\artist\mini\protector101.jpg" />
+    <Content Include="img\artist\mini\quixotic.jpg" />
+    <Content Include="img\artist\mini\rainsword.jpg" />
+    <Content Include="img\artist\mini\rollymingwald.jpg" />
+    <Content Include="img\artist\mini\sebastiangampl.jpg" />
+    <Content Include="img\artist\mini\sferro.jpg" />
+    <Content Include="img\artist\mini\theastralstereoproject.jpg" />
+    <Content Include="img\artist\mini\thomasbarrandon.jpg" />
+    <Content Include="img\artist\mini\tommy%2786.jpg" />
+    <Content Include="img\artist\mini\tommy86.jpg" />
+    <Content Include="img\artist\mini\vhsglitch.jpg" />
+    <Content Include="img\artist\mini\vincenzosalvia.jpg" />
+    <Content Include="img\artist\mini\waveshaper.jpg" />
+    <Content Include="img\artist\mitchmurder.jpg" />
+    <Content Include="img\artist\muscle.jpg" />
+    <Content Include="img\artist\nightcrawler.jpg" />
+    <Content Include="img\artist\nowtro.jpg" />
+    <Content Include="img\artist\powerglove.jpg" />
+    <Content Include="img\artist\protector101.jpg" />
+    <Content Include="img\artist\quixotic.jpg" />
+    <Content Include="img\artist\rainsword.jpg" />
+    <Content Include="img\artist\rollymingwald.jpg" />
+    <Content Include="img\artist\sebastiangampl.jpg" />
+    <Content Include="img\artist\sferro.jpg" />
+    <Content Include="img\artist\theastralstereoproject.jpg" />
+    <Content Include="img\artist\thomasbarrandon.jpg" />
+    <Content Include="img\artist\tommy%2786.jpg" />
+    <Content Include="img\artist\tommy86.jpg" />
+    <Content Include="img\artist\vhsglitch.jpg" />
+    <Content Include="img\artist\vincenzosalvia.jpg" />
+    <Content Include="img\artist\waveshaper.jpg" />
+    <Content Include="img\btn_red.png" />
+    <Content Include="img\btn_red_32.png" />
+    <Content Include="img\chart-bg.png" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="Global.asax" />
+    <None Include="Content\site.scss" />
+    <Content Include="Content\_album.scss" />
+    <Content Include="Content\_base-form.scss" />
+    <Content Include="Content\_battle.scss" />
+    <Content Include="Content\_buttons.scss" />
+    <Content Include="Content\_charts-ranking.scss" />
+    <Content Include="Content\_drop-down.scss" />
+    <Content Include="Content\_edit-profile.scss" />
+    <Content Include="Content\_fonts.scss" />
+    <Content Include="Content\_footer.scss" />
+    <Content Include="Content\_forgot-password.scss" />
+    <Content Include="Content\_global.scss" />
+    <Content Include="Content\_graph.scss" />
+    <Content Include="Content\_header.scss" />
+    <Content Include="Content\_home-users.scss" />
+    <Content Include="Content\_modal.scss" />
+    <Content Include="Content\_most-voted-tab.scss" />
+    <Content Include="Content\_pagination.scss" />
+    <Content Include="Content\_pie-graph.scss" />
+    <Content Include="Content\_random-battl.scss" />
+    <Content Include="Content\_sign-in.scss" />
+    <Content Include="Content\_social-icons.scss" />
+    <Content Include="Content\_status-bar.scss" />
+    <Content Include="Content\_sub-menu.scss" />
+    <Content Include="Content\_twitter.scss" />
+    <Content Include="Content\_user-profile.scss" />
+    <Content Include="Content\_userlogin.scss" />
+    <Content Include="Content\_versus-list.scss" />
+    <Content Include="Content\_votes-numbers.scss" />
+    <Content Include="Content\_win-lose-numbers.scss" />
+    <Content Include="img\g16.png" />
+    <Content Include="img\logo_white-8bf7615eb575eeb114fc65323068e1e4.png" />
+    <Content Include="img\powered_by_white-7ee4327cfbe5d678897edf6b6c5dd30f.png" />
+    <Content Include="img\social\facebook.jpg" />
+    <Content Include="img\social\googleplus.jpg" />
+    <Content Include="img\social\twitter.jpg" />
+    <Content Include="img\star-play.png" />
+    <Content Include="img\star-play22.png" />
+    <Content Include="img\trophy.png" />
+    <Content Include="img\user\mini-user.png" />
+    <Content Include="mstile-144x144.png" />
+    <Content Include="mstile-150x150.png" />
+    <Content Include="mstile-310x150.png" />
+    <Content Include="mstile-310x310.png" />
+    <Content Include="mstile-70x70.png" />
+    <Content Include="robots.txt" />
+    <Content Include="package.json" />
+    <Content Include="Scripts\collections\allTimeWinnersCollection.min.js">
+      <DependentUpon>allTimeWinnersCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\artistContactCollection.js" />
+    <Content Include="Scripts\collections\artistContactCollection.min.js">
+      <DependentUpon>artistContactCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\artistsCollection.min.js">
+      <DependentUpon>artistsCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\battlCollection.min.js">
+      <DependentUpon>battlCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\chartsTopSongsListCollection.min.js">
+      <DependentUpon>chartsTopSongsListCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\chartsTopUsersListCollection.min.js">
+      <DependentUpon>chartsTopUsersListCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\graphTopCollection.min.js">
+      <DependentUpon>graphTopCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\mostVotedCollection.min.js">
+      <DependentUpon>mostVotedCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\pieChartCollection.min.js">
+      <DependentUpon>pieChartCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\topUsersCollection.min.js">
+      <DependentUpon>topUsersCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\userFavoritesCollection.min.js">
+      <DependentUpon>userFavoritesCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\collections\versusCollection.min.js">
+      <DependentUpon>versusCollection.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\gsap\easing\EasePack.js" />
+    <Content Include="Scripts\gsap\jquery.gsap.js" />
+    <Content Include="Scripts\gsap\plugins\AttrPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\BezierPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\ColorPropsPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\CSSPlugin.js" />
+    <Content Include="Scripts\gsap\plugins\CSSRulePlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\DirectionalRotationPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\EaselPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\EndArrayPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\KineticPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\RaphaelPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\RoundPropsPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\ScrollToPlugin.min.js" />
+    <Content Include="Scripts\gsap\plugins\TextPlugin.min.js" />
+    <Content Include="Scripts\gsap\TimelineLite.js" />
+    <Content Include="Scripts\gsap\TweenLite.js" />
+    <Content Include="Scripts\gsap\TweenMax.js" />
+    <Content Include="Scripts\gsap\utils\Draggable.min.js" />
+    <None Include="JSLintNet.json" />
+    <None Include="Properties\PublishProfiles\LOCAL FOLDER.pubxml" />
+    <None Include="Properties\PublishProfiles\musicbattl - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\musicbattl - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\musicbattl - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\musicbattl - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery.signalR-1.0.1.js" />
+    <None Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <None Include="Scripts\main.js" />
+    <Content Include="Scripts\models\account.min.js">
+      <DependentUpon>account.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\allTimeWinnersModel.min.js">
+      <DependentUpon>allTimeWinnersModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\artistContactModel.js" />
+    <Content Include="Scripts\models\artistContactModel.min.js">
+      <DependentUpon>artistContactModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\artistsModel.min.js">
+      <DependentUpon>artistsModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\battlInfoModel.js" />
+    <Content Include="Scripts\models\battlInfoModel.min.js">
+      <DependentUpon>battlInfoModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\battlModel.min.js">
+      <DependentUpon>battlModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\battlsWon.min.js">
+      <DependentUpon>battlsWon.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\chartsTopSongsListModel.min.js">
+      <DependentUpon>chartsTopSongsListModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\chartsTopUsersListModel.min.js">
+      <DependentUpon>chartsTopUsersListModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\facebookLogin.min.js">
+      <DependentUpon>facebookLogin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\googleplusLogin.min.js">
+      <DependentUpon>googleplusLogin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\graphTopModel.min.js">
+      <DependentUpon>graphTopModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\loginManager.min.js">
+      <DependentUpon>loginManager.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\mostVotedModel.min.js">
+      <DependentUpon>mostVotedModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\normalLogin.min.js">
+      <DependentUpon>normalLogin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\pastBattlsModel.min.js">
+      <DependentUpon>pastBattlsModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\pieChartModel.min.js">
+      <DependentUpon>pieChartModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\topUsersModel.min.js">
+      <DependentUpon>topUsersModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\twitterLogin.min.js">
+      <DependentUpon>twitterLogin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\userFavoritesModel.min.js">
+      <DependentUpon>userFavoritesModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\versusModel.min.js">
+      <DependentUpon>versusModel.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\musicBattlSignalR.js" />
+    <Content Include="Scripts\collections\allTimeWinnersCollection.js" />
+    <Content Include="Scripts\collections\chartsTopSongsListCollection.js" />
+    <Content Include="Scripts\collections\chartsTopUsersListCollection.js" />
+    <Content Include="Scripts\collections\battlCollection.js" />
+    <Content Include="Scripts\collections\artistsCollection.js" />
+    <Content Include="Scripts\collections\pieChartCollection.js" />
+    <Content Include="Scripts\collections\graphTopCollection.js" />
+    <Content Include="Scripts\collections\userFavoritesCollection.js" />
+    <Content Include="Scripts\collections\versusCollection.js" />
+    <Content Include="Scripts\collections\mostVotedCollection.js" />
+    <Content Include="Scripts\collections\topUsersCollection.js" />
+    <Content Include="Scripts\models\account.js" />
+    <Content Include="Scripts\models\battlModel.js" />
+    <Content Include="Scripts\models\battlsWon.js" />
+    <Content Include="Scripts\models\artistsModel.js" />
+    <None Include="Scripts\plugins\additional-methods.js" />
+    <None Include="Scripts\plugins\jquery.validate.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ar.min.js">
+      <DependentUpon>bootstrap-datepicker.ar.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.bg.min.js">
+      <DependentUpon>bootstrap-datepicker.bg.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ca.min.js">
+      <DependentUpon>bootstrap-datepicker.ca.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.cs.min.js">
+      <DependentUpon>bootstrap-datepicker.cs.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.da.min.js">
+      <DependentUpon>bootstrap-datepicker.da.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.de.min.js">
+      <DependentUpon>bootstrap-datepicker.de.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.el.min.js">
+      <DependentUpon>bootstrap-datepicker.el.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.es.min.js">
+      <DependentUpon>bootstrap-datepicker.es.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.et.min.js">
+      <DependentUpon>bootstrap-datepicker.et.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.fi.min.js">
+      <DependentUpon>bootstrap-datepicker.fi.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.fr.min.js">
+      <DependentUpon>bootstrap-datepicker.fr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.he.min.js">
+      <DependentUpon>bootstrap-datepicker.he.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.hr.min.js">
+      <DependentUpon>bootstrap-datepicker.hr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.hu.min.js">
+      <DependentUpon>bootstrap-datepicker.hu.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.id.min.js">
+      <DependentUpon>bootstrap-datepicker.id.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.is.min.js">
+      <DependentUpon>bootstrap-datepicker.is.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.it.min.js">
+      <DependentUpon>bootstrap-datepicker.it.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ja.min.js">
+      <DependentUpon>bootstrap-datepicker.ja.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ka.min.js">
+      <DependentUpon>bootstrap-datepicker.ka.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.kr.min.js">
+      <DependentUpon>bootstrap-datepicker.kr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.lt.min.js">
+      <DependentUpon>bootstrap-datepicker.lt.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.lv.min.js">
+      <DependentUpon>bootstrap-datepicker.lv.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.mk.min.js">
+      <DependentUpon>bootstrap-datepicker.mk.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ms.min.js">
+      <DependentUpon>bootstrap-datepicker.ms.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.nb.min.js">
+      <DependentUpon>bootstrap-datepicker.nb.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.nl.min.js">
+      <DependentUpon>bootstrap-datepicker.nl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.no.min.js">
+      <DependentUpon>bootstrap-datepicker.no.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.pl.min.js">
+      <DependentUpon>bootstrap-datepicker.pl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.pt-BR.min.js">
+      <DependentUpon>bootstrap-datepicker.pt-BR.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.pt.min.js">
+      <DependentUpon>bootstrap-datepicker.pt.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ro.min.js">
+      <DependentUpon>bootstrap-datepicker.ro.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.rs-latin.min.js">
+      <DependentUpon>bootstrap-datepicker.rs-latin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.rs.min.js">
+      <DependentUpon>bootstrap-datepicker.rs.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ru.min.js">
+      <DependentUpon>bootstrap-datepicker.ru.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sk.min.js">
+      <DependentUpon>bootstrap-datepicker.sk.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sl.min.js">
+      <DependentUpon>bootstrap-datepicker.sl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sq.min.js">
+      <DependentUpon>bootstrap-datepicker.sq.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sv.min.js">
+      <DependentUpon>bootstrap-datepicker.sv.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sw.min.js">
+      <DependentUpon>bootstrap-datepicker.sw.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.th.min.js">
+      <DependentUpon>bootstrap-datepicker.th.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.tr.min.js">
+      <DependentUpon>bootstrap-datepicker.tr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.uk.min.js">
+      <DependentUpon>bootstrap-datepicker.uk.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.zh-CN.min.js">
+      <DependentUpon>bootstrap-datepicker.zh-CN.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.zh-TW.min.js">
+      <DependentUpon>bootstrap-datepicker.zh-TW.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\plugins\validationHelper_pt-BR.js" />
+    <None Include="Scripts\plugins\jquery.mask.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\plugins\locales\bootstrap-datepicker.zh-TW.js" />
+    <None Include="Scripts\plugins\validationHelper.js" />
+    <Content Include="Scripts\text.js" />
+    <None Include="Scripts\vendors\browserDetection.js" />
+    <None Include="Scripts\vendors\fastclick.js" />
+    <None Include="Scripts\vendors\require.js" />
+    <None Include="Scripts\vendors\sdk.js" />
+    <None Include="Scripts\vendors\toastr.js" />
+    <Content Include="Scripts\viewModels\allTimeWinnersViewModel.min.js">
+      <DependentUpon>allTimeWinnersViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\artistContactViewModel.min.js">
+      <DependentUpon>artistContactViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\chartsRankingViewModel.js" />
+    <Content Include="Scripts\viewModels\chartsRankingViewModel.min.js">
+      <DependentUpon>chartsRankingViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\homeViewModel.js" />
+    <Content Include="Scripts\viewModels\artistsViewModel.min.js">
+      <DependentUpon>artistsViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\battlInfoViewModel.min.js">
+      <DependentUpon>battlInfoViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\battlsWonLostViewModel.min.js">
+      <DependentUpon>battlsWonLostViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\battlViewModel.min.js">
+      <DependentUpon>battlViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\chartsTopSongListViewModel.js" />
+    <Content Include="Scripts\viewModels\chartsTopSongListViewModel.min.js">
+      <DependentUpon>chartsTopSongListViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\chartsTopUsersListViewModel.js" />
+    <Content Include="Scripts\viewModels\battlViewModel.js" />
+    <Content Include="Scripts\viewModels\artistsViewModel.js" />
+    <Content Include="Scripts\viewModels\artistContactViewModel.js" />
+    <Content Include="Scripts\viewModels\battlInfoViewModel.js" />
+    <Content Include="Scripts\viewModels\chartsTopUsersListViewModel.min.js">
+      <DependentUpon>chartsTopUsersListViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\graphTopViewModel.js" />
+    <Content Include="Scripts\viewModels\graphTopViewModel.min.js">
+      <DependentUpon>graphTopViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\homeViewModel.min.js">
+      <DependentUpon>homeViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\mostVotedViewModel.min.js">
+      <DependentUpon>mostVotedViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\pastBattlsViewModel.min.js">
+      <DependentUpon>pastBattlsViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\topUsersViewModel.min.js">
+      <DependentUpon>topUsersViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\viewModels\userFavoritesViewModel.min.js">
+      <DependentUpon>userFavoritesViewModel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\views\artists.js" />
+    <Content Include="Scripts\views\artist-contact.js" />
+    <Content Include="Scripts\views\battl-info.js" />
+    <Content Include="Scripts\views\load-songs.js" />
+    <Content Include="Scripts\views\flipClock.js" />
+    <Content Include="Scripts\views\paging.js" />
+    <Content Include="Scripts\models\normalLogin.js" />
+    <None Include="Scripts\plugins\jquery.fileupload.js" />
+    <None Include="Scripts\plugins\jquery.iframe-transport.js" />
+    <None Include="Scripts\plugins\jquery.ui.widget.js" />
+    <None Include="Scripts\vendors\moment-with-langs.js" />
+    <None Include="Scripts\vendors\moment.js" />
+    <None Include="Scripts\plugins\dough.js" />
+    <None Include="Scripts\utils.js" />
+    <Content Include="Scripts\models\allTimeWinnersModel.js" />
+    <Content Include="Scripts\models\chartsTopSongsListModel.js" />
+    <Content Include="Scripts\models\chartsTopUsersListModel.js" />
+    <Content Include="Scripts\models\twitterLogin.js" />
+    <Content Include="Scripts\models\googleplusLogin.js" />
+    <Content Include="Scripts\models\facebookLogin.js" />
+    <Content Include="Scripts\models\loginManager.js" />
+    <Content Include="Scripts\models\pieChartModel.js" />
+    <Content Include="Scripts\models\graphTopModel.js" />
+    <Content Include="Scripts\models\userFavoritesModel.js" />
+    <Content Include="Scripts\models\versusModel.js" />
+    <Content Include="Scripts\models\mostVotedModel.js" />
+    <Content Include="Scripts\models\topUsersModel.js" />
+    <Content Include="Scripts\models\pastBattlsModel.js" />
+    <None Include="Scripts\plugins\plugins.js" />
+    <Content Include="Scripts\routers\master.js" />
+    <None Include="Scripts\vendors\backbone.js" />
+    <None Include="Scripts\vendors\Chart.js" />
+    <None Include="Scripts\vendors\codebird.js" />
+    <None Include="Scripts\vendors\handlebars.js" />
+    <None Include="Scripts\vendors\jquery-1.9.1.js" />
+    <None Include="Scripts\plugins\jquery.cookie.js" />
+    <None Include="Scripts\vendors\sha1.js" />
+    <None Include="Scripts\vendors\text.js" />
+    <None Include="Scripts\vendors\underscore.js" />
+    <Content Include="Scripts\viewModels\allTimeWinnersViewModel.js" />
+    <Content Include="Scripts\viewModels\battlsWonLostViewModel.js" />
+    <Content Include="Scripts\viewModels\userFavoritesViewModel.js" />
+    <Content Include="Scripts\viewModels\topUsersViewModel.js" />
+    <Content Include="Scripts\viewModels\mostVotedViewModel.js" />
+    <Content Include="Scripts\viewModels\pastBattlsViewModel.js" />
+    <Content Include="Scripts\views\battl.js" />
+    <Content Include="Scripts\views\allTimeWinners.js" />
+    <Content Include="Scripts\views\charts-ranking.js" />
+    <Content Include="Scripts\views\change-password.js" />
+    <Content Include="Scripts\views\battlsWon.js" />
+    <Content Include="Scripts\views\battlsLost.js" />
+    <Content Include="Scripts\views\chartsTopSongsList.js" />
+    <Content Include="Scripts\views\chartsTopUsersList.js" />
+    <Content Include="Scripts\views\pieChart.js" />
+    <Content Include="Scripts\views\graphTop.js" />
+    <Content Include="Scripts\views\userFavorites.js" />
+    <Content Include="Scripts\views\forgot-password.js" />
+    <Content Include="Scripts\views\create-account.js" />
+    <Content Include="Scripts\views\sign-in.js" />
+    <Content Include="Scripts\views\modal.js" />
+    <Content Include="Scripts\views\random-battl.js" />
+    <Content Include="Scripts\views\edit-profile.js" />
+    <Content Include="Scripts\views\user-profile.js" />
+    <Content Include="Scripts\views\home.js" />
+    <Content Include="Scripts\views\twitterWidget.js" />
+    <Content Include="Scripts\views\topUsers.js" />
+    <Content Include="Scripts\views\mostVoted.js" />
+    <Content Include="Scripts\views\header.js" />
+    <Content Include="Scripts\views\master.js" />
+    <Content Include="Scripts\views\pastBattls.js" />
+    <Content Include="img\album\battle-album-bg.jpg" />
+    <Content Include="img\battle-album-inner-folder.png" />
+    <Content Include="img\disc.png" />
+    <Content Include="img\footer-bg.jpg" />
+    <Content Include="img\icons.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\main-bg.jpg" />
+    <Content Include="img\profile-mini-user.png" />
+    <Content Include="img\site-bg.jpg" />
+    <Content Include="img\sprite.png" />
+    <Content Include="img\timer-bg.png" />
+    <Content Include="img\twitter.jpg" />
+    <Content Include="img\user-profile-default.png" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="templates\html\artist-contact-details.html" />
+    <Content Include="templates\html\artist-contact.html" />
+    <Content Include="templates\html\artists-list.html" />
+    <Content Include="templates\html\artists.html" />
+    <Content Include="templates\html\battl-info-details.html" />
+    <Content Include="templates\html\battl-info.html" />
+    <Content Include="templates\html\battle.html" />
+    <Content Include="templates\html\big-album-list.html" />
+    <Content Include="templates\html\change-password.html" />
+    <Content Include="templates\html\charts-ranking.html" />
+    <Content Include="templates\html\create-account.html" />
+    <Content Include="templates\html\edit-profile.html" />
+    <Content Include="templates\html\forgot-password.html" />
+    <Content Include="templates\html\graph-top.html" />
+    <Content Include="templates\html\home.html" />
+    <Content Include="templates\html\most-voted.html" />
+    <Content Include="templates\html\pagination.html" />
+    <Content Include="templates\html\pie-chart.html" />
+    <Content Include="templates\html\random-battl.html" />
+    <Content Include="templates\html\sign-in.html" />
+    <Content Include="templates\html\top-users.html" />
+    <Content Include="templates\html\twitter-widget.html" />
+    <Content Include="templates\html\user-profile.html" />
+    <Content Include="templates\html\versus-list-details.html" />
+    <Content Include="templates\html\versus-list.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Properties\PublishProfiles\Producao.pubxml" />
+    <Content Include="Scripts\models\facebookLogin.min.js.map">
+      <DependentUpon>facebookLogin.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\models\account.min.js.map">
+      <DependentUpon>account.min.js</DependentUpon>
+    </Content>
+    <Content Include="Views\LoadSongs\Index.cshtml" />
+    <None Include="WebMarkupMin.Configuration.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\BebasNeue-webfont.eot" />
+    <Content Include="Content\fonts\BebasNeue-webfont.ttf" />
+    <Content Include="Content\fonts\BebasNeue-webfont.woff" />
+    <Content Include="Content\_voting-widget.scss" />
+    <Content Include="Content\_spinner.scss" />
+    <Content Include="Content\_artists.scss" />
+    <Content Include="Content\_flip-clock.scss" />
+    <None Include="config.rb" />
+    <Content Include="compass\css3\_appearance.scss" />
+    <Content Include="compass\css3\_background-clip.scss" />
+    <Content Include="compass\css3\_background-origin.scss" />
+    <Content Include="compass\css3\_background-size.scss" />
+    <Content Include="compass\css3\_border-radius.scss" />
+    <Content Include="compass\css3\_box-shadow.scss" />
+    <Content Include="compass\css3\_box-sizing.scss" />
+    <Content Include="compass\css3\_box.scss" />
+    <Content Include="compass\css3\_columns.scss" />
+    <Content Include="compass\css3\_filter.scss" />
+    <Content Include="compass\css3\_font-face.scss" />
+    <Content Include="compass\css3\_hyphenation.scss" />
+    <Content Include="compass\css3\_images.scss" />
+    <Content Include="compass\css3\_inline-block.scss" />
+    <Content Include="compass\css3\_opacity.scss" />
+    <Content Include="compass\css3\_pie.scss" />
+    <Content Include="compass\css3\_regions.scss" />
+    <Content Include="compass\css3\_shared.scss" />
+    <Content Include="compass\css3\_text-shadow.scss" />
+    <Content Include="compass\css3\_transform-legacy.scss" />
+    <Content Include="compass\css3\_transform.scss" />
+    <Content Include="compass\css3\_transition.scss" />
+    <Content Include="compass\css3\_user-interface.scss" />
+    <Content Include="compass\layout\_grid-background.scss" />
+    <Content Include="compass\layout\_sticky-footer.scss" />
+    <Content Include="compass\layout\_stretching.scss" />
+    <Content Include="compass\reset\_utilities-legacy.scss" />
+    <Content Include="compass\reset\_utilities.scss" />
+    <Content Include="compass\typography\links\_hover-link.scss" />
+    <Content Include="compass\typography\links\_link-colors.scss" />
+    <Content Include="compass\typography\links\_unstyled-link.scss" />
+    <Content Include="compass\typography\lists\_bullets.scss" />
+    <Content Include="compass\typography\lists\_horizontal-list.scss" />
+    <Content Include="compass\typography\lists\_inline-block-list.scss" />
+    <Content Include="compass\typography\lists\_inline-list.scss" />
+    <Content Include="compass\typography\text\_ellipsis.scss" />
+    <Content Include="compass\typography\text\_force-wrap.scss" />
+    <Content Include="compass\typography\text\_nowrap.scss" />
+    <Content Include="compass\typography\text\_replacement.scss" />
+    <Content Include="compass\typography\_links.scss" />
+    <Content Include="compass\typography\_lists.scss" />
+    <Content Include="compass\typography\_text.scss" />
+    <Content Include="compass\typography\_vertical_rhythm.scss" />
+    <Content Include="compass\utilities\color\_contrast.scss" />
+    <Content Include="compass\utilities\general\_clearfix.scss" />
+    <Content Include="compass\utilities\general\_float.scss" />
+    <Content Include="compass\utilities\general\_hacks.scss" />
+    <Content Include="compass\utilities\general\_min.scss" />
+    <Content Include="compass\utilities\general\_reset.scss" />
+    <Content Include="compass\utilities\general\_tabs.scss" />
+    <Content Include="compass\utilities\general\_tag-cloud.scss" />
+    <Content Include="compass\utilities\links\_hover-link.scss" />
+    <Content Include="compass\utilities\links\_link-colors.scss" />
+    <Content Include="compass\utilities\links\_unstyled-link.scss" />
+    <Content Include="compass\utilities\lists\_bullets.scss" />
+    <Content Include="compass\utilities\lists\_horizontal-list.scss" />
+    <Content Include="compass\utilities\lists\_inline-block-list.scss" />
+    <Content Include="compass\utilities\lists\_inline-list.scss" />
+    <Content Include="compass\utilities\sprites\_base.scss" />
+    <Content Include="compass\utilities\sprites\_sprite-img.scss" />
+    <Content Include="compass\utilities\tables\_alternating-rows-and-columns.scss" />
+    <Content Include="compass\utilities\tables\_borders.scss" />
+    <Content Include="compass\utilities\tables\_scaffolding.scss" />
+    <Content Include="compass\utilities\text\_ellipsis.scss" />
+    <Content Include="compass\utilities\text\_nowrap.scss" />
+    <Content Include="compass\utilities\text\_replacement.scss" />
+    <Content Include="compass\utilities\_color.scss" />
+    <Content Include="compass\utilities\_general.scss" />
+    <Content Include="compass\utilities\_links.scss" />
+    <Content Include="compass\utilities\_lists.scss" />
+    <Content Include="compass\utilities\_print.scss" />
+    <Content Include="compass\utilities\_sprites.scss" />
+    <Content Include="compass\utilities\_tables.scss" />
+    <Content Include="compass\utilities\_text.scss" />
+    <Content Include="compass\_css3.scss" />
+    <Content Include="compass\_layout.scss" />
+    <Content Include="compass\_reset-legacy.scss" />
+    <Content Include="compass\_reset.scss" />
+    <Content Include="compass\_support.scss" />
+    <Content Include="compass\_typography.scss" />
+    <Content Include="compass\_utilities.scss" />
+    <Content Include="Content\_badges.scss" />
+    <None Include="Properties\PublishProfiles\LOCAL IIS.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusicBattlBLL\MusicBattlBLL.csproj">
+      <Project>{2dbbb444-08bd-4739-9dc7-2d4c2246bef2}</Project>
+      <Name>MusicBattlBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusicBattlDAL\MusicBattlDAL.csproj">
+      <Project>{c5bf1631-d336-4463-b553-0905d1666886}</Project>
+      <Name>MusicBattlDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2013</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20213/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

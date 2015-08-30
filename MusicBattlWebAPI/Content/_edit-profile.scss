@@ -1,0 +1,91 @@
+	.upload {
+		width: 152px;
+		outline: none;
+		z-index: 0;
+		position: absolute;
+		display: block;
+		height: 60px;
+		top: -23px;
+		opacity: 0;
+        cursor: pointer;
+	}
+	.edit-profile {
+	.user-profile-img-container{
+		float:left;
+		width:154px;
+		height:154px;
+		margin-right:20px;
+		text-align: center;
+		overflow: hidden;
+
+		.profile-img {
+			margin-top:1px;
+		}
+	}
+
+	.form {
+		position:relative;
+	}
+
+	.upload-label {
+		position: relative;
+		text-align: center;
+		top: 2px;
+		z-index: 0;
+		text-indent: 14px;
+		width: 90%;
+		display: inline-table;
+		left: -8px;
+	}
+
+	.upload:focus {
+		border: 0 solid #1E90FF!important;
+		box-shadow: 0 0 0 0 #1E90FF!important;
+	}
+
+	.button-change-image{
+		margin-top: -22px;
+		position: relative;
+		height: 18px;
+		overflow: hidden;
+		float: left;
+		width: 155px;
+        cursor:pointer;
+	}
+	.user-profile-form{
+		float:left;
+		width:530px;
+	}
+
+	.country-field{
+		background-position:200px -238px;
+	}
+	.country-field:focus{
+		background-position:200px -275px;
+	}
+
+	.country-list {
+		height: 150px;
+		overflow-y: scroll;
+		width: 240px;
+		position: absolute;
+		z-index: 1;
+		top: 64px;
+		left: 0;
+		border-bottom-left-radius: 4px;
+
+		li {
+			background: #FFF;
+			color: #333;
+			line-height: 25px;
+			text-indent: 10px;
+			border-bottom: solid 1px #E4DEDE;
+			cursor:pointer;
+		}
+
+		li:hover {
+			background: #333;
+			color: #FFF;
+		}
+	}
+}

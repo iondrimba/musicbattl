@@ -1,0 +1,22 @@
+@mixin base-album ($size){
+	width:$size;
+	height:$size;
+	background:#000;
+	box-shadow: 0 1px 0 0 #666;
+	position:relative;
+
+	img {
+		margin-left: 1px;
+		margin-top: 2px;
+	}
+}
+.twitter-list {
+	.twitter-image {
+		@include base-album (51px);
+		float: left;
+	}
+
+	.twitter-reflexo {
+		@extend .reflexo-album;
+	}
+}

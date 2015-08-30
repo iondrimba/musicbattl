@@ -1,0 +1,12 @@
+﻿<h1 class="pie-graph-title-font">{{this.title}}</h1>
+<div class="pie-graph-bg">
+    <canvas id="canvas-{{this.type}}" class="charts-pie" height="125" width="125"></canvas>
+</div>
+<ul class="pie-graph-legend">
+    {{#each data}}
+    <li>
+        <div class="pie-graph-legend-icon" style="background: {{this.color}}"></div>
+        <span class="pie-graph-legend-text">{{this.legend}}</span>
+    </li>
+    {{/each}}
+</ul>

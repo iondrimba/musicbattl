@@ -1,0 +1,153 @@
+@mixin opacity($value, $ie-value) {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-value)";
+    /* IE 5-7 */
+    filter: alpha(opacity=$ie-value);
+    /* Good browsers */
+    opacity: $value;
+}
+
+.header-ph {
+    position: relative;
+    margin-right: 10px;
+
+    .muted {
+        position: absolute;
+        top: 8px;
+        left: 25%;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    .bars-header {
+        border-radius: 0;
+        left: 10px;
+        position: absolute;
+        width: 23px;
+        overflow: hidden;
+        height: 0;
+        top: 18px;
+        padding-top: 10px;
+        cursor: pointer;
+        will-change: transform;
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+
+        .bar {
+            bottom: -4px;
+            height: -8px;
+            width: 2px;
+            will-change: transform;
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+    }
+
+    .beta {
+        position: absolute;
+        top: 35px;
+        left: 276px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+        border: solid 2px #2A1481;
+        line-height: 17px;
+        background-color: #2A1481;
+        background-image: linear-gradient(to bottom left, #5D2FC5 0, #2E0FA8 100%);
+        background-image: -webkit-gradient(linear, 0 0, 0 75%, from(#5D2FC5), to(#2E0FA8));
+        text-align: center;
+        color: #FFF;
+    }
+
+    .menu {
+        float: left;
+        margin-left: 0;
+
+        .btn-charts-ranking {
+            left: 82px;
+            width: 40px;
+            margin-left: 20px;
+
+            span {
+                margin-left: 25px;
+            }
+        }
+
+        .btn-home {
+            width: 40px;
+            background-position: -129px -1px;
+            height: 16px;
+            float: left;
+            position: absolute;
+            left: 10px;
+
+            span {
+                margin-left: 20px;
+            }
+        }
+
+        .btn-artists {
+            left: 180px;
+            width: 40px;
+            margin-left: 12px;
+            margin-top: -4px;
+
+            span {
+                margin-left: 37px;
+                top: 5px;
+                position: relative;
+            }
+        }
+
+        .btn-home, .btn-charts-ranking, .btn-sugest, .btn-artists {
+            top: 7px;
+            cursor: pointer;
+            @include opacity(0.5,50);
+        }
+
+        .btn-home:hover, .btn-sugest:hover, .btn-charts-ranking:hover, .btn-artists:hover {
+            @include opacity(1,100);
+        }
+
+        .btn-home:active, .btn-sugest:active, .btn-charts-ranking:active, .btn-artists:active {
+            @include opacity(0.5,50);
+        }
+    }
+
+    .logo {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 35px;
+        cursor: pointer;
+    }
+
+    .menu-bar {
+        height: 30px;
+        width: 275px;
+        margin-top: 70px;
+        margin-left: 340px;
+    }
+
+    .login-languages {
+        float: right;
+    }
+
+    .language-social {
+        height: 40px;
+        width: 40px;
+        position: relative;
+        left: 87%;
+
+        .followus {
+            float: left;
+            position: absolute;
+        }
+    }
+}

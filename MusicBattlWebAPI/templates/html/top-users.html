@@ -1,0 +1,17 @@
+﻿<h1 class="media-column-title">{{this.title}}</h1>
+<ul class="media-list">
+    {{#each data}}
+    <li class="media-list-row clearfix">
+        <div class="media-list-row-column-left mini-image rounded-corners opaque-content" data-name="{{this.Name}}">
+            <div class="mini-reflexo"></div>
+            <img src="{{this.Picture}}" class="rounded-corners" width="49" height="49" alt="aa" />
+        </div>
+        <div class="media-list-row-column-right home-users-text">
+            <h1 class="home-users-font">{{this.Name}}</h1>
+            <div class="win-lose-numbers clearfix hidden">
+                <div class="positive icons-bg"><span class="votes-font">{{this.Total}}</span></div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</ul>

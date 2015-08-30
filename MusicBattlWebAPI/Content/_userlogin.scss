@@ -1,0 +1,70 @@
+@mixin opacity($value, $ie-value) {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-value)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=$ie-value);
+
+  /* Good browsers */
+  opacity: $value;
+}
+.user-login
+    {
+        height: 58px;
+        margin-top: 31px;
+		position:relative;
+
+        .user-login-image
+        {
+			width: 60px;
+			height: 59px;
+			float: left;
+			position:relative;
+			overflow: hidden;
+			text-align: center;
+
+			div {
+				float: left;
+			}
+
+            img {
+                left: 0;
+                margin-top: 0;
+            }
+        }
+
+        .user-login-menu {
+            width: 245px;
+            margin-left: 5px;
+            height: 100%;
+            float: left;
+			position:relative;
+
+			.welcome-user {
+				top:10px;
+				left:10px;
+			}
+			.username {
+				top:30px;
+				left:10px;
+			}
+			.button-signin {
+				top:13px;
+				left:110px;
+
+				span {
+					margin-left:-25px;
+				}
+
+				.sign-icon{
+					background-position:-99px -1px;
+					width: 16px;
+					height: 16px;
+					float: left;
+					margin-left: 11px;
+
+					@include opacity(0.5,50);
+				}
+			}
+        }
+    }

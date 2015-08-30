@@ -1,0 +1,209 @@
+@import "_spinner";
+
+@mixin opacity($value, $ie-value) {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-value)";
+    /* IE 5-7 */
+    filter: alpha(opacity=$ie-value);
+    /* Good browsers */
+    opacity: $value;
+}
+
+%voting-icon {
+    background: url('data:image/png;base64,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') /*../img/star-play.png*/;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+}
+
+%bg {
+    background-color: #000;
+    opacity: .8;
+    border-radius: 90px;
+    width: 41px;
+    height: 41px;
+    position: absolute;
+    z-index: -1;
+    margin-left: -7px;
+    margin-top: -6px;
+}
+
+%circle {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+.voting-widget-ph {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    z-index: 3;
+    top: 67px;
+
+    .inner-circle-disabled {
+        .star, .play {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+
+    .voting-icon {
+        @extend %voting-icon;
+    }
+
+    .star {
+        .bg {
+            @extend %bg;
+        }
+
+        top: 95px;
+        left: 65px;
+        z-index: 1;
+        position:absolute;
+    }
+
+    .play {
+        .bg {
+            @extend %bg;
+        }
+        
+        top: 95px;
+        left: 125px;
+        z-index: 1;
+        position:absolute;
+    }
+
+    .loading {
+        .bg {
+            @extend %bg;
+        }
+
+        img {
+            position: absolute;
+            top: 6px;
+            left: 5px;
+        }
+        position: absolute;
+        top: 95px;
+        left:125px;
+
+    }
+
+    .pause {
+        .bg {
+            @extend %bg;
+        }
+
+        top: 95px;
+        left: 125px;
+        z-index: 5;
+        position:absolute;
+    }
+
+    .pause-icon {
+        @extend %voting-icon;
+        width: 23px;
+        height: 27px;
+        background-position: -79px 0;
+        margin-left: 2px;
+    }
+
+    .play-icon {
+        @extend %voting-icon;
+        width: 23px;
+        height: 27px;
+        background-position: -45px -1px;
+        margin-left: 4px;
+    }
+
+    .star-icon {
+        @extend %voting-icon;
+        width: 27px;
+        height: 27px;
+        background-position: -1px;
+    }
+
+    .divider {
+        height: 100px;
+        width: 1px;
+        display: block;
+        margin-left: 49px;
+        border-left: solid 1px #292929;
+        border-right: solid 1px #1D1D1D;
+    }
+
+    .bg {
+        width: inherit;
+        height: inherit;
+        position: inherit;
+        //background-color:#000;
+        //@include opacity(0.5,50);
+    }
+
+    .circle {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+    }
+
+    .bg-circle {
+        @extend %circle;
+        width: 150px;
+        height: 150px;
+        background-color: #1D1C1C;
+        top: 35px;
+        left: 35px;
+        z-index: 0;
+    }
+
+    .loader-circle {
+        @extend %circle;
+        width: 130px;
+        height: 130px;
+        background-color: #333;
+        top: 45px;
+        left: 45px;
+        z-index: 1;
+    }
+
+    .inner-circle {
+        @extend %circle;
+        width: 100px;
+        height: 100px;
+        background-color: #252525;
+        top: 60px;
+        left: 60px;
+        box-shadow: 0 0 6px 0 #000;
+        z-index: 3;
+    }
+}
+
+.star-vote {
+    width: 52px;
+    height: 50px;
+    background: url("/img/sprite.png");
+    background-repeat: no-repeat;
+    background-position: -88px -374px;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    -moz-transform: translate(85px,64px) scale(.5);
+    -ms-transform: translate(85px,64px) scale(.5);
+    -o-transform: translate(85px,64px) scale(.5);
+    -webkit-transform: translate(85px,64px) scale(.5);
+    transform: translate(85px,64px) scale(.5);
+    will-change:transform;
+}
+
+.star-winner {
+    cursor: default !important;
+    top: 146px;
+    left: 86px;
+}

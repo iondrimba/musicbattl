@@ -1,0 +1,113 @@
+.versus-list {
+    .versus-row {
+        .left-album {
+            float: left;
+        }
+
+        .right-album {
+            float: right;
+        }
+
+        .versus-min {
+            display: block;
+            margin-top: 18px;
+            float: left;
+            width: 80px;
+            text-align: center;
+
+            .close {
+                margin-left: 0;
+                margin-right: 0;
+                font-size: 12pt;
+            }
+        }
+
+        .votes {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            background-color: #16181A;
+            width: 50%;
+            height: 50%;
+            border-radius: 6px;
+            text-align: center;
+            line-height: 33px;
+            text-shadow: 1px -1px 0 #000;
+            border: solid 1px #00FAAA;
+        }
+    }
+
+    .expand {
+        font-size: 28pt;
+        //font-family: Verdana;
+        font-weight: bolder;
+        position: relative;
+        top: 0;
+        left: 6px;
+        color: #fff;
+    }
+}
+
+.left-artist, .right-artist {
+    position: absolute;
+    height: inherit;
+    font-size: 8pt;
+    float: left;
+    width: 50%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 53px;
+    padding: 5px;
+    background: #111114;
+
+    span {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.left-artist {
+    .triangle, .triangle_shadow {
+        border-width: 10px 10px 0 10px;
+        border-color: #000 transparent transparent transparent;
+        top: 101%;
+        left: 10%;
+    }
+
+    .triangle_shadow {
+        top: 100%;
+        left: 10%;
+        border-color: #111114 transparent transparent transparent;
+    }
+}
+
+.right-artist {
+    float: right;
+    margin-top: 130px;
+
+    .triangle, .triangle_shadow {
+        top: -9px;
+        left: 72%;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent #fff transparent;
+    }
+
+    .triangle_shadow {
+        top: -9px;
+        left: 72%;
+        border-color: transparent transparent #111114 transparent;
+    }
+}
+
+.triangle, .triangle_shadow {
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+}

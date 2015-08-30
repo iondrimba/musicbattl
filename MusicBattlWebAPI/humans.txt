@@ -1,0 +1,12 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ion Drimba Filho -- Developer
+
+
+# TECHNOLOGY COLOPHON
+
+    HTML, CSS, Backbone, RequireJs, Asp.NEt WebAPI, SQL Server, HandleBars,
+	Sass, Normalize, jQuery, CSharp, SignalR, Compass

@@ -1,0 +1,213 @@
+﻿@model MusicBattlBLL.interfaces.ILoadSongsViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/normalize.css" rel="stylesheet" />
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            ul.ph > li {
+                float: left;
+                width: 50%;
+            }
+
+        .bandcamp-ph {
+            width: 35%;
+            font-size: 9pt;
+        }
+
+        .soundcloud-ph {
+            font-size: 9pt;
+            width: 60%;
+        }
+
+        .btn-load-tracks {
+            position: relative;
+            top: 6px;
+            cursor:pointer;
+        }
+
+        .bandcamp-ph, .soundcloud-ph {
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .url {
+            width: 100%;
+        }
+
+        .trackNumber {
+            width: 30px;
+            text-align: center;
+        }
+
+        .trackDuration {
+            width: 42px;
+            text-align: center;
+        }
+
+        .bandcamp-ph .trackName {
+            width: 40%;
+        }
+
+        .soundcloud-ph .trackDuartion {
+            width: 50px;
+            text-align: center;
+        }
+
+        .soundcloud-ph .trackName {
+            width: 80%;
+        }
+
+        .soundcloud-ph .trackUrl {
+            width: 17%;
+        }
+
+        .pull-left {
+            float: left;
+        }
+
+        .clearfix:after {
+            content: ".";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            line-height: 0;
+            height: 0;
+        }
+
+        .clearfix {
+            display: inline-block;
+        }
+
+        html[xmlns] .clearfix {
+            display: block;
+        }
+
+
+        .b-details {
+            width: 92%;
+        }
+
+        .b-url, .c-url {
+            position: fixed;
+        }
+
+        .b-url {
+            width: 34%;
+            height: 100px;
+        }
+
+        .c-url {
+            margin-top: 110px;
+            width: 34%;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .row {
+            width: 100%;
+            display: block;
+            height: 55px;
+        }
+
+        .info {
+            margin-top: 45px;
+            display: block;
+        }
+    </style>
+    <script src="~/Scripts/vendors/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/vendors/underscore.js"></script>
+    <script src="~/Scripts/vendors/backbone.js"></script>
+    <script src="//connect.soundcloud.com/sdk.js"></script>
+
+    <script src="~/Scripts/views/load-songs.js?@DateTime.Now.ToString("yyyyHHmmssmmmm")"></script>
+</head>
+<body class="load-songs">
+    <form action="/LoadSongs/Save" method="post" class="bandcamp" novalidate="novalidate">
+
+        <div class="bandcamp-ph">
+            <fieldset class="b-url">
+                <h2>Load Songs</h2>
+                <legend>Bandcamp</legend>
+                <input type="text" name="url" value="https://comtruise.bandcamp.com/album/in-decay" class="url" />
+                <input type="button" name="button" value="Load" class="btn-load-bandcamp" />
+                <input type="submit" name="save" value="Save Artist & Songs" class="btn-save" />
+                <input type="button" name="clear" value="Reset" class="btn-reset" />
+            </fieldset>
+            <br />
+            <fieldset class="c-url">
+                <legend>Data</legend>
+                <div>
+                    <div class="row">
+                        <img class="artist-cover pull-left" name="Picture" width="50" />
+                    </div>
+                    <div class="row">
+                        <img class="album-cover pull-left" name="AlbumCover" width="50" />
+                    </div>
+                    <div class="pull-left b-details">
+                        <input type="text" name="Artist.ArtistId" value="" class="artistId" />
+                        <input type="text" name="Album.AlbumId" value="" class="albumId" />
+                        <input type="text" name="Artist.Name" value="" class="artistName" />
+                        <input type="text" name="Album.Name" value="" class="albumName" />
+                        <input type="text" name="Album.Year" value="" class="albumYear" />
+                    </div>
+                </div>
+                <input type="hidden" name="Artist.Picture" value="" />
+                <input type="hidden" name="Album.AlbumCover" value="" />
+                <div class="clearfix"></div>
+                <div class="info">
+                    <div>
+                        <label>bandcamp</label>
+                        <input type="text" name="ArtistContact.Bandcamp" value=" " />
+                    </div>
+                    <div>
+                        <label>soundcloud</label>
+                        <input type="text" name="ArtistContact.Soundcloud" value=" " />
+                    </div>
+                    <div>
+                        <label>website</label>
+                        <input type="text" name="ArtistContact.Website" value=" " />
+                    </div>
+                    <div>
+                        <label>tumblr</label>
+                        <input type="text" name="ArtistContact.Tumblr" value=" " />
+                    </div>
+                    <div>
+                        <label>facebook</label>
+                        <input type="text" name="ArtistContact.Facebook" value=" " />
+                    </div>
+                    <div>
+                        <label>twitter</label>
+                        <input type="text" name="ArtistContact.Twitter" value=" " />
+                    </div>
+                </div>
+                <br />
+                <ul class="tracks"></ul>
+            </fieldset>
+        </div>
+        <div class="soundcloud-ph">
+            <h2>Load Songs</h2>
+            <fieldset>
+                <legend>SoundCloud</legend>
+                <ul class="ph"></ul>
+            </fieldset>
+            <br />
+        </div>
+    </form>
+</body>
+</html>

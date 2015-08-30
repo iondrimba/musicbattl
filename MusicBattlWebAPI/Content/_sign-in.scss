@@ -1,0 +1,43 @@
+.sign-in {
+	width: 600px;
+	.loader {
+		position: absolute;
+		top: 25px;
+		right: 37%;
+	}
+	.botoes-social{
+		margin-bottom:30px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 540px;
+
+		div {
+			width:158px;
+			float:left;
+			margin-right:10px;
+			margin-left:10px;
+		}
+	}
+
+    .form-column {
+        margin-left: 20px;
+        margin-right:-10px;
+    }
+
+	.button-save, .button-create-account {
+		width:272px;
+	}
+
+	.forgot-password-link {
+		top: 2px;
+		left: 112px;
+		position: absolute;
+		display:none;
+	}
+
+	.botoes-social:after {
+		content:'';
+		display:block;
+		clear:both;
+	}
+}

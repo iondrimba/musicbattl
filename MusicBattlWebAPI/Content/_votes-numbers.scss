@@ -1,0 +1,26 @@
+.vote-display {
+	background: url('/img/sprite.png');
+	background-repeat:no-repeat;
+	width: 46px;
+	height: 16px;
+	float:left;
+
+	span {
+		margin-left: 3px;
+		cursor:default;
+	}
+}
+
+.votes-numbers {
+	padding-top:10px;
+
+	.positive {
+		background-position:-1px -123px;
+		@extend .vote-display;
+	}
+	.negative {
+		background-position:-50px -123px;
+		@extend .vote-display;
+		margin-left:10px;
+	}
+}

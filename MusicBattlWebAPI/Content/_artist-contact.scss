@@ -1,0 +1,146 @@
+%sprite {
+    background: url('/img/sprite.png') no-repeat;
+    display: inline-block;
+    margin-right: 17px;
+    margin-top: 2px;
+}
+
+.artist-contact {
+    height: 225px;
+    font-size: 10pt;
+
+    .big-album {
+        width: 222px;
+        height: inherit;
+    }
+
+    .details, .big-album {
+        float: left;
+    }
+
+    .details {
+        margin-left: 15px;
+        width: 60%;
+    }
+
+    h1 {
+        width: inherit;
+        text-align: left;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        width: 85%;
+    }
+
+    .contact {
+        margin-top: -6px;
+    }
+
+    label {
+        margin-right: 5px;
+    }
+
+    .inline {
+        margin-bottom: 10px;
+
+        > label, div {
+            float: left;
+        }
+    }
+
+    .inline-contact {
+        margin-top: 20px;
+    }
+
+    .sprite {
+        @extend %sprite;
+    }
+
+    .icon-twitter {
+        @extend %sprite;
+        width: 22px;
+        height: 18px;
+        background-position: -71px -317px;
+    }
+
+    .icon-bandcamp {
+        @extend %sprite;
+        background-position: -50px -260px;
+        width: 47px;
+        height: 15px;
+        margin-top: 4px;
+    }
+
+    .icon-soundcloud {
+        @extend %sprite;
+        background-position: -9px -317px;
+        width: 43px;
+        height: 18px;
+    }
+
+    .icon-facebook {
+        @extend %sprite;
+        background-position: -122px -317px;
+        width: 9px;
+        height: 19px;
+    }
+
+    .icon-tumblr {
+        @extend %sprite;
+        background-position: -119px -258px;
+        width: 11px;
+        height: 18px;
+    }
+
+    .icon-email {
+        @extend %sprite;
+        background-position: -13px -347px;
+        width: 26px;
+        height: 18px;
+    }
+
+    .icon-twitter:hover {
+        @extend %sprite;
+        width: 22px;
+        height: 18px;
+        background-position: -117px -349px;
+    }
+
+    .icon-bandcamp:hover {
+        @extend %sprite;
+        background-position: -48px -289px;
+        width: 47px;
+        height: 15px;
+        margin-top: 4px;
+    }
+
+    .icon-soundcloud:hover {
+        @extend %sprite;
+        background-position: -54px -346px;
+        width: 43px;
+        height: 18px;
+    }
+
+    .icon-facebook:hover {
+        @extend %sprite;
+        background-position: -66px -375px;
+        width: 9px;
+        height: 19px;
+    }
+
+    .icon-tumblr:hover {
+        @extend %sprite;
+        background-position: -120px -288px;
+        width: 11px;
+        height: 18px;
+    }
+
+    .icon-email:hover {
+        @extend %sprite;
+        background-position: -14px -376px;
+        width: 26px;
+        height: 18px;
+    }
+}

@@ -1,0 +1,180 @@
+﻿@using System.Configuration
+
+@{
+    string title = "Music Battl - The ultimate battle ground!";
+    string description = "Fight your way to the top!";
+
+    string cdn = ConfigurationManager.AppSettings["cdn"].ToString();
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js ie ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie ie8"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js ie ie9"> <![endif]-->
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <meta name="apple-mobile-web-app-title" content="Music Battl">
+    @*<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">*@
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="application-name" content="Music Battl">
+
+    <title>@title</title>
+    <meta name="description" content="@description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- IE cleartype -->
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="musicbattl">
+    <meta name="twitter:creator" content="Music Battl">
+    <meta name="twitter:title" content="@title">
+    <meta name="twitter:description" content="@description">
+    <meta name="twitter:image:src" content="https://dl.dropboxusercontent.com/u/4633623/twitter.jpg">
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="fb:app_id" content="412165805518559">
+    <meta property="og:url" content="http://musicbattl.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@title">
+    <meta property="og:image" content="https://dl.dropboxusercontent.com/u/4633623/facebook.jpg" />
+    <meta property="og:description" content="@description">
+    <meta property="og:site_name" content="Music Battl">
+    <meta property="article:author" content="https://www.facebook.com/musicbattl">
+    <meta property="article:publisher" content="https://www.facebook.com/musicbattl">
+
+    <!-- Social: Google+ / Schema.org  -->
+    <meta itemprop="name" content="@title">
+    <meta itemprop="description" content="@description">
+    <meta itemprop="image" content="https://dl.dropboxusercontent.com/u/4633623/googleplus.jpg">
+
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 320px) and (max-width:480px)" href="@Fingerprint.Tag("/Content/build/mobile.css")" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 481px) and (max-width:768px)" href="@Fingerprint.Tag("/Content/build/mobile.css")" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 769px) and (max-width:960px)" href="@Fingerprint.Tag("/Content/build/mobile.css")" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width:961px)" href="@Fingerprint.Tag("/Content/build/site.css")" />
+</head>
+<body>
+    <div id="fb-root"></div>
+    <div class="main">
+        <!--MODAL-->
+        <div class="modal rounded-corners default-content-ph">
+            <div class="modal-overlay"></div>
+            <div class="modal-ph rounded-corners clearfix">
+            </div>
+        </div>
+        <!--END MODAL-->
+        <div class="page">
+            <div class="simple-version">
+                <div class="simple-version-message">
+                    <img src="@cdn/img/logo.png" width="269" height="124" alt="music battl" />
+                    <p>We're working on a simple version, hang on Rocker!</p>
+                </div>
+            </div>
+            <!--HEADER-->
+            <header class="header-ph clearfix">
+                <span class="beta">Beta</span>
+                <!--LOGO/MENU-->
+                <div class="menu">
+                    <img src="@cdn/img/logo.png" title="Music Battl" class="logo" width="269" height="124" />
+                    <div class="menu-bar default-content-ph tranparent-ui hidden">
+                        <div class="reflexo"></div>
+                        <div class="btn-home icons-bg"><span>Home</span></div>
+                        <div class="btn-charts-ranking icons-bg"><span>Charts</span></div>
+                        <div class="btn-artists icons-bg"><span>Artists</span></div>
+                    </div>
+                </div>
+                <!--END LOGO/MENU-->
+                <div class="login-languages">
+                    <!--LANGUAGES-->
+                    <div class="language-social">
+                        <div class="default-content-ph tranparent-ui">
+                            <div class="reflexo"></div>
+                        </div>
+                        <div class="bars-header hidden">
+                            <div class="bar animate"></div>
+                            <div class="bar animate"></div>
+                            <div class="bar animate"></div>
+                            <div class="bar animate"></div>
+                            <div class="bar animate"></div>
+                        </div>
+                        <img src="~/img/1435452041_black_1_speaker_.png" width="32" height="32" alt="muted" class="muted hidden" />
+                        <div class="drop-down hidden">
+                            <div class="drop-down-bg rounded-corners"></div>
+                            <div class="drop-down-selected">
+                                <div class="drop-down-flag icons-bg"><span class="drop-down-flag-culture">US</span></div>
+                            </div>
+                            <div class="drop-down-button">
+                                <div class="drop-down-button-knob icons-bg"></div>
+                            </div>
+                            <div class="drop-down-itens rounded-corners">
+                                <ul>
+                                    <li><span class="flag us icons-bg"></span><span class="culture">US</span></li>
+                                    <!--                                    <li><span class="flag br icons-bg"></span><span class="culture">BR</span></li>
+                                    <li><span class="flag de icons-bg"></span><span class="culture">DE</span></li>
+                                    <li><span class="flag fr icons-bg"></span><span class="culture">FR</span></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END LANGUAGES-->
+                    <!--LOGIN-->
+                    <div class="user-login clearfix">
+                        <div class="user-login-image default-content-ph tranparent-ui">
+                            <div class="">
+                                <div class="reflexo"></div>
+                            </div>
+                            <img class="profile-image" height="60" width="60" src="@cdn/Files/profile/small/profile-mini-user.png" alt="user" />
+                        </div>
+                        <div class="user-login-menu">
+                            <div class="default-content-ph tranparent-ui">
+                                <div class="reflexo"></div>
+                            </div>
+                            <span class="welcome-user user-login-font position-absolute">Welcome, </span>
+                            <span class="username user-login-font position-absolute"></span>
+                            <a href="#/site/sign-in" class="button-signin button-style position-absolute">
+                                <div class="sign-icon icons-bg"></div>
+                                <span>Sign In</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--END LOGIN-->
+                </div>
+            </header>
+
+            <!--CONTENT-->
+            <div class="content-ph clearfix">
+                @RenderBody()
+            </div>
+            <!--END CONTENT-->
+            <!--FOOTER-->
+            <footer class="footer-ph">
+                <a href="http://soundcloud.com" class="link-soundcloud" target="_blank" title="Powered by Soundcloud">
+                    <img width="104" height="32" class="powered-soundcloud" src="@cdn/img/powered_by_white-7ee4327cfbe5d678897edf6b6c5dd30f.png" alt="Powered by Soundcloud" />
+                </a>
+            </footer>
+            <!--END FOOTER-->
+        </div>
+    </div>
+    <script src="@cdn/scripts/build/bundle.js">window.cdnhost = "@cdn";</script>
+    <script data-main="@Fingerprint.Tag("/scripts/build/main")" src="/scripts/build/require.js"></script>
+</body>
+</html>

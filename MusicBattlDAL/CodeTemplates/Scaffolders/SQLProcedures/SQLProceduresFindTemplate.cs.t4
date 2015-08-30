@@ -1,0 +1,81 @@
+<#@Template Language="C#" HostSpecific="True" debug="True" #>
+<#@Output Extension=".sql" #>
+<#@Assembly name="System.Core" #>
+<#@Assembly name="System.Data"  #>
+<#@import namespace="System.Collections.Generic" #>
+<#@import namespace="System.Web"  #>
+<#@import namespace="System.Data"  #>
+<#@import namespace="System.Data.SqlClient"  #>
+<#@import namespace="System.Collections.Generic"  #>
+<#@import namespace="System.Configuration" #>
+<#@import namespace="System.Text" #>
+<#@include file="..\Functions\Utils.t4" #>
+<#
+	    string stringConnection = Model.DefaultConnection;
+        string sqlCommand = string.Format("SELECT * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME ='{0}' " , LowerModelName());   
+
+		StringBuilder procedure = new StringBuilder();
+
+		procedure.AppendFormat(" CREATE PROCEDURE [dbo].[{0}Find]\n ",LowerModelName());
+
+		procedure.AppendFormat(" @fromParam nvarchar(MAX) = ' {0} ', \n",LowerModelName());
+		procedure.Append(" @whereParam nvarchar(MAX) = NULL, \n");
+		procedure.Append(" @orderByParam nvarchar(MAX) = 'name' \n");
+
+        procedure.Append(" AS \n");
+        procedure.Append(" BEGIN \n");
+        procedure.Append(" SET NOCOUNT ON;	 \n");
+		procedure.Append(" DECLARE @query nvarchar(MAX)	 \n");		
+
+		procedure.Append(" DECLARE @from nvarchar(MAX)	 \n");		
+		procedure.Append(" SET @from = @fromParam	 \n");
+
+		procedure.Append(" DECLARE @where nvarchar(MAX)	 \n");		
+		procedure.Append(" SET @where = @whereParam	 \n");
+
+		procedure.Append(" DECLARE @orderBy nvarchar(MAX)	 \n");		
+		procedure.Append(" SET @orderBy = @orderByParam	 \n");
+
+		procedure.Append(" IF @orderByParam IS NOT NULL	 \n");
+		procedure.AppendFormat(" set @orderBy = '{0}Id DESC'	 \n",LowerModelName());
+
+		procedure.Append(" set @query = ' SELECT DISTINCT * FROM ' + @from + ' order by '+ @orderBy		 \n");
+		procedure.Append(" IF @whereParam IS NOT NULL	 \n");
+		procedure.Append(" set @query = 'SELECT DISTINCT * FROM ' + @from +' where '+ @where + ' order by '+ @orderBy	 \n");
+		procedure.Append(" EXEC(@query)	 \n");
+		procedure.Append(" END	 \n");
+
+        string test = procedure.ToString();
+
+		try
+		{
+		//EXECUTE COMMAND
+		using( SqlConnection conn = new SqlConnection(stringConnection) ) 
+		{
+            using( SqlCommand cmd = new SqlCommand(test , conn) )
+				{
+					conn.Open();
+					cmd.CommandType = CommandType.Text;
+					cmd.ExecuteNonQuery();
+					conn.Close();
+				}
+		}
+		}
+		catch (SqlException e) 
+		{
+
+        }
+#>
+
+<#=test#>
+
+<#+ 	
+	public string LowerModelName()
+    {
+		return Uncaptalized(Model.Name);
+    }
+	public string UpperModelName()
+    {
+		return Captalized(Model.Name);
+    }
+ #>

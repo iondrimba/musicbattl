@@ -1,0 +1,79 @@
+.user-profile {
+	.user-profile-img-container{
+		float:left;
+		width:154px;
+		height:154px;
+		margin-right:20px;
+		overflow-x: hidden;
+		text-align: center;
+	}
+	.user-profile-text {
+		float:left;
+
+		.button-style{
+			margin-top:20px;
+			width: 80px;
+		}
+	}
+
+    .user-favorites{
+        min-height: 424px;
+    }
+
+	.media-column-title {
+		width:100%!important;
+	}
+
+    .media-column .media-list-row-column-left {
+        text-align: right;
+    }
+
+	.versus-list {
+        .versus-min {
+            width:67px;
+            position:relative;
+            margin-left:0!important;
+        }
+
+        .media-item-text {
+            min-height: 60px;
+            span {
+                display:block;
+                font-size:8pt;
+            }
+        }
+
+		.media-item-text strong {
+			font-size:9pt;
+            font-weight:bold;
+		}
+		.media-list-row-column-right.media-item-text {
+			float: right!important;
+            margin-left: 10px;
+		}
+
+		.media-item-text-big-album {
+			width: 145px!important;
+		}
+	}
+
+	.versus-details {
+		width: 540px!important;
+	}
+
+	.versus-min {
+		margin-left: 45%!important;
+		position:absolute;
+	}
+
+    .versus-min-font {
+        font-size: 14pt;
+    }
+
+	.battls-won {
+		width: 98%!important;
+        .pagination {
+            margin-left: 31%;
+        }
+	}
+}

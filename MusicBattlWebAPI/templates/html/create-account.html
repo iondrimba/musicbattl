@@ -1,0 +1,66 @@
+﻿<h1 class="fontface-2">CREATE MY ACCOUNT</h1>
+<div class="create-account base-form">
+    <img src="img/ajax-loader.gif" alt="" class="loader hidden" />
+    <form method="post" action="/" class="formulario">
+        <div class="form-row">
+            <!--NAME-->
+            <div class="form-column">
+                <span class="form-label">User Name:</span>
+                <input type="text" name="name" value="" class="form-field name required">
+            </div>
+            <!--BIRTH DATE-->
+            <div class="form-column">
+                <span class="form-label">Birthdate:</span>
+                <input type="text" name="birthdate" value="" placeholder="dd/mm/yyyy" class="form-field date-field birthdate datebr">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-row">
+            <!--EMAIL-->
+            <div class="form-column">
+                <span class="form-label">Email:</span>
+                <input type="text" name="email" value="" class="form-field email required">
+            </div>
+            <div class="form-column">
+                <!--GENDER-->
+                <ul class="radio-group">
+                    <li class="radio-group-item active" data-val="M">
+                        <div class="radio-button-bg">
+                            <div class="radio-button-inner"></div>
+                        </div>
+                        <span class="form-label">Male</span></li>
+                    <li class="radio-group-item" data-val="F">
+                        <div class="radio-button-bg">
+                            <div class="radio-button-inner"></div>
+                        </div>
+                        <span class="form-label">Female</span></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-row">
+            <!--PASSWORD-->
+            <div class="form-column">
+                <span class="form-label">Password:</span>
+                <input type="password" name="password" value="" class="form-field password required">
+            </div>
+            <!--CONFIRM PASSWORD-->
+            <div class="form-column">
+                <span class="form-label">Confirm password:</span>
+                <input type="password" name="confirm-password" value="" class="form-field confirm-password required">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-row">
+            <div class="form-column">
+                <!--<button type="submit" class="button-style button-default btn-save">
+                    Create my account
+                </button>-->
+                <button type="submit" class="button-style button-default btn-save">Create my account</button>
+            </div>
+            <div class="form-column">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>

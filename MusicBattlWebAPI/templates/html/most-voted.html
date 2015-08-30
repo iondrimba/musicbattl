@@ -1,0 +1,19 @@
+﻿<!--MOST VOTED LIST-->
+<ul class="media-list clearfix">
+    {{#each data}}
+    <li class="media-list-row clearfix">
+        <div class="media-list-row-column-left mini-album rounded-corners opaque-content" data-name="{{this.ArtistName}}">
+            <div class="reflexo-mini"></div>
+            <img src="/img/album/mini/{{this.AlbumCover}}" class="rounded-corners" width="62" height="62" alt="{{this.ArtistName}}" />
+        </div>
+        <div class="media-list-row-column-right media-item-text clearfix">            
+            <h1>{{this.SongName}}</h1>
+            <h2>{{this.ArtistName}}</h2>
+            <div class="votes-numbers clearfix hidden">
+                <div class="positive icons-bg"><span class="votes-font">{{this.Total}}</span></div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+<!--END MOST VOTED ROW-->

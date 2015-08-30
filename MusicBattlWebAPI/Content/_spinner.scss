@@ -1,0 +1,251 @@
+/*
+ * 8989Created By: Ahmed Bouhuolia
+ * Twitter: http://twitter.com/abouolia
+ */
+
+// Variables Spinner
+$color_bg: #333;
+$color_border_spinner: #09C;
+$size_spinner: 130px;
+$size_border_spinner: 30px;
+$time_loop: 1s;
+
+.animate-spinner {
+    -webkit-animation-duration: $time_loop;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -o-animation-duration: $time_loop;
+    -moz-animation-duration: $time_loop;
+    animation-duration: $time_loop;
+    -o-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -o-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
+    -o-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -o-animation-direction: normal;
+    -moz-animation-direction: normal;
+    animation-direction: normal;
+    -o-animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.animate-spinner-right {
+    -webkit-animation-name: cssSpinnerRight;
+    -o-animation-name: cssSpinnerRight;
+    -moz-animation-name: cssSpinnerRight;
+    animation-name: cssSpinnerRight;
+    @extend .animate-spinner;
+}
+.animate-spinner-left {
+    -webkit-animation-name: cssSpinnerLeft;
+    -o-animation-name: cssSpinnerLeft;
+    -moz-animation-name: cssSpinnerLeft;
+    animation-name: cssSpinnerLeft;
+    @extend .animate-spinner;
+}
+
+.spinner-css {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    height: $size_spinner;
+    width: $size_spinner;
+    border-radius: 999px;
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: $size_spinner - $size_border_spinner;
+        height: $size_spinner - $size_border_spinner;
+        left: 0;
+        top: 0;
+        margin: $size_border_spinner / 2;
+        background: $color_bg;
+        opacity: 1;
+        border-radius: 999px;
+    }
+
+    .side {
+        height: $size_spinner;
+        width: $size_spinner / 2;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+
+        > .fill {
+            position: absolute;
+            width: ($size_spinner / 2) + 1;
+            height: $size_spinner;
+            background: $color_border_spinner;
+            border-radius: 999px;
+            -webkit-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            box-shadow: inset 0 0 10px #0077F8;
+        }
+
+        &.sp_right {
+            left: $size_spinner / 2;
+            border-radius: 0 999px 999px 0;
+
+            > .fill {
+                right: 0;
+                border-right: $size_spinner / 2 solid $color_bg;
+            }
+        }
+
+        &.sp_left {
+            left: 0;
+            border-radius: 999px 0 0 999px;
+
+            > .fill {
+                left: 0;
+                border-left: $size_spinner / 2 solid $color_bg;
+            }
+        }
+    }
+}
+@-webkit-keyframes cssSpinnerRight{
+    50% {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-webkit-keyframes cssSpinnerLeft{
+    50% {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-moz-keyframes cssSpinnerRight{
+    50% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    100% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-moz-keyframes cssSpinnerLeft{
+    50% {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-o-keyframes cssSpinnerRight{
+    50% {
+        -o-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    100% {
+        -o-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-o-keyframes cssSpinnerLeft{
+    50% {
+        -o-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -o-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes cssSpinnerRight{
+    50% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    100% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes cssSpinnerLeft{
+    50% {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}

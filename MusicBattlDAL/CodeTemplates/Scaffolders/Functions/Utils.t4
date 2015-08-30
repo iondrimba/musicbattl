@@ -1,0 +1,68 @@
+﻿<#+ 
+
+	private string SQlDBTypeToDotNetType( string dbType, string isNullable)
+    {
+		string retorno = string.Empty;
+		switch (dbType)
+		{
+			case "int":
+				retorno = "int" + IsNullable(isNullable);
+				break;
+			case "nvarchar":
+			case "char":
+			case "varchar":
+			case "text":
+			case "ntext":
+				retorno = "string";
+				break;		
+			case "bit":
+				retorno = "bool" + IsNullable(isNullable);
+				break;
+			case "date":
+				retorno = "Date" + IsNullable(isNullable);
+				break;		
+			case "datetime":
+				retorno = "DateTime" + IsNullable(isNullable);
+				break;		
+			case "decimal":
+				retorno = "decimal" + IsNullable(isNullable);
+				break;		
+			case "float":
+				retorno = "float"+ IsNullable(isNullable);
+				break;		
+			case "money":
+				retorno = "double" + IsNullable(isNullable);
+				break;		
+			default:
+				retorno = "string" + IsNullable(isNullable);
+				break;
+		}	
+
+		return retorno;
+    } 
+
+	private string IsNullable(string isNullable)
+    {
+		string retorno=string.Empty;
+
+		if(isNullable=="YES")
+        {
+			retorno="?";
+        }
+
+		return retorno;
+    }
+
+	private string Captalized(string name)
+    {
+		// Return char and concat substring.
+		return char.ToUpper(name[0]) + name.Substring(1);
+    }
+
+	private string Uncaptalized(string name)
+    {
+		// Return char and concat substring.
+		return char.ToLower(name[0]) + name.Substring(1);
+    }
+
+ #>

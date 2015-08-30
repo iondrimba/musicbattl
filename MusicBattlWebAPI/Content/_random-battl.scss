@@ -1,0 +1,48 @@
+.random-battl {
+	padding:20px;
+	border:1px solid black;
+	background-color:#2d2d2d;
+	box-shadow: inset 0 1px 0 0 #4d4d4f;
+	margin-top:20px;
+
+	span {
+		float: left;
+		position: relative;
+		left: 0px;
+		top: 6px;
+		color: #AFAFAF;
+		font-size: 44pt;
+	}
+	.random-battl-item {
+		h1 {
+			text-align:left;
+		}
+
+		.big-album  {
+			margin-right:10px;
+		}
+		div {
+			float:left;
+		}
+	}
+}
+.random-battl-button-save {
+	position: relative;
+	left: 30%;
+	width: 220px;
+	margin-top: 20px;
+}
+
+.random-battl >	:first-child {
+	float:left;
+}
+
+.random-battl > :last-child {
+	float:right;
+}
+
+.random-battl:after {
+	content:'';
+	display:block;
+	clear:both;
+}

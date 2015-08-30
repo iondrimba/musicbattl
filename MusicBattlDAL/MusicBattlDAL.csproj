@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5BF1631-D336-4463-B553-0905D1666886}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicBattlDAL</RootNamespace>
+    <AssemblyName>MusicBattlDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mysql.data">
+      <HintPath>C:\Users\ION\Downloads\mysql-connector-net-6.6.4-noinstall\v4\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.entity">
+      <HintPath>C:\Users\ION\Downloads\mysql-connector-net-6.6.4-noinstall\v4\mysql.data.entity.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.visualstudio">
+      <HintPath>C:\Users\ION\Downloads\mysql-connector-net-6.6.4-noinstall\v4\mysql.visualstudio.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.web">
+      <HintPath>C:\Users\ION\Downloads\mysql-connector-net-6.6.4-noinstall\v4\mysql.web.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="abstracts\AbstractBaseDataAccess.cs" />
+    <Compile Include="CodeTemplates\Scaffolders\Functions\Utils.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Utils.t4</DependentUpon>
+    </Compile>
+    <Compile Include="concrete\DataQuery.cs" />
+    <Compile Include="concrete\DynamicLibrary.cs" />
+    <Compile Include="concrete\NoDataBaseAccess.cs" />
+    <Compile Include="concrete\SQLServerDataBaseAccess.cs" />
+    <Compile Include="enums\EnumOwnerTable.cs" />
+    <Compile Include="enums\EnumSocialType.cs" />
+    <Compile Include="models\Action.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\ActivityLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Address.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Album.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\ArtistContact.cs" />
+    <Compile Include="models\Artist.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Battl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Discography.cs" />
+    <Compile Include="models\interfaces\IAction.cs" />
+    <Compile Include="models\interfaces\IActivityLog.cs" />
+    <Compile Include="models\interfaces\IAddress.cs" />
+    <Compile Include="models\interfaces\IAlbum.cs" />
+    <Compile Include="models\interfaces\IArtistContact.cs" />
+    <Compile Include="models\interfaces\IArtist.cs" />
+    <Compile Include="models\interfaces\IBattl.cs" />
+    <Compile Include="models\interfaces\IDiscography.cs" />
+    <Compile Include="models\interfaces\IOwnerTable.cs" />
+    <Compile Include="models\interfaces\IProfile.cs" />
+    <Compile Include="models\interfaces\ISocial.cs" />
+    <Compile Include="models\interfaces\ISong.cs" />
+    <Compile Include="models\interfaces\ITag.cs" />
+    <Compile Include="models\interfaces\IUsuario.cs" />
+    <Compile Include="models\interfaces\IViewActivityByHour.cs" />
+    <Compile Include="models\interfaces\IViewAlbumArtistSongTotalVotes.cs" />
+    <Compile Include="models\interfaces\IViewAlbumArtistSongTotalVotesByArtist.cs" />
+    <Compile Include="models\interfaces\IViewArtistContact.cs" />
+    <Compile Include="models\interfaces\IViewArtists.cs" />
+    <Compile Include="models\interfaces\IViewBattl.cs" />
+    <Compile Include="models\interfaces\IViewBattlResults.cs" />
+    <Compile Include="models\interfaces\IViewGenderTotal.cs" />
+    <Compile Include="models\interfaces\IViewPastBattls.cs" />
+    <Compile Include="models\interfaces\IViewTopAlbums.cs" />
+    <Compile Include="models\interfaces\IViewTopSongs.cs" />
+    <Compile Include="models\interfaces\IViewTopUsers.cs" />
+    <Compile Include="models\interfaces\IViewUserAgesGrouped.cs" />
+    <Compile Include="models\interfaces\IViewUserBattlResult.cs" />
+    <Compile Include="models\interfaces\IViewUserFavoritesSongs.cs" />
+    <Compile Include="models\interfaces\IViewUserTotalVotes.cs" />
+    <Compile Include="models\interfaces\IVote.cs" />
+    <Compile Include="models\OwnerTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Profile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Social.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Song.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Tag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\Usuario.cs" />
+    <Compile Include="models\ViewActivityByHour.cs" />
+    <Compile Include="models\ViewAlbumArtistSongTotalVotes.cs" />
+    <Compile Include="models\ViewAlbumArtistSongTotalVotesByArtist.cs" />
+    <Compile Include="models\ViewArtistContact.cs" />
+    <Compile Include="models\ViewArtists.cs" />
+    <Compile Include="models\ViewBattl.cs" />
+    <Compile Include="models\ViewBattlResults.cs" />
+    <Compile Include="models\ViewGenderTotal.cs" />
+    <Compile Include="models\ViewPastBattls.cs" />
+    <Compile Include="models\ViewTopAlbums.cs" />
+    <Compile Include="models\ViewTopSongs.cs" />
+    <Compile Include="models\ViewTopUsers.cs" />
+    <Compile Include="models\ViewUserAges.cs" />
+    <Compile Include="models\ViewUserBattlResult.cs" />
+    <Compile Include="models\ViewUserFavoritesSongs.cs" />
+    <Compile Include="models\ViewUserTotalVotes.cs" />
+    <Compile Include="models\Vote.cs" />
+    <Compile Include="repositories\ActionRepository.cs" />
+    <Compile Include="repositories\ActivityLogRepository.cs" />
+    <Compile Include="repositories\AddressRepository.cs" />
+    <Compile Include="repositories\AlbumRepository.cs" />
+    <Compile Include="repositories\ArtistContactRepository.cs" />
+    <Compile Include="repositories\ArtistRepository.cs" />
+    <Compile Include="repositories\BattlRepository.cs" />
+    <Compile Include="repositories\interfaces\IViewAlbumArtistSongTotalVotesByArtistQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewArtistContactQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewAlbumArtistSongTotalVotesByArtistQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewArtistContactQueryParams.cs" />
+    <Compile Include="repositories\ViewAlbumArtistSongTotalVotesByArtistRepository.cs" />
+    <Compile Include="repositories\ViewAlbumArtistSongTotalVotesRepository_Part1.cs" />
+    <Compile Include="repositories\interfaces\IViewActivityByHourQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewArtistsQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewBattlQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewGenderTotalQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewUserAgesGroupedQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewActivityByHourQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewArtistsQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewBattlQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewGenderTotalQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewUserAgesGroupedQueryParams.cs" />
+    <Compile Include="repositories\ViewActivityByHourRepository.cs" />
+    <Compile Include="repositories\ViewArtistContactRepository.cs" />
+    <Compile Include="repositories\ViewArtistsRepository.cs" />
+    <Compile Include="repositories\ViewBattlRepository.cs" />
+    <Compile Include="repositories\ViewGenderTotalRepository.cs" />
+    <Compile Include="repositories\ViewTopAlbumsRepository_Part1.cs" />
+    <Compile Include="repositories\DiscographyRepository.cs" />
+    <Compile Include="repositories\interfaces\IActionQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IActivityLogQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IAddressQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IAlbumQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IArtistQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IBattlQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IDiscographyQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IProfileQueryParams.cs" />
+    <Compile Include="repositories\interfaces\ISocialQueryParams.cs" />
+    <Compile Include="repositories\interfaces\ISongQueryParams.cs" />
+    <Compile Include="repositories\interfaces\ITagQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IUsuarioQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewAlbumArtistSongTotalVotesQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewBattlResultsQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewPastBattlsQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewTopAlbumsQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewTopSongsQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewTopUsersQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewUserBattlResultQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewUserFavoritesSongsQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IViewUserTotalVotesQueryParams.cs" />
+    <Compile Include="repositories\interfaces\IVoteQueryParams.cs" />
+    <Compile Include="repositories\ProfileRepository.cs" />
+    <Compile Include="repositories\queryparams\ActionQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ActivityLogQueryParams.cs" />
+    <Compile Include="repositories\queryparams\AddressQueryParams.cs" />
+    <Compile Include="repositories\queryparams\AlbumQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ArtistQueryParams.cs" />
+    <Compile Include="repositories\queryparams\BattlQueryParams.cs" />
+    <Compile Include="repositories\queryparams\DiscographyQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ProfileQueryParams.cs" />
+    <Compile Include="repositories\queryparams\SocialQueryParams.cs" />
+    <Compile Include="repositories\queryparams\SongQueryParams.cs" />
+    <Compile Include="repositories\queryparams\TagQueryParams.cs" />
+    <Compile Include="repositories\queryparams\UsuarioQueryParams.cs" />
+    <Compile Include="repositories\queryparams\viewAlbumArtistSongTotalVotesQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewBattlResultsQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewPastBattlsQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewTopAlbumsQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewTopSongsQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewTopUsersQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewUserBattlResultQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewUserFavoritesSongsQueryParams.cs" />
+    <Compile Include="repositories\queryparams\ViewUserTotalVotesQueryParams.cs" />
+    <Compile Include="repositories\queryparams\VoteQueryParams.cs" />
+    <Compile Include="repositories\SocialRepository.cs" />
+    <Compile Include="repositories\SongRepository.cs" />
+    <Compile Include="repositories\TagRepository.cs" />
+    <Compile Include="repositories\UsuarioRepository.cs" />
+    <Compile Include="repositories\ViewAlbumArtistSongTotalVotesRepository.cs" />
+    <Compile Include="repositories\ViewBattlResultsRepository.cs" />
+    <Compile Include="repositories\ViewPastBattlsRepository.cs" />
+    <Compile Include="repositories\ViewTopAlbumsRepository.cs" />
+    <Compile Include="repositories\ViewTopSongsRepository.cs" />
+    <Compile Include="repositories\ViewTopUsersRepository.cs" />
+    <Compile Include="repositories\ViewUserAgesGroupedRepository.cs" />
+    <Compile Include="repositories\ViewUserBattlResultRepository.cs" />
+    <Compile Include="repositories\ViewUserFavoritesSongsRepository.cs" />
+    <Compile Include="repositories\ViewUserTotalVotesRepository.cs" />
+    <Compile Include="repositories\VoteRepository.cs" />
+    <Compile Include="UsuarioNoDataBaseRepository.cs" />
+    <Compile Include="DataBaseFactory.cs" />
+    <Compile Include="interfaces\IRepository.cs" />
+    <Compile Include="interfaces\IDataBaseAccess.cs" />
+    <Compile Include="interfaces\IDataBaseFactory.cs" />
+    <Compile Include="interfaces\IDataQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Procedures\ActionAdd.sql" />
+    <Content Include="Procedures\ActionFind.sql" />
+    <Content Include="Procedures\ActionGetTop.sql" />
+    <Content Include="Procedures\ActionRemove.sql" />
+    <Content Include="Procedures\ActionUpdate.sql" />
+    <Content Include="Procedures\ActivityLogAdd.sql" />
+    <Content Include="Procedures\ActivityLogFind.sql" />
+    <Content Include="Procedures\ActivityLogGetTop.sql" />
+    <Content Include="Procedures\ActivityLogRemove.sql" />
+    <Content Include="Procedures\ActivityLogUpdate.sql" />
+    <Content Include="Procedures\AddressAdd.sql" />
+    <Content Include="Procedures\AddressFind.sql" />
+    <Content Include="Procedures\AddressGetTop.sql" />
+    <Content Include="Procedures\AddressRemove.sql" />
+    <Content Include="Procedures\AddressUpdate.sql" />
+    <Content Include="Procedures\AlbumAdd.sql" />
+    <Content Include="Procedures\AlbumFind.sql" />
+    <Content Include="Procedures\AlbumGetTop.sql" />
+    <Content Include="Procedures\AlbumRemove.sql" />
+    <Content Include="Procedures\AlbumUpdate.sql" />
+    <Content Include="Procedures\ArtistAdd.sql" />
+    <Content Include="Procedures\ArtistFind.sql" />
+    <Content Include="Procedures\ArtistGetTop.sql" />
+    <Content Include="Procedures\ArtistRemove.sql" />
+    <Content Include="Procedures\ArtistUpdate.sql" />
+    <Content Include="Procedures\BattlAdd.sql" />
+    <Content Include="Procedures\BattlFind.sql" />
+    <Content Include="Procedures\BattlGetTop.sql" />
+    <Content Include="Procedures\BattlRemove.sql" />
+    <Content Include="Procedures\BattlUpdate.sql" />
+    <Content Include="Procedures\DiscographyAdd.sql" />
+    <Content Include="Procedures\DiscographyFind.sql" />
+    <Content Include="Procedures\DiscographyGetTop.sql" />
+    <Content Include="Procedures\DiscographyRemove.sql" />
+    <Content Include="Procedures\DiscographyUpdate.sql" />
+    <Content Include="Procedures\ProfileAdd.sql" />
+    <Content Include="Procedures\ProfileFind.sql" />
+    <Content Include="Procedures\ProfileGetTop.sql" />
+    <Content Include="Procedures\ProfileRemove.sql" />
+    <Content Include="Procedures\ProfileUpdate.sql" />
+    <Content Include="Procedures\SocialAdd.sql" />
+    <Content Include="Procedures\SocialFind.sql" />
+    <Content Include="Procedures\SocialGetTop.sql" />
+    <Content Include="Procedures\SocialRemove.sql" />
+    <Content Include="Procedures\SocialUpdate.sql" />
+    <Content Include="Procedures\SongAdd.sql" />
+    <Content Include="Procedures\SongFind.sql" />
+    <Content Include="Procedures\SongGetTop.sql" />
+    <Content Include="Procedures\SongRemove.sql" />
+    <Content Include="Procedures\SongUpdate.sql" />
+    <Content Include="Procedures\TagAdd.sql" />
+    <Content Include="Procedures\TagFind.sql" />
+    <Content Include="Procedures\TagGetTop.sql" />
+    <Content Include="Procedures\TagRemove.sql" />
+    <Content Include="Procedures\TagUpdate.sql" />
+    <Content Include="Procedures\UsuarioAdd.sql" />
+    <Content Include="Procedures\UsuarioFind.sql" />
+    <Content Include="Procedures\UsuarioGetTop.sql" />
+    <Content Include="Procedures\UsuarioRemove.sql" />
+    <Content Include="Procedures\UsuarioUpdate.sql" />
+    <Content Include="Procedures\ViewActivityByHourAdd.sql" />
+    <Content Include="Procedures\ViewActivityByHourFind.sql" />
+    <Content Include="Procedures\ViewActivityByHourGetTop.sql" />
+    <Content Include="Procedures\ViewActivityByHourRemove.sql" />
+    <Content Include="Procedures\ViewActivityByHourUpdate.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesAdd.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesByArtistAdd.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesByArtistFind.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesByArtistGetTop.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesByArtistRemove.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesByArtistUpdate.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesFind.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesGetTop.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesRemove.sql" />
+    <Content Include="Procedures\ViewAlbumArtistSongTotalVotesUpdate.sql" />
+    <Content Include="Procedures\ViewArtistContactAdd.sql" />
+    <Content Include="Procedures\ViewArtistContactFind.sql" />
+    <Content Include="Procedures\ViewArtistContactGetTop.sql" />
+    <Content Include="Procedures\ViewArtistContactRemove.sql" />
+    <Content Include="Procedures\ViewArtistContactUpdate.sql" />
+    <Content Include="Procedures\ViewArtistsAdd.sql" />
+    <Content Include="Procedures\ViewArtistsFind.sql" />
+    <Content Include="Procedures\ViewArtistsGetTop.sql" />
+    <Content Include="Procedures\ViewArtistsRemove.sql" />
+    <Content Include="Procedures\ViewArtistsUpdate.sql" />
+    <Content Include="Procedures\ViewBattlAdd.sql" />
+    <Content Include="Procedures\ViewBattlFind.sql" />
+    <Content Include="Procedures\ViewBattlGetTop.sql" />
+    <Content Include="Procedures\ViewBattlRemove.sql" />
+    <Content Include="Procedures\ViewBattlResultsAdd.sql" />
+    <Content Include="Procedures\ViewBattlResultsFind.sql" />
+    <Content Include="Procedures\ViewBattlResultsGetTop.sql" />
+    <Content Include="Procedures\ViewBattlResultsRemove.sql" />
+    <Content Include="Procedures\ViewBattlResultsUpdate.sql" />
+    <Content Include="Procedures\ViewBattlUpdate.sql" />
+    <Content Include="Procedures\ViewGenderTotalAdd.sql" />
+    <Content Include="Procedures\ViewGenderTotalFind.sql" />
+    <Content Include="Procedures\ViewGenderTotalGetTop.sql" />
+    <Content Include="Procedures\ViewGenderTotalRemove.sql" />
+    <Content Include="Procedures\ViewGenderTotalUpdate.sql" />
+    <Content Include="Procedures\ViewPastBattlsAdd.sql" />
+    <Content Include="Procedures\ViewPastBattlsFind.sql" />
+    <Content Include="Procedures\ViewPastBattlsGetTop.sql" />
+    <Content Include="Procedures\ViewPastBattlsRemove.sql" />
+    <Content Include="Procedures\ViewPastBattlsUpdate.sql" />
+    <Content Include="Procedures\ViewTopAlbumsAdd.sql" />
+    <Content Include="Procedures\ViewTopAlbumsFind.sql" />
+    <Content Include="Procedures\ViewTopAlbumsGetTop.sql" />
+    <Content Include="Procedures\ViewTopAlbumsRemove.sql" />
+    <Content Include="Procedures\ViewTopAlbumsUpdate.sql" />
+    <Content Include="Procedures\ViewTopSongsAdd.sql" />
+    <Content Include="Procedures\ViewTopSongsFind.sql" />
+    <Content Include="Procedures\ViewTopSongsGetTop.sql" />
+    <Content Include="Procedures\ViewTopSongsRemove.sql" />
+    <Content Include="Procedures\ViewTopSongsUpdate.sql" />
+    <Content Include="Procedures\ViewTopUsersAdd.sql" />
+    <Content Include="Procedures\ViewTopUsersFind.sql" />
+    <Content Include="Procedures\ViewTopUsersGetTop.sql" />
+    <Content Include="Procedures\ViewTopUsersRemove.sql" />
+    <Content Include="Procedures\ViewTopUsersUpdate.sql" />
+    <Content Include="Procedures\ViewUserAgesGroupedAdd.sql" />
+    <Content Include="Procedures\ViewUserAgesGroupedFind.sql" />
+    <Content Include="Procedures\ViewUserAgesGroupedGetTop.sql" />
+    <Content Include="Procedures\ViewUserAgesGroupedRemove.sql" />
+    <Content Include="Procedures\ViewUserAgesGroupedUpdate.sql" />
+    <Content Include="Procedures\ViewUserBattlResultAdd.sql" />
+    <Content Include="Procedures\ViewUserBattlResultFind.sql" />
+    <Content Include="Procedures\ViewUserBattlResultGetTop.sql" />
+    <Content Include="Procedures\ViewUserBattlResultRemove.sql" />
+    <Content Include="Procedures\ViewUserBattlResultUpdate.sql" />
+    <Content Include="Procedures\ViewUserFavoritesSongsAdd.sql" />
+    <Content Include="Procedures\ViewUserFavoritesSongsFind.sql" />
+    <Content Include="Procedures\ViewUserFavoritesSongsGetTop.sql" />
+    <Content Include="Procedures\ViewUserFavoritesSongsRemove.sql" />
+    <Content Include="Procedures\ViewUserFavoritesSongsUpdate.sql" />
+    <Content Include="Procedures\ViewUserTotalVotesAdd.sql" />
+    <Content Include="Procedures\ViewUserTotalVotesFind.sql" />
+    <Content Include="Procedures\ViewUserTotalVotesGetTop.sql" />
+    <Content Include="Procedures\ViewUserTotalVotesRemove.sql" />
+    <Content Include="Procedures\ViewUserTotalVotesUpdate.sql" />
+    <Content Include="Procedures\VoteAdd.sql" />
+    <Content Include="Procedures\VoteFind.sql" />
+    <Content Include="Procedures\VoteGetTop.sql" />
+    <Content Include="Procedures\VoteRemove.sql" />
+    <Content Include="Procedures\VoteUpdate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CodeTemplates\Scaffolders\Functions\Utils.t4">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Utils.cs</LastGenOutput>
+    </None>
+    <None Include="CodeTemplates\Scaffolders\POCOEntities\POCOEntitiesTemplateInterface.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\POCOEntities\POCOEntities.ps1" />
+    <None Include="CodeTemplates\Scaffolders\POCOEntities\POCOEntitiesTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\Repositories\QueryParamsTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\Repositories\IQueryParamsTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\Repositories\Repositories.ps1" />
+    <None Include="CodeTemplates\Scaffolders\Repositories\RepositoriesTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\SQLProcedures\SQLProceduresGetTopTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\SQLProcedures\SQLProceduresRemoveTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\SQLProcedures\SQLProceduresUpdateTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\SQLProcedures\SQLProceduresFindTemplate.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\SQLProcedures\SQLProcedures.ps1" />
+    <None Include="CodeTemplates\Scaffolders\SQLProcedures\SQLProceduresAddTemplate.cs.t4" />
+    <None Include="DataAccessDiagram.cd" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

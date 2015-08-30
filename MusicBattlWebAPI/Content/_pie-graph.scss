@@ -1,0 +1,62 @@
+.pie-graph{
+	.pie-graph-item{
+		float:left;
+		width:230px;
+		margin-left: 30px;
+	}
+
+	.pie-graph-bg {
+		background:#252427;
+		width:130px;
+		height:130px;
+		float:left;
+		margin-top: 10px;
+		border-radius: 90px; /* future proofing */
+
+		canvas {
+			margin-left: 2.5%;
+			margin-top: 2.1%;
+		}
+	}
+
+	.pie-graph-legend{
+		float:left;
+		margin-left: 20px;
+		margin-top: 44px;
+
+		li {
+			clear:both;
+			margin-bottom:10px;
+			height:17px;
+		}
+	}
+
+	.pie-graph-legend-icon{
+		width:17px;
+		height:17px;
+		background:#ff0;
+		float:left;
+		border-radius: 90px; /* future proofing */
+	}
+
+	.pie-graph-legend-text{
+		float:left;
+		margin-left: 10px;
+	}
+
+	.male {
+		background:#006699;
+	}
+
+	.female {
+		background:#ff66ff;
+	}
+
+	.day{
+		background:#000033;
+	}
+
+	.night {
+		background:#ffff00;
+	}
+}

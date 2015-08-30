@@ -1,0 +1,15 @@
+﻿<ul class="artist-list">
+    {{#each data}}
+    <li class="default-content-ph tranparent-ui" data-name="{{this.Name}}" data-id="{{this.ArtistId}}">
+        <div class="big-album rounded-corners">
+            <div class="reflexo-big"></div>
+            {{#if this.Picture}}
+            <img src="/img/artist/mini/{{this.Picture}}" class="rounded-corners" width="78" height="78" alt="{{this.Name}}" />
+            {{/if}}
+        </div>
+        <div class="">
+            <h1 class="artist-font">{{this.Name}}</h1>
+        </div>
+    </li>
+    {{/each}}
+</ul>

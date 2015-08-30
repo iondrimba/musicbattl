@@ -1,0 +1,93 @@
+@mixin rouded-corner ($value) {
+    border-radius: $value;
+}
+
+.base-form {
+    .form-column {
+        float: left;
+        margin-right: 20px;
+        width: 46%;
+        position: relative;
+    }
+
+    .btn-save {
+        width: 100%;
+    }
+
+    .form-row {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .form-field {
+        margin-top: 10px;
+        width: 98%;
+        height: 28px;
+        border-radius: 3px;
+        border: 1px solid #CCC;
+        text-indent: 7px;
+        @extend .rounded-corners;
+    }
+
+    .date-field {
+        width: 110px !important;
+    }
+
+    .radio-group {
+        margin-top: 30px;
+        content: '';
+        clear: both;
+        display: block;
+
+        .radio-group-item {
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .active {
+            .radio-button-inner {
+                display: block;
+            }
+        }
+
+        .radio-group-item:hover {
+            @extend .active;
+        }
+
+        .radio-group-item:active {
+            .radio-button-inner {
+                background: #0483e8;
+                display: block;
+            }
+        }
+
+        .radio-button-bg {
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            float: left;
+
+            @include rouded-corner(90px);
+        }
+
+        .radio-button-inner {
+            width: 10px;
+            height: 10px;
+            background: #111;
+            left: 5px;
+            top: 5px;
+            position: relative;
+            display: none;
+
+            @include rouded-corner(90px);
+        }
+
+        span {
+            display: inline-block;
+            margin-left: 10px;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+﻿<!--LEFT COLUM-->
+<div class="battle-album-column battle-column-left">
+    <div class="trophy-animation-ph"></div>
+    <div class="battle-album">
+        
+        <!--VOTING WIDGET-->
+        <div class="voting-widget-ph">
+            <div class="play hidden" data-songid="{{[0].SongId}}" data-songurl="{{[0].SongUrl}}">
+                <span class="play-icon"></span>
+                <div class="bg"></div>
+            </div>
+            <div class="pause hidden" data-songid="{{[0].SongId}}" data-songurl="{{[0].SongUrl}}">
+                <span class="pause-icon"></span>
+                <div class="bg"></div>
+            </div>
+            <div class="loading hidden">
+                <img src="/img/ajax-loader-song.gif" width="16" height="16" alt="loading..." />
+                <div class="bg"></div>
+            </div>
+            <div class="star hidden" data-songid="{{[0].SongId}}" data-battlid="{{[0].BattlId}}">
+                <span class="star-icon"></span>
+                <div class="bg"></div>
+            </div>
+            <div class="bg">
+            </div>
+            <div class="bg-circle hidden">
+            </div>
+            <div class="loader-circle hidden">
+                <div class="spinner-css">
+                    <span class="side sp_left">
+                        <span class="fill"></span>
+                    </span>
+                    <span class="side sp_right">
+                        <span class="fill"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="inner-circle hidden">
+                <i class="divider"></i>
+            </div>
+        </div>
+
+        <!--NAMES-->
+        <div class="song-artist-album" style="visibility:hidden">
+            <h1 class="fontface-1">{{[0].SongName}}</h1>
+            <h2 class="fontface-3">{{[0].AlbumName}}</h2>
+            <h3 class="fontface-3">{{[0].ArtistName}}</h3>
+        </div>
+        <!--IMAGE-->
+        <div class="battle-album-img battle-album-ph needsclick">
+            <img src="/img/album/{{[0].AlbumCover}}" width="220" height="220" alt="{{[0].AlbumName}}" />
+        </div>
+        <!--BACKGROUND-->
+        <div class="battle-album-inner-folder">
+            <img src="/img/battle-album-inner-folder.png" width="17" height="218" alt="" />
+        </div>
+        <div class="battle-album-disc-left">
+            <img src="/img/disc.png" width="211" height="213" />
+        </div>
+    </div>
+
+    <!--STATUS BAR-->
+    <div class="status-bar">
+        <div class="default-content-ph tranparent-ui">
+            <div class="reflexo"></div>
+        </div>
+        <div class="status-bar-ph">
+            <div class="status-bar-bg rounded-corners"></div>
+            <div class="status-bar-line rounded-corners"></div>
+        </div>
+    </div>
+    <!--END STATUS BAR-->
+</div>
+<!--END LEFT COLUM-->
+
+<div class="battle-column-middle clock">
+
+    <div class="battle-timer clearfix">
+        <div class="count-right count"></div>
+        <div class="count-left count"></div>
+    </div>
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+    <span class="versus hidden">VS</span>
+</div>
+
+<!--RIGHT COLUM-->
+<div class="battle-album-column battle-column-right">
+    <div class="trophy-animation-ph"></div>
+    <div class="battle-album battle-album-right">
+       
+        <!--VOTING WIDGET-->
+        <div class="voting-widget-ph">
+            <div class="play hidden" data-songid="{{[1].SongId}}" data-songurl="{{[1].SongUrl}}">
+                <span class="play-icon"></span>
+                <div class="bg"></div>                
+            </div>
+            <div class="pause hidden" data-songid="{{[1].SongId}}" data-songurl="{{[1].SongUrl}}">
+                <span class="pause-icon"></span>
+                <div class="bg"></div>                
+            </div>
+            <div class="loading hidden">
+                <img src="/img/ajax-loader-song.gif" width="16" height="16" alt="loading..." />
+                <div class="bg"></div>                
+            </div>
+            <div class="star hidden" data-songid="{{[1].SongId}}" data-battlid="{{[1].BattlId}}">
+                <span class="star-icon"></span>
+                <div class="bg"></div>                
+            </div>
+            <div class="bg">
+            </div>
+            <div class="bg-circle hidden">
+            </div>
+            <div class="loader-circle hidden">
+                <div class="spinner-css animate-spinner-right">
+                    <span class="side sp_left">
+                        <span class="fill"></span>
+                    </span>
+                    <span class="side sp_right">
+                        <span class="fill"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="inner-circle hidden">
+                <i class="divider"></i>
+            </div>
+        </div>
+
+        <!--NAMES-->
+        <div class="song-artist-album clearfix" style="visibility:hidden">
+            <h1 class="fontface-1">{{[1].SongName}}</h1>
+            <h2 class="fontface-3">{{[1].AlbumName}}</h2>
+            <h3 class="fontface-3">{{[1].ArtistName}}</h3>
+        </div>
+        <!--IMAGE-->
+        <div class="battle-album-img-right battle-album-ph needsclick">
+            <img src="/img/album/{{[1].AlbumCover}}" width="220" height="220" alt="{{[1].AlbumName}}" />
+        </div>
+        <!--BACKGROUND-->
+        <div class="battle-album-inner-folde-right">
+            <img src="/img/battle-album-inner-folder.png" class="flip-image" width="17" height="218" alt="" />
+        </div>
+        <div class="battle-album-disc-right">
+            <img src="/img/disc.png" width="211" height="213" />
+        </div>
+    </div>
+
+    <!--STATUS BAR-->
+    <div class="status-bar">
+        <div class="default-content-ph tranparent-ui">
+            <div class="reflexo"></div>
+        </div>
+        <div class="status-bar-ph">
+            <div class="status-bar-bg rounded-corners"></div>
+            <div class="status-bar-line rounded-corners"></div>
+        </div>
+    </div>
+    <!--END STATUS BAR-->
+</div>
+<!--END RIGHT COLUM-->

@@ -1,0 +1,167 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+
+using System;
+using System.Collections.Generic;
+using <#= Model.Namespace #>.interfaces;
+using MusicBattlDAL.interfaces;
+using MusicBattlDAL.models.interfaces;
+
+namespace MusicBattlBLL.repositories
+{
+    public class <#= Model.Name #>RepositoryBLL : IRepositoryBLL<I<#= Model.Name #>>
+    {
+        private IRepository<I<#= Model.Name #>> _repositorieDAL;
+
+        #region Constructor
+
+        public <#= Model.Name #>RepositoryBLL( IRepository<I<#= Model.Name #>> repositorieDAL )
+        {
+            _repositorieDAL = repositorieDAL;
+        }
+
+        #endregion Constructor
+
+        #region IRepositoryBLL<I<#= Model.Name #>> Members
+
+        #region I<#= Model.Name #> GetById( int id )
+
+        public I<#= Model.Name #> GetById( int id )
+        {
+            I<#= Model.Name #> entity = _repositorieDAL.GetById(id);
+
+            return entity;
+        }
+
+        #endregion I<#= Model.Name #> GetById( int id )
+
+        #region IList<I<#= Model.Name #>> GetTop( int top, IDataQuery query )
+
+        public IList<I<#= Model.Name #>> GetTop( int top,IDataQuery query )
+        {
+            IList<I<#= Model.Name #>> collection = _repositorieDAL.GetTop(top, query);
+
+            return collection;
+        }
+
+        #endregion IList<I<#= Model.Name #>> GetTop( int top, IDataQuery query )
+
+        #region IList<I<#= Model.Name #>> Find( IDataQuery query )
+
+        public IList<I<#= Model.Name #>> Find( IDataQuery query )
+        {
+            IList<I<#= Model.Name #>> collection = _repositorieDAL.Find(query);
+
+            return collection;
+        }
+
+        #endregion IList<I<#= Model.Name #>> Find( IDataQuery query )
+
+        #region Count<Q>( Q query )
+
+        public int Count<Q>( Q query )
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion Count<Q>( Q query )
+
+        #region Sum<Q>( Q query )
+
+        public decimal Sum<Q>( Q query )
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion Sum<Q>( Q query )
+
+        #region Add( I<#= Model.Name #> pEntity )
+
+        public I<#= Model.Name #> Add( I<#= Model.Name #> pEntity )
+        {
+            I<#= Model.Name #> entity = pEntity;
+
+            try
+            {
+                Validate(entity);
+                entity = _repositorieDAL.Add(pEntity);
+            }
+            catch( Exception )
+            {
+                throw;
+            }
+
+            return entity;
+        }
+
+        #endregion Add( I<#= Model.Name #> pEntity )
+
+        #region I<#= Model.Name #> Update( I<#= Model.Name #> pEntity )
+
+        public I<#= Model.Name #> Update( I<#= Model.Name #> pEntity )
+        {
+            I<#= Model.Name #> entity = pEntity;
+
+            try
+            {
+                Validate(entity);
+                entity = _repositorieDAL.Update(pEntity);
+            }
+            catch( Exception )
+            {
+                throw;
+            }
+
+            return entity;
+        }
+
+        #endregion I<#= Model.Name #> Update( I<#= Model.Name #> pEntity )
+
+        #region IList<I<#= Model.Name #>> Collection
+
+        public IList<I<#= Model.Name #>> Collection
+        {
+            get { return (IList<I<#= Model.Name #>>)_repositorieDAL.Collection; }
+        }
+
+        #endregion IList<I<#= Model.Name #>> Collection
+
+        #region IRepository<I<#= Model.Name #>> repositorieDAL
+
+        public IRepository<I<#= Model.Name #>> repositorieDAL
+        {
+            get
+            {
+                return _repositorieDAL;
+            }
+            set
+            {
+                _repositorieDAL = value;
+            }
+        }
+
+        #endregion IRepository<I<#= Model.Name #>> repositorieDAL
+
+        #region bool Remove( int id )
+
+        public bool Remove( int id )
+        {
+            bool retorno = _repositorieDAL.Remove(id);
+
+            return retorno;
+        }
+
+        #endregion bool Remove( int id )
+
+        #region Validate( I<#= Model.Name #> entity )
+
+        public void Validate( I<#= Model.Name #> entity )
+        {
+            //TODO
+        }
+
+        #endregion Validate( I<#= Model.Name #> entity )
+
+        #endregion IRepositoryBLL<I<#= Model.Name #>> Members
+    }
+}

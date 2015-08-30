@@ -1,0 +1,153 @@
+
+
+.battl-info {
+    .row {
+        width: 615px;
+    }
+
+    .play-widget-ph {
+        position: absolute;
+        z-index: 1;
+        top: 40%;
+        left: 45%;
+    }
+
+    .play {
+        .bg {
+            @extend %bg;
+        }
+
+        top: 95px;
+        left: 100px;
+        z-index: 4;
+    }
+
+    .loading {
+        .bg {
+            @extend %bg;
+        }
+
+        img {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+        }
+    }
+
+    .pause {
+        .bg {
+            @extend %bg;
+        }
+
+        top: 95px;
+        left: 122px;
+        z-index: 5;
+    }
+
+    .pause-icon {
+        @extend %voting-icon;
+        width: 23px;
+        height: 27px;
+        background-position: -79px 0;
+        margin-left: 2px;
+    }
+
+    .play-icon {
+        @extend %voting-icon;
+        width: 23px;
+        height: 27px;
+        background-position: -45px -1px;
+        margin-left: 4px;
+    }
+
+    .versus-min {
+        color: #fff;
+        font-size: 40pt;
+        z-index: 1;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 145px;
+        display: block;
+        height: 73px;
+        float: left;
+        text-align: center;
+        margin-top: 80px;
+
+        .close {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 20pt;
+        }
+    }
+
+    .left {
+        float: left;
+
+        .media-item-text {
+            background-color: transparent;
+            padding-left: 5px;
+
+            h1, h2, h3 {
+                text-align: left;
+            }
+        }
+
+        .media-list-row-column-right, .media-list-row-column-left {
+            float: left;
+        }
+
+        .votes {
+            text-align: right;
+            margin-left: -14%;
+        }
+    }
+
+    .right {
+        float: left;
+
+        .media-item-text {
+            background-color: transparent;
+            padding-right: 5px;
+            text-indent: 5px;
+
+            h1, h2, h3 {
+                text-align: left;
+            }
+        }
+
+        .media-list-row-column-left, .media-list-row-column-right {
+            float: left;
+        }
+
+        .votes {
+            text-align: left;
+            margin-left: 16%;
+        }
+    }
+
+    .media-list-row {
+        .media-item-text {
+            background-color: #121111;
+            margin-top: 10px;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px 0 #242222;
+            width: 215px;
+            padding-left: 7px;
+            padding-bottom: 2px;
+            padding-top: 5px;
+
+            strong {
+                font-weight: bold;
+            }
+
+            span {
+                display: block;
+            }
+        }
+
+        .mini-album {
+            width: 222px;
+            height: 222px;
+        }
+    }
+}

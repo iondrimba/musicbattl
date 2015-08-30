@@ -1,0 +1,66 @@
+.sub-menu {
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    .sub-menu-list {
+        width: 816px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .sub-menu-item {
+            width: 230px;
+            height: 52px;
+            float: left;
+            margin-right: 40px;
+            cursor: pointer;
+
+            .reflexo {
+                pointer-events: none;
+            }
+
+            .sub-menu-link {
+                display: block;
+                position: absolute;
+                z-index: 1;
+                padding-top: 13px;
+                width: 100%;
+                text-align: center;
+                text-decoration: none;
+            }
+        }
+
+        .sub-menu-item:hover {
+            .sub-menu-link {
+                color: #fff;
+            }
+        }
+
+        .sub-menu-item:active {
+            .sub-menu-link {
+                color: #888889;
+            }
+        }
+    }
+}
+
+.btn-random, .btn-charts-ranking, .btn-artists {
+	width: 33px;
+	height: 23px;
+	float: left;
+	position: absolute;
+	left: 14px;
+	top: 14px;
+}
+.btn-random {
+	background-position:0 -1px;
+}
+.btn-charts-ranking {
+	background-position:-32px -1px;
+}
+
+.btn-artists {
+	background-position:-51px -217px;
+}

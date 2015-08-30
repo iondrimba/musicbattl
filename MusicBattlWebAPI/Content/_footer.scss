@@ -1,0 +1,13 @@
+.footer-ph{
+	height:105px;
+	background-image: url(/img/footer-bg.jpg);
+	background-repeat:no-repeat;
+	background-position: 137px center;
+    position:relative;
+
+    .streaming {
+        position: absolute;
+        left: 81%;
+        margin-top: 73px;
+    }
+}

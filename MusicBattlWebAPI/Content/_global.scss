@@ -1,0 +1,252 @@
+$radius:5px;
+$shadow-color:#000;
+$border-color:#333;
+
+@mixin opacity($value, $ie-value) {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-value)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=$ie-value);
+  /* Good browsers */
+  opacity: $value;
+}
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+p, span, h1, h2, h3, h4, h5, h6, label {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+@mixin rouded-corner ($value) {
+	border-radius: $value; /* future proofing */
+}
+
+.full-opacity {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"!important;
+
+  /* IE 5-7 */
+  filter: alpha(opacity=100)!important;
+
+  /* Good browsers */
+  opacity: 1!important;
+}
+::selection {
+  background: #804CF1; /* WebKit/Blink Browsers */
+  color:#fff;
+}
+::-moz-selection {
+  background: #804CF1; /* Gecko Browsers */
+  color:#fff;
+}
+
+body {
+	overflow-x:hidden;
+	overflow-y:scroll;
+	color:#ffffff;
+    background-color:#000;
+	letter-spacing: 0;
+    font-size:0.8em;
+    width:100%;
+    height:100%;
+}
+
+.disabled {
+	@include opacity(0.1, 10);
+	cursor:not-allowed!important;
+}
+.disabled:hover {
+	@extend .disabled;
+}
+
+a {
+	color:#fff;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+
+a:active {
+	text-decoration:none;
+}
+
+.text-shadow {
+	text-shadow: 1px 1px 2px $shadow-color;
+    filter: dropshadow(color=$shadow-color, offx=1, offy=1);
+}
+
+.powered-soundcloud {
+	float: right;
+	margin-top: 57px;
+}
+
+.custom-border{
+  box-shadow: 0 0 1px 1px $shadow-color;
+  border: 1px solid $border-color;
+}
+
+.icons-bg {
+	background-image: url("/img/sprite.png");
+	background-repeat:no-repeat;
+}
+
+.position-absolute{
+	position:absolute;
+	z-index:0;
+}
+
+.rounded-corners {
+	@include rouded-corner ($radius);
+}
+
+.flip-image {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: "FlipH";
+    filter: FlipH;
+}
+
+.transparent-background {
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(17, 17, 20) transparent;
+	/* RGBa with 0.6 opacity */
+	background: rgba(17, 17, 20, 0.7);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+.tranparent-ui {
+  border: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 0 0 #4d4d4f;
+
+  .reflexo {
+	background:#fff;
+	opacity:0.07;
+	filter:alpha(opacity=03); /* For IE8 and earlier */
+	width:100%;
+	height:50%;
+	position:absolute;
+	@extend .rounded-corners;
+  }
+}
+
+.default-content-ph {
+	position:relative;
+	height:100%;
+	width:100%;
+	overflow:visible;
+
+	@extend .rounded-corners;
+	@extend .transparent-background;
+	@extend .tranparent-ui;
+}
+
+.default-content-ph:hover > h1 {
+	color:#fff!important;
+}
+
+.under-list {
+	margin-top:30px;
+}
+
+input:focus {
+    outline: none;
+	@extend .focus;
+}
+
+.focus, input[type='text']:focus, input[type='password']:focus, textarea:focus {
+    border: 1px solid #1E90FF!important;
+	box-shadow:  0 0 10px 1px #1E90FF;
+}
+
+.opaque-content {
+	@include opacity(0.3,30);
+}
+
+.error {
+    color: #FFF;
+}
+
+input.error, textarea.error {
+	background: #861A1A;
+	color: #FFF;
+	border: 1px solid #D43E3E!important;
+}
+
+.trophy {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.trophy-center {
+    top: 150px;
+    left: 65px;
+}
+.trophy-animation-ph {
+    position: absolute;
+    z-index: 3;
+     top: -160px;
+}
+
+.simple-version {
+    display:none;
+}
+
+.simple-version-message {
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+
+    img {
+        margin-top: 50%;
+    }
+
+    p {
+        font-size: 16pt;
+        margin-top: 20px;
+    }
+}
+
+@-ms-viewport{
+    zoom: 1.0;
+}
+
+@-moz-viewport{
+    zoom: 1.0;
+}
+
+@-webkit-viewport{
+    zoom: 1.0;
+}
+
+@viewport{
+    zoom: 1.0;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+.safari {
+    .botoes-social {
+        display:none;
+    }
+}

@@ -1,0 +1,170 @@
+$headings:'BebasNeueRegular';
+$readings:Arial;
+$shadow-color:#000;
+
+@font-face {
+    font-family: $headings;
+    src: url('/Content/fonts/BebasNeue-webfont.eot');
+    src: url('/Content/fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/Content/fonts/BebasNeue-webfont.woff') format('woff'),
+         url('/Content/fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('/Content/fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+%text-shadow {
+	text-shadow: 1px 1px 2px $shadow-color;
+    filter: dropshadow(color=$shadow-color, offx=1, offy=1);
+}
+
+body {
+    * {
+	    font-family:$readings;
+    }
+}
+
+.fontface-1 {
+	@extend %text-shadow;
+}
+
+.graph-item, .graph-item-active {
+    font-size:8pt!important;
+}
+.media-column-title, .sub-menu-font , .tab-fonts-active , .tab-fonts ,.versus, .count span, .versus-min-font,
+.graph-title-font, .pie-graph-title-font, .fontface-2  {
+    font-family: $headings;
+    letter-spacing:1px;
+}
+
+.artist-font {
+  font-size:8pt;
+  min-height:10px;
+}
+
+.fontface-2 {
+	@extend %text-shadow;
+}.fontface-3 {
+	@extend %text-shadow;
+}
+.versus {
+    font-size: 83pt;
+    margin-left: 45px;
+    line-height: 215px;
+    top: 82px;
+    position: relative;
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    @extend %text-shadow;
+}
+.timer-font {
+	font-size:54pt;
+	display: block;
+	padding-top: 5px;
+	@extend %text-shadow;
+}
+.sub-menu-font {
+	font-size:19pt;
+	@extend %text-shadow;
+	color:#888889;
+}
+.followus{
+	top:13px;
+	left:47%;
+	font-size:10pt;
+}
+.user-login-font {
+	font-size:10pt;
+}
+
+.versus-min-font {
+	font-size:17pt;
+	@extend %text-shadow;
+	color:#ADADAD;
+}
+
+.tab-fonts{
+	font-size:18pt;
+	@extend %text-shadow;
+	color:#373738;
+}
+.tab-fonts-active {
+	font-size:18pt;
+	@extend %text-shadow;
+}
+.votes-font {
+	font-size:10pt;
+	@extend %text-shadow;
+}
+
+.pagination-font {
+	font-size:10pt;
+	@extend %text-shadow;
+	color:#c3c1c1;
+}
+
+.home-users-font{
+	@extend %text-shadow;
+	color:#999;
+	width:148px;
+}
+.graph-title-font {
+	font-size:18pt;
+	@extend %text-shadow;
+	color:#999;
+	display:inline-block;
+}
+.pie-graph-title-font{
+	font-size:18pt;
+	@extend %text-shadow;
+	color:#999;
+	display:inline-block;
+	text-align:center;
+	width:135px;
+}
+
+.user-profile-text{
+	color:#fff;
+	@extend %text-shadow;
+
+	h1 {
+		font-size:18pt;
+	}
+	h2{
+		font-size:13pt;
+	}
+}
+
+.form-label {
+	display:block;
+	@extend %text-shadow;
+}
+
+.media-item-text {
+	width: 135px;
+	color:#BEBEBE;
+
+	h1 {
+		@extend %text-shadow;
+	}
+
+	h2 {
+		@extend %text-shadow;
+	}
+
+	h3 {
+		@extend %text-shadow;
+	}
+
+	p {
+		width:148px;
+		color:#999;
+	}
+}
+
+.media-item-text-big-album {
+	width: 119px!important;
+}

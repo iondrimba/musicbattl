@@ -1,0 +1,51 @@
+$social-button-dimensions:32px;
+
+.social-icons {
+	top:6px;
+	left:200px;
+	float:left;
+	position:absolute;
+
+	.facebook{
+		background-position:-40px -29px;
+	}
+	.twitter{
+		background-position:-75px -30px;
+	}
+	.google-plus {
+		background-position:-3px -29px;
+	}
+
+	.facebook:hover {
+		background-position:-41px -180px;
+	}
+	.twitter:hover {
+		background-position:-76px -181px;
+	}
+
+	.google-plus:hover {
+		background-position:-4px -180px;
+	}
+
+	.facebook:active {
+		background-position:-40px -29px;
+	}
+	.twitter:active {
+		background-position:-75px -30px;
+	}
+
+	.google-plus:active {
+		background-position:-3px -29px;
+	}
+
+	.social-button {
+		background-image: url(/img/sprite.png);
+		background-repeat:no-repeat;
+		width:$social-button-dimensions;
+		height:$social-button-dimensions;
+		display:block;
+		float:left;
+		cursor:pointer;
+		margin-left:-1px;
+	}
+}

@@ -1,0 +1,321 @@
+﻿<!--CONTENT-->
+<div class="edit-profile">
+    <form method="post" action="/" class="formulario">
+        <div class="user-profile-data-container">
+            <div class="user-profile-img-container default-content-ph">
+                <img src="/img/user-profile-default.png" class="profile-img" height="154" width="154" alt="Profile" />
+            </div>
+            <!--EMAIL-->
+            <input type="hidden" name="email" value="" class="email required" />
+            <div class="user-profile-form base-form">
+                <div class="form-row">
+                    <!--USERNAME-->
+                    <div class="form-column">
+                        <span class="form-label">User name:</span>
+                        <input type="text" name="username" value="" class="form-field username required" />
+                    </div>
+                    <!--BIRTH DATE-->
+                    <div class="form-column">
+                        <span class="form-label">Birthdate:</span>
+                        <input type="text" name="byrthdate" value="" placeholder="dd/mm/yyyy" class="form-field date-field datebr byrthdate" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-row">
+                    <!--COUNTRY-->
+                    <div class="form-column">
+                        <span class="form-label">Country:</span>
+                        <input type="text" name="country" value="" class="form-field country-field icons-bg" />
+                        <ul class="country-list hidden">
+                            <li data-code="AF">Afghanistan</li>
+                            <li data-code="AL">Albania</li>
+                            <li data-code="DZ">Algeria</li>
+                            <li data-code="AS">American Samoa</li>
+                            <li data-code="AD">Andorra</li>
+                            <li data-code="AG">Angola</li>
+                            <li data-code="AI">Anguilla</li>
+                            <li data-code="AG">Antigua &amp; Barbuda</li>
+                            <li data-code="AR">Argentina</li>
+                            <li data-code="AA">Armenia</li>
+                            <li data-code="AW">Aruba</li>
+                            <li data-code="AU">Australia</li>
+                            <li data-code="AT">Austria</li>
+                            <li data-code="AZ">Azerbaijan</li>
+                            <li data-code="BS">Bahamas</li>
+                            <li data-code="BH">Bahrain</li>
+                            <li data-code="BD">Bangladesh</li>
+                            <li data-code="BB">Barbados</li>
+                            <li data-code="BY">Belarus</li>
+                            <li data-code="BE">Belgium</li>
+                            <li data-code="BZ">Belize</li>
+                            <li data-code="BJ">Benin</li>
+                            <li data-code="BM">Bermuda</li>
+                            <li data-code="BT">Bhutan</li>
+                            <li data-code="BO">Bolivia</li>
+                            <li data-code="BL">Bonaire</li>
+                            <li data-code="BA">Bosnia &amp; Herzegovina</li>
+                            <li data-code="BW">Botswana</li>
+                            <li data-code="BR">Brazil</li>
+                            <li data-code="BC">British Indian Ocean Ter</li>
+                            <li data-code="BN">Brunei</li>
+                            <li data-code="BG">Bulgaria</li>
+                            <li data-code="BF">Burkina Faso</li>
+                            <li data-code="BI">Burundi</li>
+                            <li data-code="KH">Cambodia</li>
+                            <li data-code="CM">Cameroon</li>
+                            <li data-code="CA">Canada</li>
+                            <li data-code="IC">Canary Islands</li>
+                            <li data-code="CV">Cape Verde</li>
+                            <li data-code="KY">Cayman Islands</li>
+                            <li data-code="CF">Central African Republic</li>
+                            <li data-code="TD">Chad</li>
+                            <li data-code="CD">Channel Islands</li>
+                            <li data-code="CL">Chile</li>
+                            <li data-code="CN">China</li>
+                            <li data-code="CI">Christmas Island</li>
+                            <li data-code="CS">Cocos Island</li>
+                            <li data-code="CO">Colombia</li>
+                            <li data-code="CC">Comoros</li>
+                            <li data-code="CG">Congo</li>
+                            <li data-code="CK">Cook Islands</li>
+                            <li data-code="CR">Costa Rica</li>
+                            <li data-code="CT">Cote D'Ivoire</li>
+                            <li data-code="HR">Croatia</li>
+                            <li data-code="CU">Cuba</li>
+                            <li data-code="CB">Curacao</li>
+                            <li data-code="CY">Cyprus</li>
+                            <li data-code="CZ">Czech Republic</li>
+                            <li data-code="DK">Denmark</li>
+                            <li data-code="DJ">Djibouti</li>
+                            <li data-code="DM">Dominica</li>
+                            <li data-code="DO">Dominican Republic</li>
+                            <li data-code="TM">East Timor</li>
+                            <li data-code="EC">Ecuador</li>
+                            <li data-code="EG">Egypt</li>
+                            <li data-code="SV">El Salvador</li>
+                            <li data-code="GQ">Equatorial Guinea</li>
+                            <li data-code="ER">Eritrea</li>
+                            <li data-code="EE">Estonia</li>
+                            <li data-code="ET">Ethiopia</li>
+                            <li data-code="FA">Falkland Islands</li>
+                            <li data-code="FO">Faroe Islands</li>
+                            <li data-code="FJ">Fiji</li>
+                            <li data-code="FI">Finland</li>
+                            <li data-code="FR">France</li>
+                            <li data-code="GF">French Guiana</li>
+                            <li data-code="PF">French Polynesia</li>
+                            <li data-code="FS">French Southern Ter</li>
+                            <li data-code="GA">Gabon</li>
+                            <li data-code="GM">Gambia</li>
+                            <li data-code="GE">Georgia</li>
+                            <li data-code="DE">Germany</li>
+                            <li data-code="GH">Ghana</li>
+                            <li data-code="GI">Gibraltar</li>
+                            <li data-code="GB">Great Britain</li>
+                            <li data-code="GR">Greece</li>
+                            <li data-code="GL">Greenland</li>
+                            <li data-code="GD">Grenada</li>
+                            <li data-code="GP">Guadeloupe</li>
+                            <li data-code="GU">Guam</li>
+                            <li data-code="GT">Guatemala</li>
+                            <li data-code="GN">Guinea</li>
+                            <li data-code="GY">Guyana</li>
+                            <li data-code="HT">Haiti</li>
+                            <li data-code="HW">Hawaii</li>
+                            <li data-code="HN">Honduras</li>
+                            <li data-code="HK">Hong Kong</li>
+                            <li data-code="HU">Hungary</li>
+                            <li data-code="IS">Iceland</li>
+                            <li data-code="IN">India</li>
+                            <li data-code="ID">Indonesia</li>
+                            <li data-code="IA">Iran</li>
+                            <li data-code="IQ">Iraq</li>
+                            <li data-code="IR">Ireland</li>
+                            <li data-code="IM">Isle of Man</li>
+                            <li data-code="IL">Israel</li>
+                            <li data-code="IT">Italy</li>
+                            <li data-code="JM">Jamaica</li>
+                            <li data-code="JP">Japan</li>
+                            <li data-code="JO">Jordan</li>
+                            <li data-code="KZ">Kazakhstan</li>
+                            <li data-code="KE">Kenya</li>
+                            <li data-code="KI">Kiribati</li>
+                            <li data-code="NK">Korea North</li>
+                            <li data-code="KS">Korea South</li>
+                            <li data-code="KW">Kuwait</li>
+                            <li data-code="KG">Kyrgyzstan</li>
+                            <li data-code="LA">Laos</li>
+                            <li data-code="LV">Latvia</li>
+                            <li data-code="LB">Lebanon</li>
+                            <li data-code="LS">Lesotho</li>
+                            <li data-code="LR">Liberia</li>
+                            <li data-code="LY">Libya</li>
+                            <li data-code="LI">Liechtenstein</li>
+                            <li data-code="LT">Lithuania</li>
+                            <li data-code="LU">Luxembourg</li>
+                            <li data-code="MO">Macau</li>
+                            <li data-code="MK">Macedonia</li>
+                            <li data-code="MG">Madagascar</li>
+                            <li data-code="MY">Malaysia</li>
+                            <li data-code="MW">Malawi</li>
+                            <li data-code="MV">Maldives</li>
+                            <li data-code="ML">Mali</li>
+                            <li data-code="MT">Malta</li>
+                            <li data-code="MH">Marshall Islands</li>
+                            <li data-code="MQ">Martinique</li>
+                            <li data-code="MR">Mauritania</li>
+                            <li data-code="MU">Mauritius</li>
+                            <li data-code="ME">Mayotte</li>
+                            <li data-code="MX">Mexico</li>
+                            <li data-code="MI">Midway Islands</li>
+                            <li data-code="MD">Moldova</li>
+                            <li data-code="MC">Monaco</li>
+                            <li data-code="MN">Mongolia</li>
+                            <li data-code="MS">Montserrat</li>
+                            <li data-code="MA">Morocco</li>
+                            <li data-code="MZ">Mozambique</li>
+                            <li data-code="MM">Myanmar</li>
+                            <li data-code="NA">Nambia</li>
+                            <li data-code="NU">Nauru</li>
+                            <li data-code="NP">Nepal</li>
+                            <li data-code="AN">Netherland Antilles</li>
+                            <li data-code="NL">Netherlands (Holland, Europe)</li>
+                            <li data-code="NV">Nevis</li>
+                            <li data-code="NC">New Caledonia</li>
+                            <li data-code="NZ">New Zealand</li>
+                            <li data-code="NI">Nicaragua</li>
+                            <li data-code="NE">Niger</li>
+                            <li data-code="NG">Nigeria</li>
+                            <li data-code="NW">Niue</li>
+                            <li data-code="NF">Norfolk Island</li>
+                            <li data-code="NO">Norway</li>
+                            <li data-code="OM">Oman</li>
+                            <li data-code="PK">Pakistan</li>
+                            <li data-code="PW">Palau Island</li>
+                            <li data-code="PS">Palestine</li>
+                            <li data-code="PA">Panama</li>
+                            <li data-code="PG">Papua New Guinea</li>
+                            <li data-code="PY">Paraguay</li>
+                            <li data-code="PE">Peru</li>
+                            <li data-code="PH">Philippines</li>
+                            <li data-code="PO">Pitcairn Island</li>
+                            <li data-code="PL">Poland</li>
+                            <li data-code="PT">Portugal</li>
+                            <li data-code="PR">Puerto Rico</li>
+                            <li data-code="QA">Qatar</li>
+                            <li data-code="ME">Republic of Montenegro</li>
+                            <li data-code="RS">Republic of Serbia</li>
+                            <li data-code="RE">Reunion</li>
+                            <li data-code="RO">Romania</li>
+                            <li data-code="RU">Russia</li>
+                            <li data-code="RW">Rwanda</li>
+                            <li data-code="NT">St Barthelemy</li>
+                            <li data-code="EU">St Eustatius</li>
+                            <li data-code="HE">St Helena</li>
+                            <li data-code="KN">St Kitts-Nevis</li>
+                            <li data-code="LC">St Lucia</li>
+                            <li data-code="MB">St Maarten</li>
+                            <li data-code="PM">St Pierre &amp; Miquelon</li>
+                            <li data-code="VC">St Vincent &amp; Grenadines</li>
+                            <li data-code="SP">Saipan</li>
+                            <li data-code="SO">Samoa</li>
+                            <li data-code="AS">Samoa American</li>
+                            <li data-code="SM">San Marino</li>
+                            <li data-code="ST">Sao Tome &amp; Principe</li>
+                            <li data-code="SA">Saudi Arabia</li>
+                            <li data-code="SN">Senegal</li>
+                            <li data-code="RS">Serbia</li>
+                            <li data-code="SC">Seychelles</li>
+                            <li data-code="SL">Sierra Leone</li>
+                            <li data-code="SG">Singapore</li>
+                            <li data-code="SK">Slovakia</li>
+                            <li data-code="SI">Slovenia</li>
+                            <li data-code="SB">Solomon Islands</li>
+                            <li data-code="OI">Somalia</li>
+                            <li data-code="ZA">South Africa</li>
+                            <li data-code="ES">Spain</li>
+                            <li data-code="LK">Sri Lanka</li>
+                            <li data-code="SD">Sudan</li>
+                            <li data-code="SR">Suriname</li>
+                            <li data-code="SZ">Swaziland</li>
+                            <li data-code="SE">Sweden</li>
+                            <li data-code="CH">Switzerland</li>
+                            <li data-code="SY">Syria</li>
+                            <li data-code="TA">Tahiti</li>
+                            <li data-code="TW">Taiwan</li>
+                            <li data-code="TJ">Tajikistan</li>
+                            <li data-code="TZ">Tanzania</li>
+                            <li data-code="TH">Thailand</li>
+                            <li data-code="TG">Togo</li>
+                            <li data-code="TK">Tokelau</li>
+                            <li data-code="TO">Tonga</li>
+                            <li data-code="TT">Trinidad &amp; Tobago</li>
+                            <li data-code="TN">Tunisia</li>
+                            <li data-code="TR">Turkey</li>
+                            <li data-code="TU">Turkmenistan</li>
+                            <li data-code="TC">Turks &amp; Caicos Is</li>
+                            <li data-code="TV">Tuvalu</li>
+                            <li data-code="UG">Uganda</li>
+                            <li data-code="UA">Ukraine</li>
+                            <li data-code="AE">United Arab Emirates</li>
+                            <li data-code="GB">United Kingdom</li>
+                            <li data-code="US">United States of America</li>
+                            <li data-code="UY">Uruguay</li>
+                            <li data-code="UZ">Uzbekistan</li>
+                            <li data-code="VU">Vanuatu</li>
+                            <li data-code="VS">Vatican City State</li>
+                            <li data-code="VE">Venezuela</li>
+                            <li data-code="VN">Vietnam</li>
+                            <li data-code="VB">Virgin Islands (Brit)</li>
+                            <li data-code="VA">Virgin Islands (USA)</li>
+                            <li data-code="WK">Wake Island</li>
+                            <li data-code="WF">Wallis &amp; Futana Is</li>
+                            <li data-code="YE">Yemen</li>
+                            <li data-code="ZR">Zaire</li>
+                            <li data-code="ZM">Zambia</li>
+                            <li data-code="ZW">Zimbabwe</li>
+                        </ul>
+                    </div>
+                    <!--CITY-->
+                    <div class="form-column">
+                        <span class="form-label">City:</span>
+                        <input type="text" name="city" value="" class="form-field city" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-row hidden">
+                    <div class="form-column">
+                        <a class="button-style button-change" href="#/site/change-password">Change password</a>
+                    </div>
+                    <div class="form-column hidden">
+                        <div class="button-style button-delete">
+                            <span>Delete profile</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <button type="submit" class="button-style button-save">
+                            <span>Save changes</span>
+                        </button>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <form action="/api/Account/SaveProfileImage/" method="post" class="form" novalidate="novalidate" enctype="multipart/form-data">
+                <span class="btn btn-file fileupload button-style button-change-image" data-provides="fileupload">
+                    <span class="upload-label">Change image</span>
+                    <input type="hidden" name="userId" value="" class="upload" />
+                    <input class="upload" type="file" name="files[]" data-url="/api/Account/SaveProfileImage/" multiple>
+                </span>
+            </form>
+        </div>
+
+        <!--END COLUMNS-->
+        <div class="clearfix"></div>
+    </form>
+</div>
+<!--END CONTENT-->

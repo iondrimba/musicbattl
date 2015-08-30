@@ -1,0 +1,46 @@
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 5;
+    display: none;
+
+    .modal-overlay {
+        background-color: #000;
+        opacity: 0.5;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        will-change: transform;
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    .modal-ph {
+        border: 1px solid black;
+        box-shadow: inset 0 1px 0 0 #4d4d4f;
+        background-color: #171717;
+        padding: 20px;
+        height: auto;
+        width: 600px;
+        position: relative;
+        z-index: 1;
+        margin-left: auto;
+        margin-right: auto;
+        top: 20%;
+    }
+
+    h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 17pt;
+    }
+
+    p {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

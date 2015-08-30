@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicBattlBLL", "MusicBattlBLL\MusicBattlBLL.csproj", "{2DBBB444-08BD-4739-9DC7-2D4C2246BEF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicBattlDAL", "MusicBattlDAL\MusicBattlDAL.csproj", "{C5BF1631-D336-4463-B553-0905D1666886}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicBattlWebAPI", "MusicBattlWebAPI\MusicBattlWebAPI.csproj", "{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CC8BC42-847C-4B13-BEE6-6B7BE937FE2A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7485C9C3-900D-47B1-BD36-EE865659DC06}"
+	ProjectSection(SolutionItems) = preProject
+		WebEssentials-Settings.json = WebEssentials-Settings.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DBBB444-08BD-4739-9DC7-2D4C2246BEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DBBB444-08BD-4739-9DC7-2D4C2246BEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DBBB444-08BD-4739-9DC7-2D4C2246BEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DBBB444-08BD-4739-9DC7-2D4C2246BEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5BF1631-D336-4463-B553-0905D1666886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5BF1631-D336-4463-B553-0905D1666886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5BF1631-D336-4463-B553-0905D1666886}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C5BF1631-D336-4463-B553-0905D1666886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5BF1631-D336-4463-B553-0905D1666886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205FD070-0E0E-4CEC-B04C-0C943F84B3C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

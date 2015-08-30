@@ -1,0 +1,269 @@
+﻿<script id="count-template" type="text/template">
+    <span class="current top <%= currentSize %>"><%= time<10?"0" + time:time%></span>
+    <span class="next top <%= nextSize %>"><%=  nextTime<10?"0" + nextTime:nextTime %></span>
+    <span class="current bottom <%= currentSize %>"><%= time<10?"0" + time:time %></span>
+    <span class="next bottom <%= nextSize %>"><%= nextTime<10?"0" + nextTime:nextTime %></span>
+</script>
+<div class="home hidden">
+    <!--STAR ANIMATED-->
+    <div class="star-vote visible-false"></div>
+
+    <!--THROPHY WINNER-->
+    <img src="/img/trophy.png" width="92" height="119" class="trophy tclone visible-false" />
+
+    <!--BATTLE-->
+    <div class="battle clearfix">
+        <!--LEFT COLUM-->
+        <div class="battle-album-column battle-column-left">
+            <div class="trophy-animation-ph"></div>
+            <div class="battle-album">
+                <!--SOUND BARS-->
+                <div class="bars hidden">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <!--VOTING WIDGET-->
+                <div class="voting-widget-ph hidden">
+
+                    <div class="bg">
+                    </div>
+                    <div class="bg-circle">
+                    </div>
+                    <div class="loader-circle">
+                        <!--SPINNING LOADER-->
+                        <div class="spinner-css">
+                            <span class="side sp_left">
+                                <span class="fill"></span>
+                            </span>
+
+                            <span class="side sp_right">
+                                <span class="fill"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="inner-circle">
+                        <i class="star" data-songid="" data-battlid=""></i>
+                        <i class="divider"></i>
+                        <i class="play" data-songid="" data-songurl=""></i>
+                        <i class="pause hidden" data-songid="" data-songurl=""></i>
+                        <img src="/img/ajax-loader-song.gif" alt="loading..." width="16" height="16" class="loading hidden">
+                    </div>
+                </div>
+
+                <!--NAMES-->
+                <div class="song-artist-album" style="margin-top: -21px;visibility:hidden">
+                    <h1 class="fontface-1"></h1>
+                    <h2 class="fontface-3"></h2>
+                    <h3 class="fontface-3"></h3>
+                </div>
+                <!--IMAGE-->
+                <div class="battle-album-img battle-album-ph">
+                    <img src="/img/album/battle-album-bg.jpg" width="220" height="220" alt="Album" style="opacity: 1;">
+                </div>
+                <!--BACKGROUND-->
+                <div class="battle-album-inner-folder">
+                    <img src="/img/battle-album-inner-folder.png" width="17" height="218" alt="">
+                </div>
+            </div>
+
+            <!--STATUS BAR-->
+            <div class="status-bar">
+                <div class="default-content-ph tranparent-ui">
+                    <div class="reflexo"></div>
+                </div>
+                <div class="status-bar-ph">
+                    <div class="status-bar-bg rounded-corners"></div>
+                    <div class="status-bar-line rounded-corners"></div>
+                </div>
+            </div>
+            <!--END STATUS BAR-->
+        </div>
+        <!--END LEFT COLUM-->
+
+        <div class="battle-column-middle clock">
+
+            <div class="battle-timer clearfix">
+                <div class="count-right count up">
+                    <span class="current top ">00</span>
+                    <span class="next top ">00</span>
+                    <span class="current bottom ">00</span>
+                    <span class="next bottom ">00</span>
+                </div>
+                <div class="count-left count up">
+                    <span class="current top ">00</span>
+                    <span class="next top ">00</span>
+                    <span class="current bottom ">00</span>
+                    <span class="next bottom ">00</span>
+                </div>
+            </div>
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+            <!--<span class="versus">VS</span>-->
+        </div>
+
+        <!--RIGHT COLUM-->
+        <div class="battle-album-column battle-column-right">
+            <div class="trophy-animation-ph"></div>
+            <div class="battle-album battle-album-right">
+                <!--SOUND BARS-->
+                <div class="bars hidden">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <!--VOTING WIDGET-->
+                <div class="voting-widget-ph hidden">
+                    <div class="bg">
+                    </div>
+                    <div class="bg-circle">
+                    </div>
+                    <div class="loader-circle">
+                        <!--SPINNING LOADER-->
+                        <div class="spinner-css">
+                            <span class="side sp_left">
+                                <span class="fill"></span>
+                            </span>
+                            <span class="side sp_right">
+                                <span class="fill"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="inner-circle">
+                        <i class="star" data-songid="" data-battlid=""></i>
+                        <i class="divider"></i>
+                        <i class="play" data-songid="" data-songurl=""></i>
+                        <i class="pause hidden" data-songid="" data-songurl=""></i>
+                        <img src="/img/ajax-loader-song.gif" width="16" height="16" alt="loading..." class="loading hidden">
+                    </div>
+                </div>
+
+                <!--NAMES-->
+                <div class="song-artist-album clearfix" style="margin-top: -21px;visibility:hidden">
+                    <h1 class="fontface-1"></h1>
+                    <h2 class="fontface-3"></h2>
+                    <h3 class="fontface-3"> </h3>
+                </div>
+                <!--IMAGE-->
+                <div class="battle-album-img-right battle-album-ph">
+                    <img src="/img/album/battle-album-bg.jpg" width="220" height="220" alt="Album" style="opacity: 1;">
+                </div>
+                <!--BACKGROUND-->
+                <div class="battle-album-inner-folde-right">
+                    <img src="/img/battle-album-inner-folder.png" class="flip-image" width="17" height="218" alt="">
+                </div>
+
+            </div>
+
+            <!--STATUS BAR-->
+            <div class="status-bar">
+                <div class="default-content-ph tranparent-ui">
+                    <div class="reflexo"></div>
+                </div>
+                <div class="status-bar-ph">
+                    <div class="status-bar-bg rounded-corners"></div>
+                    <div class="status-bar-line rounded-corners"></div>
+                </div>
+            </div>
+            <!--END STATUS BAR-->
+        </div>
+        <!--END RIGHT COLUM-->
+    </div>
+
+    <!--SUB MENU-->
+    <nav class="sub-menu clearfix">
+        <ul class="sub-menu-list">
+            <li class="sub-menu-item default-content-ph tranparent-ui visible-false">
+                <div class="reflexo"></div>
+                <div class="btn-random icons-bg"></div>
+                <a href="#/site/random-battl" class="sub-menu-link sub-menu-font">RANDOM BATTL</a>
+            </li>
+            <li class="sub-menu-item default-content-ph tranparent-ui">
+                <div class="reflexo"></div>
+                <div class="btn-charts icons-bg"></div>
+                <a href="#/site/charts-ranking" class="sub-menu-link sub-menu-font">CHARTS</a>
+            </li>
+            <li class="sub-menu-item default-content-ph tranparent-ui">
+                <div class="reflexo"></div>
+                <div class="btn-artists icons-bg"></div>
+                <a href="#/site/artists" class="sub-menu-link sub-menu-font">ARTISTS</a>
+            </li>
+        </ul>
+    </nav>
+    <!--END SUB MENU-->
+
+    <!--COLUMNS-->
+    <div class="columns-container clearfix">
+
+        <!--COLUMN LEFT-->
+        <div class="media-column">
+
+            <!--PAST BATTLES-->
+            <div class="past-battls default-content-ph">
+                <div class="ph">
+                </div>
+            </div>
+
+            <!--TWITTER-->
+            <div class="twitter-widget default-content-ph">
+            </div>
+            <!--END TWITTER-->
+        </div>
+
+        <!--COLUMN MIDDLE-->
+        <div class="column-middle media-column">
+
+            <!--ALL TIME WINNERS-->
+            <div class="all-time-winners default-content-ph">
+                <div class="ph">
+                </div>
+            </div>
+
+            <!--USERS-->
+            <div class="home-users default-content-ph">
+                <div class="ph">
+                </div>
+            </div>
+        </div>
+
+        <!--COLUMN RIGHT-->
+        <div class="most-liked media-column default-content-ph clearfix">
+            <h1 class="media-column-title">MOST VOTED</h1>
+            <div class="clearfix">
+                <!--MOST VOTED TAB-->
+                <ul class="most-voted-tab">
+                    <li class="tab-month"><span class="tab-fonts">MONTH</span></li>
+                    <li class="tab-week"><span class="tab-fonts">WEEK</span></li>
+                    <li class="tab-day"><span class="tab-fonts">DAY</span></li>
+                </ul>
+                <!--END MOST VOTED TAB-->
+                <div class="most-voted-list">
+                    <div class="ph">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END COLUMNS-->
+</div>
+
+

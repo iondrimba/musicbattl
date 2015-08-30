@@ -1,0 +1,99 @@
+@-webkit-keyframes greenPulse {
+    from
+    {
+        background-color: #1ffb06;
+        box-shadow: 0 0 9px #333;
+    }
+    50%
+    {
+        background-color: #1ffb06;
+        box-shadow: 0 0 18px #1ffb06;
+    }
+    to
+    {
+        background-color: #1ffb06;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@-moz-keyframes greenPulse {
+    from
+    {
+        background-color: #1ffb06;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+    50%
+    {
+        background-color: #1ffb06;
+        -webkit-box-shadow: 0 0 18px #1ffb06;
+        box-shadow: 0 0 18px #1ffb06;
+    }
+    to
+    {
+        background-color: #1ffb06;
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+@keyframes greenPulse {
+    from
+    {
+        background-color: #1ffb06;
+        box-shadow: 0 0 9px #333;
+    }
+    50%
+    {
+        background-color: #1ffb06;
+        box-shadow: 0 0 18px #1ffb06;
+    }
+    to
+    {
+        background-color: #1ffb06;
+        box-shadow: 0 0 9px #333;
+    }
+}
+
+.status-bar {
+	width: 229px;
+	height: 19px;
+
+	.status-bar-ph {
+		width: 211px;
+		position: relative;
+	}
+
+	.status-bar-bg{
+		width: 102%;
+		height: 8px;
+		margin-left: 8px;
+		margin-top: -15px;
+		background: #000;
+		position: absolute;
+		box-shadow:  0 1px 0 0 #4d4d4f;
+	}
+	.status-bar-line {
+		width: 0;
+		height: 4px;
+		margin-left: 10px;
+		margin-top: -13px;
+		background: #03c133;
+		position: absolute;
+
+		-moz-animation-duration: 1s;
+		-o-animation-duration: 1s;
+		-moz-animation-iteration-count: infinite;
+		-o-animation-iteration-count: infinite;
+		-webkit-animation-name: greenPulse;
+		-moz-animation-name: greenPulse;
+		-o-animation-name: greenPulse;
+		animation-name: greenPulse;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+        will-change:transform;
+
+	}
+}

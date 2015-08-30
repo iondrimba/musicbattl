@@ -1,0 +1,81 @@
+@mixin opacity($value, $ie-value) {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie-value)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=$ie-value);
+
+  /* Good browsers */
+  opacity: $value;
+}
+.pagination {
+   margin-left:10px;
+   padding-top:10px;
+
+   .pagination-container {
+		display:inline-block;
+
+		li {
+			float:left;
+			display:block;
+			height:26px;
+			padding-left:1px;
+			padding-right:1px;
+			text-align:center;
+			line-height:25px;
+			cursor:pointer;
+
+			@extend .pagination-font;
+		}
+   }
+
+   .pagination-previous {
+		background-position:-96px -117px;
+		width:22px;
+   }
+   .pagination-previous:hover {
+		@include opacity(0.6,60);
+   }
+   .pagination-previous:active {
+		@include opacity(0.3,30);
+   }
+
+   .pagination-next {
+		background-position:-113px -117px;
+		width:22px;
+   }
+   .pagination-next:hover {
+	 @include opacity(0.6,60);
+   }
+
+   .pagination-next:active {
+	 @include opacity(0.3,30);
+   }
+
+   .pagination-item {
+		width:30px;
+   }
+
+   .pagination-item:hover {
+	 background:#222222;
+   }
+
+   .pagination-item:active{
+	 background:#191818;
+	 color:#999797;
+   }
+
+   .pagination-item-active {
+	 background:#313131;
+	 color:#fff!important;
+   }
+
+   .pagination-item-active:hover {
+	 background:#313131;
+	 color:#fff;
+   }
+   .pagination-item-active:active {
+	  background:#313131;
+	  color:#fff;
+   }
+}

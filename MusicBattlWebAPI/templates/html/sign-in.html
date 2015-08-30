@@ -1,0 +1,38 @@
+﻿<h1 class="fontface-2">SIGN   IN  WITH</h1>
+<div class="base-form sign-in">
+    <img src="img/ajax-loader.gif" alt="" class="loader hidden" />
+    <form method="post" action="/" class="formulario">
+        <div class="form-row">
+            <!--EMAIL-->
+            <div class="form-column">
+                <span class="form-label">Email:</span>
+                <input type="text" name="email" tabindex="1" value="" class="form-field email required">
+            </div>
+            <!--PASSWORD-->
+            <div class="form-column">
+                <span class="form-label">Password:</span>
+                <!--FORGOT PASSWORD-->
+                <a class="forgot-password-link" tabindex="5" href="#/site/forgot-password">forgot your password?</a>
+                <input type="password" tabindex="2" name="password" value="" class="form-field password required">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-row">
+            <!--SIGN IN-->
+            <div class="form-column" tabindex="3">
+                <!--<button type="submit" class="button-style button-save">
+                    <span >Sign in</span>
+                </button>-->
+                <button class="button-style button-save" type="submit">Sign in</button>
+            </div>
+            <!--NEW ACCOUNT-->
+            <div class="form-column" tabindex="4">
+                <a href="#/site/create-account" class="button-style button-create-account">
+                    <span>I don´t have an account!</span>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+    <script src="https://apis.google.com/js/client:plusone.js" async defer></script>
+</div>

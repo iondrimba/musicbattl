@@ -1,0 +1,418 @@
+<#@Template Language="C#" HostSpecific="True" debug="True" #>
+<#@Output Extension="cs" #>
+<#@Assembly name="System.Core" #>
+<#@Assembly name="System.Data"  #>
+<#@import namespace="System.Collections.Generic" #>
+<#@import namespace="System.Web"  #>
+<#@import namespace="System.Data.SqlClient"  #>
+<#@import namespace="System.Collections.Generic"  #>
+<#@import namespace="System.Configuration" #>
+<#@include file="..\Functions\Utils.t4" #>
+<#
+	string stringConnection = Model.DefaultConnection;
+    string sqlCommand = string.Format("SELECT * FROM [INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME ='{0}' " , Model.Name);   
+
+	List<Dictionary<string,string> > properties = new List<Dictionary<string,string> >();
+	
+	using( SqlConnection connection = new SqlConnection(stringConnection) ) 
+	{
+        // Connect to the database then retrieve the schema information.
+        connection.Open();                    
+        SqlCommand command = new SqlCommand(sqlCommand , connection);                    
+        using( var reader = command.ExecuteReader() ) 
+		{
+			while(reader.Read())
+			{
+				string columnName = reader["COLUMN_NAME"].ToString();
+				string dataType = reader["DATA_TYPE"].ToString();
+				string isNullable = reader["IS_NULLABLE"].ToString();
+				string maxLength = reader["CHARACTER_MAXIMUM_LENGTH"].ToString();
+
+				Dictionary<string,string> props = new Dictionary<string,string>();
+				props["columnName"]= columnName;
+				props["dataType"]= dataType;
+				props["isNullable"]= isNullable;
+				props["maxLength"]= maxLength;
+
+				properties.Add(props);
+            }
+		}
+
+     }
+#>using System;
+using System.Collections.Generic;
+using System.Data;
+using <#= Model.Namespace #>.concrete;
+using <#= Model.Namespace #>.interfaces;
+using <#= Model.Namespace #>.models.interfaces;
+
+namespace <#= Model.Namespace #>
+{
+    public class <#= Model.Name #>Repository : IRepository<I<#= Model.Name #>>
+    {
+        private IDataBaseAccess _dataBaseAccess;
+		private IList<I<#= Model.Name #>> _collection;
+
+        #region Constructor
+
+        public <#= Model.Name #>Repository( IDataBaseAccess pDataBaseAccess )
+        {
+            _dataBaseAccess = pDataBaseAccess;
+			_collection = new List<I<#= Model.Name #>>();
+        }
+
+        #endregion Constructor
+
+        #region GetById( int id )
+
+        public I<#= Model.Name #> GetById( int id )
+        {
+            I<#= Model.Name #> retorno = new <#=Model.Name #>();
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "<#=  LowerModelName()  #>Find";
+			
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+            IDataQuery query = new DataQuery();
+            query.Where = string.Format(" <#=  LowerModelName()  #>Id={0} ",id);
+
+            _dataBaseAccess.AddParameter("fromParam" , ((IDataQuery)query).From);
+            _dataBaseAccess.AddParameter("whereParam" , ((IDataQuery)query).Where);
+            _dataBaseAccess.AddParameter("orderByParam" , ((IDataQuery)query).OrderBy);
+
+            using( IDataReader reader = command.ExecuteReader() )
+            {
+                while(reader.Read())
+				{
+
+<# 
+foreach (var item in properties)
+{#>
+				retorno.<#= Captalized(item["columnName"].ToString()) #> = <#=  FormatType(item)   #>
+<#}
+#>			
+				}
+
+            }
+
+            command.Dispose();
+            conn.Close();
+
+			}
+
+            return retorno;
+        }
+
+        #endregion GetById( int id )
+
+
+        #region GetTop<I<#= Model.Name #>QueryParams>(int top,I<#= Model.Name #>QueryParams query )
+
+        public IList<I<#= Model.Name #>> GetTop<I<#= Model.Name #>QueryParams>(int top, I<#= Model.Name #>QueryParams query )
+        {
+            _collection = new List<I<#= Model.Name #>>();
+
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "<#=  LowerModelName()  #>GetTop";			
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+            _dataBaseAccess.AddParameter("topParam" , top);
+			_dataBaseAccess.AddParameter("fromParam" , ((IDataQuery)query).From);
+            _dataBaseAccess.AddParameter("whereParam" , ((IDataQuery)query).Where);
+            _dataBaseAccess.AddParameter("orderByParam" , ((IDataQuery)query).OrderBy);
+
+            using( IDataReader reader = command.ExecuteReader() )
+            {
+                while( reader.Read() )
+                {
+                    I<#= Model.Name #> <#=  LowerModelName()  #> = new <#=Model.Name #>();
+
+<#foreach (var item in properties)
+{#>
+					<#=  LowerModelName()  #>.<#= Captalized(item["columnName"].ToString()) #> = <#=  FormatType(item)   #>
+<#}#>
+                    _collection.Add(<#=  LowerModelName()  #>);
+                }
+            }
+
+            command.Dispose();
+            conn.Close();
+
+			}
+
+            return _collection;
+        }
+
+        #endregion GetTop< I<#= Model.Name #>QueryParams>(int top, I<#= Model.Name #>QueryParams query )
+
+
+        #region Find<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+
+        public IList<I<#= Model.Name #>> Find<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+        {
+            _collection = new List<I<#= Model.Name #>>();
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "<#=  LowerModelName()  #>Find";
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+            _dataBaseAccess.AddParameter("fromParam" , ((IDataQuery)query).From);
+            _dataBaseAccess.AddParameter("whereParam" , ((IDataQuery)query).Where);
+            _dataBaseAccess.AddParameter("orderByParam" , ((IDataQuery)query).OrderBy);
+
+            using( IDataReader reader = command.ExecuteReader() )
+            {
+                while( reader.Read() )
+                {
+                    I<#= Model.Name #> <#=  LowerModelName()  #> = new <#=Model.Name #>();
+
+<#foreach (var item in properties)
+{#>
+					<#=  LowerModelName()  #>.<#= Captalized(item["columnName"].ToString()) #> = <#=  FormatType(item)   #>
+<#}#>
+                    _collection.Add(<#=  LowerModelName()  #>);
+                }
+            }
+
+            command.Dispose();
+            conn.Close();
+
+			}
+
+            return _collection;
+        }
+
+        #endregion Find<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+
+        #region Count<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+
+        public int Count<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+        {
+            int retorno = 0;
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "countByParams";
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+			command.Parameters.Clear();
+            _dataBaseAccess.AddParameter("fromParam" , ((IDataQuery)query).From);
+            _dataBaseAccess.AddParameter("whereParam" , ((IDataQuery)query).Where);
+
+            retorno = (int)command.ExecuteScalar();
+
+            command.Dispose();
+            conn.Close();
+
+            }
+
+
+            return retorno;
+        }
+
+        #endregion Count<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+
+        #region Sum<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+
+        public decimal Sum<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+        {
+            decimal retorno = 0;
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+            string strCommand = "sumByParams";			
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+            _dataBaseAccess.AddParameter("fromParam" , ((IDataQuery)query).From);
+            _dataBaseAccess.AddParameter("whereParam" , ((IDataQuery)query).Where);
+            _dataBaseAccess.AddParameter("columnParam" , ((IDataQuery)query).Column);
+
+            retorno = Convert.ToDecimal(command.ExecuteScalar());
+
+            command.Dispose();
+            conn.Close();
+
+            };
+
+            return retorno;
+        }
+
+        #endregion Sum<I<#= Model.Name #>QueryParams>( I<#= Model.Name #>QueryParams query )
+
+        #region Add( I<#= Model.Name #> )
+
+        public I<#= Model.Name #> Add( I<#= Model.Name #> <#=  LowerModelName()  #> )
+        {
+            I<#= Model.Name #> retorno = new <#=Model.Name #>();
+            int id = 0;
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "<#=  LowerModelName()  #>Add";
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+<#foreach (var item in properties)
+{#>
+			<#if(item["columnName"].ToString()!=LowerModelName()+"Id"){#>
+			_dataBaseAccess.AddParameter("<#=item["columnName"].ToString()#>" , <#=  LowerModelName()  #>.<#= Captalized(item["columnName"].ToString()) #>);
+			<#}#>
+<#}#>
+
+            id = Convert.ToInt32(command.ExecuteScalar());
+
+            retorno = this.GetById(id);
+
+            command.Dispose();
+            conn.Close();
+
+            };
+
+            return retorno;
+        }
+
+        #endregion Add( I<#= Model.Name #> )
+
+        #region Update( I<#= Model.Name #> )
+
+        public I<#= Model.Name #> Update( I<#= Model.Name #> <#=  LowerModelName()  #> )
+        {
+            I<#= Model.Name #> retorno = new <#=Model.Name #>();
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "<#=  LowerModelName()  #>Update";			
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+<#foreach (var item in properties)
+{#>
+			_dataBaseAccess.AddParameter("<#=item["columnName"].ToString()#>" , <#=  LowerModelName()  #>.<#= Captalized(item["columnName"].ToString()) #>);
+			
+<#}#>
+
+            command.ExecuteScalar();
+
+            retorno = this.GetById(<#=  LowerModelName()  #>.<#=  UpperModelName()  #>Id);
+
+            command.Dispose();
+            conn.Close();
+
+            };
+
+            return retorno;
+        }
+
+        #endregion Update( I<#= Model.Name #> )
+
+        #region Remove( id)
+
+        public bool Remove( int id )
+        {
+            bool retorno = false;
+
+            using( IDbConnection conn = _dataBaseAccess.GetConnection() )
+            {
+                conn.Open();
+
+            string strCommand = "<#=  LowerModelName()  #>Remove";			
+            IDbCommand command = _dataBaseAccess.GetCommand(strCommand , CommandType.StoredProcedure);
+			command.Connection = conn;
+
+            _dataBaseAccess.AddParameter("<#=  LowerModelName()  #>Id" , id);
+            int rowsAffected = command.ExecuteNonQuery();
+
+            retorno = (rowsAffected > 0);
+
+            command.Dispose();
+            conn.Close();
+
+            };
+
+            return retorno;
+        }
+
+        #endregion Remove( id)
+
+        #region Collection
+        public IEnumerable<I<#= Model.Name #>> Collection
+        {
+            get { return _collection; }
+        } 
+        #endregion
+
+		#region IDataBaseAccess
+        public IDataBaseAccess DataBaseAccess
+        {
+            get
+            {
+                return _dataBaseAccess;
+            }
+        }
+		#endregion
+    }
+}
+
+
+<#+ 
+	public string FormatType(Dictionary<string,string> props)
+    {
+		var retorno = string.Empty;
+
+
+		retorno = string.Format("reader[\"{0}\"].ToString();",props["columnName"]);
+
+		if(props["dataType"].ToString()=="int")
+        {
+			retorno = string.Format("Convert.ToInt32(reader[\"{0}\"].ToString());",props["columnName"]);
+        }
+		if(props["dataType"].ToString()=="bit")
+        {
+			retorno = string.Format("Convert.ToBoolean(reader[\"{0}\"].ToString());",props["columnName"]);
+        }
+
+		if(props["dataType"].ToString() == "datetime" || props["dataType"].ToString() == "date")
+        {
+			if(props["isNullable"].ToString()=="YES")
+            {
+				retorno = string.Format("reader[\"{0}\"] == null ? null : (DateTime?)reader[\"{0}\"];",props["columnName"]);
+            }
+			else 
+			{
+				retorno = string.Format(" (DateTime)reader[\"{0}\"];",props["columnName"]);
+            }
+        }
+
+		return retorno;
+    }
+
+	public string LowerModelName()
+    {
+		return Uncaptalized(Model.Name);
+    }
+	public string UpperModelName()
+    {
+		return Captalized(Model.Name);
+    }
+ #>
