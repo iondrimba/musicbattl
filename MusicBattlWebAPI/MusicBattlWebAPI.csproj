@@ -973,10 +973,9 @@
     <Content Include="Scripts\gsap\TweenMax.js" />
     <Content Include="Scripts\gsap\utils\Draggable.min.js" />
     <None Include="JSLintNet.json" />
+    <None Include="Properties\PublishProfiles\azure.pubxml" />
     <None Include="Properties\PublishProfiles\LOCAL FOLDER.pubxml" />
-    <None Include="Properties\PublishProfiles\musicbattl - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\musicbattl - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\musicbattl - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\musicbattl - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.signalR-1.0.1.js" />
     <None Include="Scripts\jquery.signalR-2.2.0.js" />
@@ -1428,7 +1427,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <None Include="Properties\PublishProfiles\Producao.pubxml" />
     <Content Include="Scripts\models\facebookLogin.min.js.map">
       <DependentUpon>facebookLogin.min.js</DependentUpon>
     </Content>
@@ -1436,6 +1434,9 @@
       <DependentUpon>account.min.js</DependentUpon>
     </Content>
     <Content Include="Views\LoadSongs\Index.cshtml" />
+    <None Include="Web.musicbattl - Web Deploy.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="WebMarkupMin.Configuration.xsd" />
   </ItemGroup>
   <ItemGroup>
