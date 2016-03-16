@@ -58,7 +58,8 @@ module.exports = function (grunt) {
                     'Scripts/vendors/sha1.js',
                     'Scripts/vendors/codebird.js',                                        
                     'Scripts/vendors/toastr.js',
-                    'Scripts/vendors/sdk.js',                               
+                    'Scripts/vendors/sdk.js',
+                    'Scripts/vendors/soundmanager2.js',
                     'Scripts/vendors/moment.js',
 
                     'node_modules/underscore/underscore.js',

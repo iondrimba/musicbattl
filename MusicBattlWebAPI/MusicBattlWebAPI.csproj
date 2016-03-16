@@ -1249,6 +1249,7 @@
     <None Include="Scripts\vendors\require.js" />
     <None Include="Scripts\vendors\sdk.js" />
     <None Include="Scripts\vendors\toastr.js" />
+    <Content Include="Scripts\vendors\soundmanager2.js" />
     <Content Include="Scripts\viewModels\allTimeWinnersViewModel.min.js">
       <DependentUpon>allTimeWinnersViewModel.js</DependentUpon>
     </Content>
