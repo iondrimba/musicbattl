@@ -457,8 +457,6 @@
                     battlePh.find(".loader-circle").removeClass("hidden");
                     battlePh.find(".inner-circle").removeClass("hidden");
 
-                    battlePh.find(".pause").addClass("hidden");
-
                     $.when(this.voteSong(data)).then(function () {
                         scope.onBattlModelChange(data.songId);
                     });
