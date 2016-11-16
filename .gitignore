@@ -197,3 +197,7 @@ MusicBattlWebAPI/Web.Debug.config
 MusicBattlWebAPI/Web.Release.config
 MusicBattlWebAPI/Properties/PublishProfiles
 MusicBattlWebAPI/Web.musicbattl - Web Deploy.config
+/.nuget/NuGet.exe
+/MusicBattlWebAPITests
+/MusicBattlWebAPI/img/user/5ehl1ceofia8800509-15220101223122.jpg
+/MusicBattlWebAPI/img/user/3a1php1v3027491398-15230101231623.jpg
