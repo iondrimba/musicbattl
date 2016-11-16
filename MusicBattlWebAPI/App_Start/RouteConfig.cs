@@ -12,6 +12,7 @@ namespace MusicBattlWebAPI
             routes.IgnoreRoute("Files/{*pathInfo}");
             routes.IgnoreRoute("Scripts/{*pathInfo}");
             routes.IgnoreRoute("img/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.js");
 
             routes.RouteExistingFiles = true;
             routes.MapRoute(

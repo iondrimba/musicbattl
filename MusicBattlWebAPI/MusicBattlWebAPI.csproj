@@ -415,7 +415,7 @@
     <Content Include="Files\profile\mini\4l5kvimulrb875328-15082706084508.jpg" />
     <Content Include="Files\profile\mini\profile-mini-user.png" />
     <Content Include="Files\profile\small\4l5kvimulrb875328-15082706084508.jpg" />
-    <None Include="Gruntfile.js" />
+    <Content Include="Gruntfile.js" />
     <None Include="gruntIndex.html" />
     <Content Include="Files\profile\small\profile-mini-user.png" />
     <Content Include="Files\profile\user-profile-default.png" />
@@ -1388,6 +1388,8 @@
     <Content Include="img\twitter.jpg" />
     <Content Include="img\user-profile-default.png" />
     <None Include="Scripts\_references.js" />
+    <Content Include="service-worker.js" />
+    <Content Include="sw-precache-config.js" />
     <Content Include="templates\html\artist-contact-details.html" />
     <Content Include="templates\html\artist-contact.html" />
     <Content Include="templates\html\artists-list.html" />
@@ -1442,6 +1444,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\build\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

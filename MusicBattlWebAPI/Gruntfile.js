@@ -1,3 +1,4 @@
+
 module.exports = function (grunt) {
     var globalConfig = {
         utilidadesSrc: 'utilidades',        
@@ -79,6 +80,12 @@ module.exports = function (grunt) {
                     'Scripts/jquery.signalR-2.2.0.js'
                 ],
                 dest: 'Scripts/build/bundle.js',
+            }
+        },
+        swPrecache: {
+            dev: {
+                handleFetch: false,
+                rootDir: 'app'
             }
         },
         watch: {

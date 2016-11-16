@@ -67,10 +67,10 @@
     <meta itemprop="description" content="@description">
     <meta itemprop="image" content="https://dl.dropboxusercontent.com/u/4633623/googleplus.jpg">
 
-    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 320px) and (max-width:480px)" href="@Fingerprint.Tag("/Content/build/mobile.css")" />
-    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 481px) and (max-width:768px)" href="@Fingerprint.Tag("/Content/build/mobile.css")" />
-    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 769px) and (max-width:960px)" href="@Fingerprint.Tag("/Content/build/mobile.css")" />
-    <link async type="text/css" rel="stylesheet" media="only screen and (min-width:961px)" href="@Fingerprint.Tag("/Content/build/site.css")" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 320px) and (max-width:480px)" href="/Content/build/mobile.css" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 481px) and (max-width:768px)" href="/Content/build/mobile.css" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width: 769px) and (max-width:960px)" href="/Content/build/mobile.css" />
+    <link async type="text/css" rel="stylesheet" media="only screen and (min-width:961px)" href="/Content/build/site.css" />
 </head>
 <body>
     <div id="fb-root"></div>
@@ -174,7 +174,32 @@
             <!--END FOOTER-->
         </div>
     </div>
-    <script src="@cdn/scripts/build/bundle.js">window.cdnhost = "@cdn";</script>
-    <script data-main="@Fingerprint.Tag("/scripts/build/main")" src="/scripts/build/require.js"></script>
+    <script src="@cdn/Scripts/build/bundle.js">window.cdnhost = "@cdn";</script>
+    <script data-main="/Scripts/build/main" src="/Scripts/build/require.js"></script>
+    <script>
+        'use strict';
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+                reg.update();
+
+                reg.onupdatefound = function () {
+                    var installingWorker = reg.installing;
+                    installingWorker.onstatechange = function () {
+                        switch (installingWorker.state) {
+                            case 'installed':
+                                if (navigator.serviceWorker.controller) {
+                                    console.log('New or updated content is available.');
+                                }
+                                break;
+                            case 'redundant':
+                                console.error('The installing service worker became redundant.');
+                                break;
+                        }
+                    };
+                };
+            }).catch(function (e) {
+                console.error('Error during service worker registration:', e);
+            });
+        }</script>
 </body>
 </html>
