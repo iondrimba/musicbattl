@@ -185,7 +185,7 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is false, check again, this time with 'index.html'
     // (or whatever the directoryIndex option is set to) at the end.
-    var directoryIndex = 'index.html';
+    var directoryIndex = '/';
     if (!shouldRespond && directoryIndex) {
       url = addDirectoryIndex(url, directoryIndex);
       shouldRespond = urlsToCacheKeys.has(url);
@@ -249,7 +249,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/\#\/site\/battl-info/, toolbox.networkFirst, {});
+toolbox.router.get(/api\/PastBattls\/.+/, toolbox.networkFirst, {});
 
 
 

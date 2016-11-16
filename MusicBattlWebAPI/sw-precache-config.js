@@ -6,10 +6,11 @@ module.exports = {
       'Scripts/build/*.js',
       'img/*.{jpg,png}'
     ],
-    cacheName:'',
+    cacheId: '',
+    directoryIndex :'/',
     stripPrefix: '/',
     runtimeCaching: [{
-        urlPattern: /\#\/site\/battl-info/,
+        urlPattern: /api\/PastBattls\/.+/,
         handler: 'networkFirst'
     }]
 };
