@@ -33,7 +33,6 @@
             this.map(data.Collection);
         },
         onModelChange: function (data) {
-            console.log(data);
             this.total = data.get("Total");
             this.map(data.get("Collection"));
         }

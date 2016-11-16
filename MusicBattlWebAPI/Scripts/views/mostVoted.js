@@ -20,10 +20,9 @@
                 eventHandler.on("onBattlEnded", battleEnded);
 
                 this.model = new ViewModel();
-                this.model.bind("change", $.proxy(this.onModelChange, this));
                 
                 this.activateTab(0);
-                this.render();                
+                this.render();               
             },
             update: function (data) {
                 this.model.update(data);
