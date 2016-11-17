@@ -916,6 +916,9 @@
     <Content Include="mstile-70x70.png" />
     <Content Include="robots.txt" />
     <Content Include="package.json" />
+    <Content Include="Scripts\build\bundle.js" />
+    <Content Include="Scripts\build\main.js" />
+    <Content Include="Scripts\build\require.js" />
     <Content Include="Scripts\collections\allTimeWinnersCollection.min.js">
       <DependentUpon>allTimeWinnersCollection.js</DependentUpon>
     </Content>
@@ -1444,7 +1447,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\build\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
