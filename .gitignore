@@ -195,8 +195,9 @@ node_modules
 MusicBattlWebAPI/Web.config
 MusicBattlWebAPI/Web.Debug.config
 MusicBattlWebAPI/Web.Release.config
-MusicBattlWebAPI/Properties/PublishProfiles
+MusicBattlWebAPI/Properties/*
 MusicBattlWebAPI/Web.musicbattl - Web Deploy.config
+MusicBattlWebAPI/.sass-cache/
 /.nuget/NuGet.exe
 /MusicBattlWebAPITests
 /MusicBattlWebAPI/img/user/5ehl1ceofia8800509-15220101223122.jpg
